@@ -276,7 +276,7 @@ html, body{
 }
 /*=============Estilos barra superior*/
 .navBar{
-	background-color: #3F51B5;
+	background-color: #192566;
 	height: 45px;
 	position: absolute;
 	top: 0;
@@ -845,4 +845,16 @@ html, body{
 		right: 122%;
 		text-align: right;
 	}
+}
+
+
+
+/* Propio */
+/* botones */
+
+.botonVentas{
+	border-radius: 3px;
+	align-items: end;
+	align-content: end;
+	text-align: center;
 }
