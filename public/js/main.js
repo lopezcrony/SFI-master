@@ -38,7 +38,7 @@ $(document).ready(function(){
 		},
 		function(isConfirm) {
 		  	if (isConfirm) {
-		    	window.location='index.html'; 
+		    	window.location='/'; 
 		  	}
 		});
     });
@@ -55,6 +55,8 @@ $(document).ready(function(){
     	}
     });
 });
+
+
 (function($){
     $(window).load(function(){
         $(".navLateral-body, .NotificationArea, .pageContent").mCustomScrollbar({
