@@ -54,8 +54,12 @@ app.get('/sales', (req, res) => {
   res.render('sales')
 })
 
+app.get('/refund', (req, res) => {
+  res.render('refund')
+})
+
 app.get('/newSale', (req, res) => {
-  res.render('newSale')
+  res.render(__dirname+'/views/newSale.hbs')
 })
 
 app.get('/inventory', (req, res) => {

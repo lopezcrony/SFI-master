@@ -133,15 +133,19 @@ function actualizarCarrito() {
 
       const controlesItem = document.createElement('div');
 
+      
       const botonAumentar = document.createElement('button');
+      botonAumentar.className = 'btn btn-success mx-1 ';
       botonAumentar.textContent = '+';
       botonAumentar.onclick = () => aumentarCantidad(index);
 
       const botonDisminuir = document.createElement('button');
+      botonDisminuir.className = 'btn btn-warning mx-1';
       botonDisminuir.textContent = '-';
       botonDisminuir.onclick = () => disminuirCantidad(index);
 
       const botonEliminar = document.createElement('button');
+      botonEliminar.className = 'btn btn-danger mx-1';
       botonEliminar.textContent = 'Eliminar';
       botonEliminar.onclick = () => eliminarItem(index);
 
