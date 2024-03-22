@@ -11,7 +11,11 @@ app.use(express.static('public'))
 
 // --------------------------------------URL----------------------------------------------
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('login')
+});
+
+app.get('/recover', (req, res) => {
+  res.render('recovepass')
 });
 
 app.get('/home', (req, res) => {
