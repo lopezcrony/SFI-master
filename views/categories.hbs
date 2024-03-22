@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Proveedores</title>
+	<title>Categorias</title>
 
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
@@ -26,29 +26,19 @@
 	{{>navLateral }}
 	<!-- pageContent -->
 	<section class="full-width pageContent">
-
-		<section class="full-width header-well">
-			<div class="full-width header-well-icon">
-				<i class="zmdi zmdi-truck"></i>
-			</div>
-			<div class="full-width header-well-text">
-				<p class="text-condensedLight text-center">
-				</p>
-			</div>
-		</section>
-
 		{{!-- CRUD --}}
 		<div id="wrapper">
 			<div id="content-wrapper" class="d-flex flex-column">
 				<div id="content">
 					<div class="container-fluid">
 						<div class="card shadow mb-4">
-							<div class="card-header py-3">
+							<div class="card-header py-3 d-flex justify-content-between">
+								<h1>Categoria</h1>
 								<h6 class="m-0 font-weight-bold text-primary"></h6>
-
 								<button type="button" class="btn btn-success" data-bs-toggle="modal"
 									data-bs-target="#createModal">
-									<i class="bi bi-person-plus"></i> Agregar</button>
+									<i class="bi bi-person-plus"></i> Agregar
+								</button>
 							</div>
 
 							<div class="card-body">
@@ -58,6 +48,7 @@
 											<tr>
 												<th>ID</th>
 												<th>NOMBRE</th>
+												<th>DESCRIPCION</th>
 												<th>ACCIONES</th>
 											</tr>
 										</thead>
