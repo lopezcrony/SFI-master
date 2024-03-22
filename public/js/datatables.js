@@ -4,3 +4,7 @@ $(function() {
   $('#dataTable').DataTable();
 });
 
+$(function() {
+  $('#dataTable2').DataTable();
+});
+
