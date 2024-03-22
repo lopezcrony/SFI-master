@@ -18,8 +18,16 @@ app.get('/recover', (req, res) => {
   res.render('recovepass')
 });
 
+app.get('/roles', (req, res) => {
+  res.render('roles')
+});
+
 app.get('/home', (req, res) => {
   res.render('home')
+});
+
+app.get('/dashboard', (req, res) => {
+  res.render('dashboard')
 });
 
 app.get('/company', (req, res) => {

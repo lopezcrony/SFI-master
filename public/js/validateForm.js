@@ -16,7 +16,7 @@ function validateFormProvider() {
     
     // Validación del NIT
     if (!nit.trim()) {
-        nitError.innerHTML = "Por favor, ingrese el NIT de la empresa.";
+        nitError.innerHTML = "Ingrese el NIT de la empresa.";
         errores = true;
     } else if (!nit.match(letters)) {
         nitError.innerHTML = "El NIT debe contener solo números.";
@@ -27,7 +27,7 @@ function validateFormProvider() {
     
     // Validación del teléfono
     if (!phone.trim()) {
-        phoneError.innerHTML = "Por favor, ingrese el teléfono de la empresa.";
+        phoneError.innerHTML = "Ingrese el teléfono de la empresa.";
         errores = true;
     } else if (!phone.match(letters)) {
         phoneError.innerHTML = "El teléfono debe contener solo números.";
@@ -38,14 +38,14 @@ function validateFormProvider() {
     
     // Validación del nombre de la empresa
     if (!name.trim()) {
-      nameError.innerHTML = "Por favor, ingrese el nombre de la empresa.";
+      nameError.innerHTML = "Ingrese el nombre de la empresa.";
       errores = true;
     } else {
       nameError.innerHTML = "";
     };
 
     if (!address.trim()) {
-        addressError.innerHTML = "Por favor, ingrese la dirección de de la empresa.";
+        addressError.innerHTML = "Ingrese la dirección de de la empresa.";
         errores = true;
       } else {
         addressError.innerHTML = "";
@@ -54,7 +54,6 @@ function validateFormProvider() {
     // Enviar el formulario si no hay errores
     if (!errores) {
         // SweetAlert
-        
 
         // Cerrar la modal
         var modal = document.getElementById("createModal");
@@ -63,4 +62,3 @@ function validateFormProvider() {
     }
   }
 
-  
