@@ -57,6 +57,9 @@ app.get('/products', (req, res) => {
 app.get('/credits', (req, res) => {
   res.render('credits')
 })
+app.get('/entradas', (req, res) => {
+  res.render('entradas')
+})
 
 app.get('/sales', (req, res) => {
   res.render('sales')
