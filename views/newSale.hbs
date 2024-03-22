@@ -11,6 +11,7 @@
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="/public/css/sales.css">
 	<link rel="stylesheet" href="css/sweetalert2.min.css">
 	<link rel="stylesheet" href="css/material.min.css">
 	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
@@ -63,9 +64,8 @@
 							<div class="card-header py-3">
 								<h6 class="m-0 font-weight-bold text-primary"></h6>
 
-								<button type="button" class="btn btn-success" data-bs-toggle="modal"
-									data-bs-target="#createModal">
-									<i class="bi bi-person-plus"></i> Agregar</button>
+								<a href="./sales"><button type="submit" class="btn btn-primary px-4"><i
+											class="bi bi-person-plus"></i>Nuevo</button></a>
 							</div>
 
 							<div class="card-body">
@@ -96,14 +96,14 @@
 													</div>
 												</td>
 												<td>
-													<button class="btn btn-success p-2">
-														<i class="bi bi-eye-fill"></i>
-													</button>
-													<button class="btn btn-warning p-2" data-bs-toggle="modal"
-														data-bs-target="#editModal"><i class="bi bi-pen"></i>
-													</button>
-													<button class="btn btn-danger p-2"><i
-															class="bi bi-trash-fill"></i></button>
+													<div class="text-center">
+														<button
+															class="btn btn-success p-2 col-4 align-items-center align-content-center text-align-center"
+															data-bs-toggle="modal" data-bs-target="#viewModal">
+															<i class="bi bi-eye-fill"></i>
+														</button>
+													</div>
+
 
 												</td>
 											</tr>
@@ -112,7 +112,7 @@
 												<td>Deisy Correa</td>
 												<td>30.000</td>
 												<td>21/03/2024</td>
-												<td>Juan Pérez</td>
+												<td>25.000</td>
 												<td>
 													<div class="form-check form-switch m-2 ">
 														<input class="form-check-input" type="checkbox" role="switch"
@@ -120,14 +120,12 @@
 													</div>
 												</td>
 												<td>
-													<button class="btn btn-success p-2">
-														<i class="bi bi-eye-fill"></i>
-													</button>
-													<button class="btn btn-warning p-2" data-bs-toggle="modal"
-														data-bs-target="#editModal"><i class="bi bi-pen"></i>
-													</button>
-													<button class="btn btn-danger p-2"><i
-															class="bi bi-trash-fill"></i></button>
+													<div class="text-center">
+														<button
+															class="btn btn-success p-2 col-4 align-items-center align-content-center text-align-center">
+															<i class="bi bi-eye-fill"></i>
+														</button>
+													</div>
 
 												</td>
 											</tr>
@@ -146,251 +144,107 @@
 
 	</section>
 
-	{{!-- --------------------------------------------MODAL CREATE------------------------------------------ --}}
-	<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	{{!-- --------------------------------------------MODAL VIEW------------------------------------------ --}}
+	<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo proveedor</h1>
+					{{!-- <h1 class="modal-title fs-5" id="exampleModalLabel">VENTA</h1> --}}
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form class="row g-3">
-						<div class="col-md-6">
-							<label for="inputNit" class="form-label">NIT</label>
-							<input type="text" class="form-control" id="nit">
-						</div>
-						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Teléfono</label>
-							<input type="password" class="form-control" id="Phone">
-						</div>
-						<div class="col-6">
-							<label for="inputName" class="form-label">Nombre de la Empresa</label>
-							<input type="text" class="form-control" id="name">
-						</div>
-						<div class="col-md-6">
-							<label for="inputSeller" class="form-label">Nombre del vendedor</label>
-							<input type="text" class="form-control" id="Seller">
-						</div>
-						<div class="col-12">
-							<label for="inputAddress2" class="form-label">Dirección</label>
-							<input type="text" class="form-control" id="Address"
-								placeholder="Apartment, studio, or floor">
-						</div>
+					<form action="">
+						<div class="invoice-header"
+							style="height: 250pxpx; display: static; overflow-y: scroll; max-height: 370px; float: left; width: 100%;">
+							<div class="invoice-info">
+								<h3 class="invoice-title">Productos</h3>
+								<p class="invoice-date"><b>N° Venta: 001</b> </p>
+								<p class="invoice-date"><b>Fecha/Hora: </b>12/03/2024 (6:40:12) </p>
+								<p class="client-info"><b>Cliente: </b>NN </p>
+								<p class="client-info"><b>Crédito: </b>0</p>
+								<div class="full-width divider-menu-h"></div>
 
-						<div class="row">
-							<div class="col-md-12 mt-3 text-center">
-								<label for="inputState" class="form-label margin-top-3 ">Horario</label>
-							</div>
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">Nombre</th>
+											<th scope="col">Cantidad</th>
+											<th scope="col">Subtotal</th>
+											<th scope="col">Total</th>
 
-							<div class="col-md-3">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-									<label class="form-check-label" for="defaultCheck1">
-										Lunes
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-									<label class="form-check-label" for="defaultCheck2">
-										Martes
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-									<label class="form-check-label" for="defaultCheck3">
-										Miércoles
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-									<label class="form-check-label" for="defaultCheck4">
-										Jueves
-									</label>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>Leche Colanta 1L</td>
+											<td>2</td>
+											<td>3600</td>
+											<td>7200</td>
+										</tr>
+										<tr>
+											<th scope="row">2</th>
+											<td>Chocolate Tesalia <br> pastilla X2</td>
+											<td>4</td>
+											<td>700</td>
+											<td>2800</td>
+										</tr>
+									</tbody>
+								</table>
+								<div>
+									<p><b>TOTAL: </b> 10000 </p>
 								</div>
 							</div>
-
-							<div class="col-md-3">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
-									<label class="form-check-label" for="defaultCheck5">
-										Viernes
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
-									<label class="form-check-label" for="defaultCheck6">
-										Sábado
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
-									<label class="form-check-label" for="defaultCheck7">
-										Domingo
-									</label>
-								</div>
-							</div>
-
-							<div class="col-md-6">
-								<!-- Campos de hora -->
-								<div class="row">
-									<div class="col-md-12">
-										<label for="inputState" class="form-label">Desde</label>
-										<input type="time" id="start-time" class="form-control">
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<label for="inputState" class="form-label">Hasta</label>
-										<input type="time" id="end-time" class="form-control">
-									</div>
-								</div>
-							</div>
-
 						</div>
-
-
+					</form>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" onclick="printInvoice()" class="btn btn-info"
+							data-bs-dismiss="modal">imprimir</button>
+					</div>
 				</div>
 
-
-				</form>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
-				</div>
 			</div>
-
 		</div>
-	</div>
-
-	{{!-- ------------------------------------------- MODAL EDIT -------------------------------------------- --}}
-	<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar proveedor</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<form class="row g-3">
-						<div class="col-md-6">
-							<label for="inputNit" class="form-label">NIT</label>
-							<input type="text" class="form-control" id="nit">
-						</div>
-						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Teléfono</label>
-							<input type="password" class="form-control" id="Phone">
-						</div>
-						<div class="col-6">
-							<label for="inputName" class="form-label">Nombre de la Empresa</label>
-							<input type="text" class="form-control" id="name">
-						</div>
-						<div class="col-md-6">
-							<label for="inputSeller" class="form-label">Nombre del vendedor</label>
-							<input type="text" class="form-control" id="Seller">
-						</div>
-						<div class="col-12">
-							<label for="inputAddress2" class="form-label">Dirección</label>
-							<input type="text" class="form-control" id="Address">
-						</div>
-
-						<div class="row">
-							<div class="col-md-12 mt-3 text-center">
-								<label for="inputState" class="form-label margin-top-3 ">Horario</label>
-							</div>
-
-							<div class="col-md-3">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-									<label class="form-check-label" for="defaultCheck1">
-										Lunes
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-									<label class="form-check-label" for="defaultCheck2">
-										Martes
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-									<label class="form-check-label" for="defaultCheck3">
-										Miércoles
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-									<label class="form-check-label" for="defaultCheck4">
-										Jueves
-									</label>
-								</div>
-							</div>
-
-							<div class="col-md-3">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
-									<label class="form-check-label" for="defaultCheck5">
-										Viernes
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
-									<label class="form-check-label" for="defaultCheck6">
-										Sábado
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
-									<label class="form-check-label" for="defaultCheck7">
-										Domingo
-									</label>
-								</div>
-							</div>
-
-							<div class="col-md-6">
-								<!-- Campos de hora -->
-								<div class="row">
-									<div class="col-md-12">
-										<label for="inputState" class="form-label">Desde</label>
-										<input type="time" id="start-time" class="form-control">
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<label for="inputState" class="form-label">Hasta</label>
-										<input type="time" id="end-time" class="form-control">
-									</div>
-								</div>
-							</div>
-
-						</div>
 
 
-				</div>
+		{{!-- ALERTA DE IMPRESION --}}
+		<script>
+			let timerInterval;
+
+			function printInvoice() {
+
+				// After printing (for both options)
+				Swal.fire({
+					title: "Imprimiendo Factura", // Change title to "Printing Invoice" or similar
+					html: "Espere un momento...", // Change message to "Please wait..." or similar
+					timer: 1000, // Adjust timer duration as needed
+					timerProgressBar: true,
+					didOpen: () => {
+						Swal.showLoading();
+					},
+					willClose: () => {
+						clearInterval(timerInterval);
+					}
+				});
+			}
+
+		</script>
 
 
-				</form>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
-				</div>
-			</div>
+		<!-- endPageContent -->
 
-		</div>
-	</div>
-
-	<!-- endPageContent -->
-
-	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="../public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-	<script src="../public/vendor/datatables/jquery.dataTables.min.js"></script>
-	<script src="../public/vendor/jquery/jquery.min.js"></script>
-	<script src="../public/js/datatables.js"></script>
-	<script src="js/sweetalert2.min.js"></script>
-	<script src="js/main.js"></script>
+		<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="../public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+		<script src="../public/vendor/datatables/jquery.dataTables.min.js"></script>
+		<script src="../public/vendor/jquery/jquery.min.js"></script>
+		<script src="../public/js/datatables.js"></script>
+		<script src="js/sweetalert2.min.js"></script>
+		<script src="js/main.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
