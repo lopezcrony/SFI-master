@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Proveedores</title>
+    <title>Compras</title>
 
     <link href="public/css/crud.css">
     <link rel="stylesheet" href="css/main.css">
@@ -27,16 +27,6 @@
     <!-- pageContent -->
     <section class="full-width pageContent">
 
-        <section class="full-width header-well">
-            <div class="full-width header-well-icon">
-                <i class="zmdi zmdi-truck"></i>
-            </div>
-            <div class="full-width header-well-text">
-                <p class="text-condensedLight">
-                    COMPRAS
-                </p>
-            </div>
-        </section>
 
         {{!-- CRUD --}}
         <div id="wrapper">
@@ -44,12 +34,13 @@
                 <div id="content">
                     <div class="container-fluid">
                         <div class="card shadow mb-4">
-                            <div class="card-header py-3">
+                            <div class="card-header py-3 d-flex justify-content-between">
+                                <h1>Compras</h1>
                                 <h6 class="m-0 font-weight-bold text-primary"></h6>
-
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal"
                                     data-bs-target="#createModal">
-                                    <i class="bi bi-person-plus"></i> Agregar</button>
+                                    <i class="bi bi-person-plus"></i> Agregar
+                                </button>
                             </div>
 
                             <div class="card-body">
@@ -75,7 +66,7 @@
                                                 <td>colanta</td>
                                                 <td>20.000</td>
                                                 <td>
-                                                    <button class="btn btn-success p-2" data-bs-toggle="modal"
+                                                    <button class="btn btn-success p-2 " data-bs-toggle="modal"
                                                         data-bs-target="#viewModal"><i class=" bi bi-eye-fill"></i>
                                                     </button>
                                                 </td>
@@ -141,7 +132,7 @@
                             </div>
                             <div class="col-12">
                                 <label for="inputAddress" class="form-label">registrar producto <a href="/categories"
-                                        class="btn btn-primary"><i class="bi bi-plus-lg"></i></a></label>
+                                        class="btn btn-primary text"><i class="bi bi-plus-lg"></i></a></label>
                             </div>
                         </div>
                 </div>
@@ -184,14 +175,15 @@
                         <div class="col-12">
                             <label for="inputAddress" class="form-label">Valor de compra :20.000</label>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
                 </div>
             </div>
 
 
             </form>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
+
         </div>
 
     </div>

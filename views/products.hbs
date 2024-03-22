@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Proveedores</title>
+	<title>Productos</title>
 
 	<link href="public/css/crud.css">
 	<link rel="stylesheet" href="css/main.css">
@@ -25,36 +25,28 @@
 	<!-- navLateral -->
 	{{>navLateral }}
 	<!-- pageContent -->
-	<section class="full-width pageContent">
-
-		<section class="full-width header-well">
-			<div class="full-width header-well-icon">
-				<i class="zmdi zmdi-truck"></i>
-			</div>
-			<div class="full-width header-well-text">
-				<p class="text-condensedLight">
-					PRODUCTOS
-				</p>
-			</div>
-		</section>
+	<section class="full-width pageContent mt-6">
 
 		{{!-- CRUD --}}
 		<div id="wrapper">
 			<div id="content-wrapper" class="d-flex flex-column">
 				<div id="content">
 					<div class="container-fluid">
-						<div class="card shadow mb-4">
-							<div class="card-header py-3">
+						<div class="card shadow mb-4 ">
+							<div class="card-header py-3 d-flex justify-content-between">
+								<h1>Productos</h1>
 								<h6 class="m-0 font-weight-bold text-primary"></h6>
-
 								<button type="button" class="btn btn-success" data-bs-toggle="modal"
 									data-bs-target="#createModal">
-									<i class="bi bi-person-plus"></i> Agregar</button>
+									<i class="bi bi-person-plus"></i> Agregar
+								</button>
 							</div>
+
+
 
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
 										<thead>
 											<tr>
 												<th>ID</th>
@@ -82,20 +74,26 @@
 												<td>78</td>
 												<td>lacteos</td>
 												<td>
-													<div class="form-check form-switch mt-2 text-center">
+													<div class="form-check form-switch mt-2  text-center">
 														<input class="form-check-input" type="checkbox" role="switch"
 															checked>
 													</div>
 												</td>
 												<td>
-													<button class="btn btn-success p-2"  data-bs-toggle="modal"
-														data-bs-target="#viewModal"><i class=" bi bi-eye-fill"></i>
-													</button>
-													<button class="btn btn-warning p-2" data-bs-toggle="modal"
-														data-bs-target="#editModal"><i class="bi bi-pen"></i>
-													</button>
-													<button class="btn btn-danger p-2"><i
-															class="bi bi-trash-fill"></i></button>
+													{{!-- boton grup
+													--}}
+													<div class="btn-group" role="group" aria-label="Basic example">
+														<button type="button" class="btn btn-success "
+															style="margin-right: 5px;" data-bs-toggle="modal"
+															data-bs-target="#viewModal"><i
+																class=" bi bi-eye-fill"></i></button>
+														<button type="button" class="btn btn-warning "
+															style="margin-right: 5px;" data-bs-toggle="modal"
+															data-bs-target="#editModal"><i
+																class="bi bi-pen"></i></button>
+														<button type="button" class="btn btn-danger "><i
+																class="bi bi-trash-fill"></i></button>
+													</div>
 												</td>
 											</tr>
 											<tr>
@@ -115,15 +113,18 @@
 													</div>
 												</td>
 												<td>
-													<button class="btn btn-success p-2" data-bs-toggle="modal"
-														data-bs-target="#viewModal">
-														<i class="bi bi-eye-fill"></i>
-													</button>
-													<button class="btn btn-warning p-2" data-bs-toggle="modal"
-														data-bs-target="#editModal"><i class="bi bi-pen"></i>
-													</button>
-													<button class="btn btn-danger p-2"><i
-															class="bi bi-trash-fill"></i></button>
+													<div class="btn-group" role="group" aria-label="Basic example">
+														<button type="button" class="btn btn-success "
+															style="margin-right: 5px;" data-bs-toggle="modal"
+															data-bs-target="#viewModal"><i
+																class=" bi bi-eye-fill"></i></button>
+														<button type="button" class="btn btn-warning "
+															style="margin-right: 5px;" data-bs-toggle="modal"
+															data-bs-target="#editModal"><i
+																class="bi bi-pen"></i></button>
+														<button type="button" class="btn btn-danger "><i
+																class="bi bi-trash-fill"></i></button>
+													</div>
 												</td>
 											</tr>
 										</tbody>
@@ -176,18 +177,21 @@
 							<input type="text" class="form-control" id="Address">
 						</div>
 						<div class="col-12">
-							<label for="inputAddress" class="form-label">Categoria <a href="/categories" class="btn btn-primary"><i class="bi bi-plus-lg"></i></a></label>
+							<label for="inputAddress" class="form-label">Categoria <a href="/categories"
+									class="btn btn-primary"><i class="bi bi-plus-lg"></i></a></label>
 							<input type="text" class="form-control" id="Address">
 						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+						</div>
+
 				</div>
 			</div>
 
 
 			</form>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
-			</div>
+
 		</div>
 
 	</div>
@@ -232,15 +236,17 @@
 							<label for="inputAddress" class="form-label">Categoria</label>
 							<input type="text" class="form-control" id="Address">
 						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+						</div>
 				</div>
 			</div>
 
 
 			</form>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
-			</div>
+
 		</div>
 
 	</div>
@@ -279,14 +285,15 @@
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Categoria:lacteos</label>
 						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						</div>
 				</div>
 			</div>
 
 
 			</form>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-			</div>
+
 		</div>
 
 	</div>
