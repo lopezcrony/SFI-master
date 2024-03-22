@@ -22,6 +22,10 @@ app.get('/home', (req, res) => {
   res.render('home')
 });
 
+app.get('/dashboard', (req, res) => {
+  res.render('dashboard')
+});
+
 app.get('/company', (req, res) => {
   res.render('company')
 });
