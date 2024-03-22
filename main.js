@@ -53,6 +53,9 @@ app.get('/categories', (req, res) => {
 app.get('/products', (req, res) => {
   res.render('products')
 });
+app.get('/compras', (req, res) => {
+  res.render('compras')
+});
 
 app.get('/credits', (req, res) => {
   res.render('credits')
