@@ -282,7 +282,7 @@ a{
 }
 /*=============Estilos barra superior*/
 .navBar{
-	background-color: #192566;
+	background-color: #fb8633;
 	height: 45px;
 	position: absolute;
 	top: 0;
@@ -399,7 +399,7 @@ a{
 	color: #fff;
 	width: 100%;
 	font-size: 25px;
-	background-color: #3F51B5;
+	background-color: #ff6a00;
 }
 .navLateral-body-logo .zmdi-close{
 	width: 0;
@@ -456,7 +456,7 @@ a{
 	transition: all .3s ease-in-out;
 }
 .menu-principal li a:hover{
-	color: #3F51B5;
+	color: #ff6a00;
 }
 .menu-principal li a div.navLateral-body-cl,
 .menu-principal li a div.navLateral-body-cr{
