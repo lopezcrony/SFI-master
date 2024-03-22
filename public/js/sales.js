@@ -196,4 +196,36 @@ renderizarProductos();
 
 
 
-//Formulario de registro
+//Formulario de Devolucion Local
+(function() {
+  'use strict';
+
+  // Form validation
+  var form = document.getElementById('yourFormId'); // Replace with your form's ID
+  form.addEventListener('submit', function(event) {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    form.classList.add('was-validated'); // Bootstrap's validation class
+  });
+
+  // Additional validation checks (optional)
+  var inputNit = document.getElementById('inputNit');
+  inputNit.addEventListener('input', function() {
+    if (!/^[0-9]+$/.test(this.value)) {
+      this.classList.add('is-invalid');
+    } else {
+      this.classList.remove('is-invalid');
+    }
+  });
+
+  // Similar checks for other input fields (optional)
+  var inputProducto = document.getElementById('inputProducto');
+  // ... (add similar validation logic for product name)
+});
+
+
+
+//Campos de la tabla dinámica para la devolución por Venta
