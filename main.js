@@ -52,6 +52,10 @@ app.get('/categories', (req, res) => {
 
 app.get('/products', (req, res) => {
   res.render('products')
+});
+
+app.get('/credits', (req, res) => {
+  res.render('credits')
 })
 
 app.get('/sales', (req, res) => {
