@@ -867,3 +867,7 @@ a{
 	text-align: center;
 	background-color: white;
 }
+
+.checkbox-container.error {
+    border: 1px solid red; /* Cambia el color del borde a rojo */
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Proveedores</title>
+    <title>Créditos</title>
 
     <link href="public/css/crud.css">
     <link rel="stylesheet" href="css/main.css">
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 
 <body>
     <!-- Notifications area -->
@@ -28,12 +29,9 @@
     <section class="full-width pageContent">
 
         <section class="full-width header-well">
-            <div class="full-width header-well-icon">
-                <i class="zmdi zmdi-truck"></i>
-            </div>
+
             <div class="full-width header-well-text">
-                <p class="text-condensedLight text-center">
-                </p>
+
             </div>
         </section>
 
@@ -47,7 +45,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary"></h6>
                             </div>
 
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
@@ -55,7 +53,7 @@
                                                 <th>NOMBRE</th>
                                                 <th>VALOR ORIGINAL</th>
                                                 <th>DEUDA ACTUAL</th>
-                                                <th>ABONOS</th>
+                                                <th>TOTAL ABONOS</th>
                                                 <th>ABONAR</th>
                                                 <th>BORRAR</th>
                                                 <th>HISTORIAL</th>
@@ -69,17 +67,17 @@
                                                 <td>93.000</td>
                                                 <td>
                                                     <button class="btn btn-success p-2" data-bs-toggle="modal"
-                                                        data-bs-target="#createModal"> <i class="bi bi-cash"></i>
-                                                    </button>
+                                                        data-bs-target="#payment" data-original-value="93000"
+                                                        data-current-debt="0"> <i class="bi bi-cash"></i></button>
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-danger p-2"><i
-                                                            class="bi bi-trash-fill"></i></button>
+                                                    <button class="btn btn-danger p-2"><i class="bi bi-trash-fill"
+                                                            onclick="alertQuestion()"></i></button>
                                                 </td>
                                                 <td>
                                                     <button
                                                         class="btn btn-primary p-2 col-4 align-items-center align-content-center text-align-center"
-                                                        data-bs-toggle="modal" data-bs-target="#editModal"><i
+                                                        data-bs-toggle="modal" data-bs-target="#detailsModal"><i
                                                             class="bi bi-eye-fill"></i>
                                                     </button>
                                                 </td>
@@ -91,14 +89,14 @@
                                                 <td>8.000</td>
                                                 <td>
                                                     <button class="btn btn-success p-2" data-bs-toggle="modal"
-                                                        data-bs-target="#createModal"> <i class="bi bi-cash"></i>
-                                                    </button>
+                                                        data-bs-target="#payment" data-original-value="68000"
+                                                        data-current-debt="60000"> <i class="bi bi-cash"></i></button>
                                                 </td>
                                                 <td> </td>
                                                 <td>
                                                     <button
                                                         class="btn btn-primary p-2 col-4 align-items-center align-content-center text-align-center"
-                                                        data-bs-toggle="modal" data-bs-target="#editModal"><i
+                                                        data-bs-toggle="modal" data-bs-target="#detailsModal"><i
                                                             class="bi bi-eye-fill"></i>
                                                     </button>
                                                 </td>
@@ -118,95 +116,197 @@
     </section>
 
     {{!-- --------------------------------------------PAYMENT------------------------------------------ --}}
-    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Abonos</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Abono</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-3">
-
-                        <div class="col-auto">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail2"
-                                value="Valor Original">
+                    <form class="form">
+                        <div class="container usuario-info">
+                            <h3 id="usuarioNombre" class="usuario-nombre">Nombre Usuario</h3>
+                            <table class="table table-success table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: left;">Fecha</th>
+                                        <th style="text-align: left;">Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding-right: 20px;">Valor Original</td>
+                                        <td id="originalValue">$ 0</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-right: 20px;">Deuda Actual</td>
+                                        <td id="currentDebt">$ 0</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-right: 20px;">Abonar</td>
+                                        <td>
+                                            <input type="text" class="form-control" id="paymentInput"
+                                                placeholder="Cantidad a abonar" pattern="[0-9]+(\.[0-9]+)?"
+                                                title="Ingrese un número decimal válido"
+                                                oninput="calculateRemainingDebt()" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-right: 20px;">Deuda pendiente</td>
+                                        <td id="remainingDebt"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="col-auto">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="20.000">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary" type="submit" onclick="showAlert()">Guardar</button>
                         </div>
-
-                        <div class="col-auto">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail2"
-                                value="Deuda Actual">
-                        </div>
-                        <div class="col-auto">
-                            <input type="text" readonly class="form-control-plaintext" id="currentDebt" value="10.000">
-                        </div>
-
-
-                        <div class="col-auto">
-                            <label for="staticEmail2" class="visually-hidden">Email</label>
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Abono">
-                        </div>
-                        <div class="col-auto">
-                            <label for="inputPassword2" class="visually-hidden"></label>
-                            <input type="number" class="form-control" id="inputPassword2"
-                                placeholder="Cantidad a abonar">
-                        </div>
-
-                        <div class="col-auto">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail2"
-                                value="Valor Original">
-                        </div>
-                        <div class="col-auto">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="20.000">
-                        </div>
-
                     </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     {{!-- ------------------------------------------- DETAILS -------------------------------------------- --}}
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
 
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">historial de créditos</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Historial de créditos</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="modal-body">
-                        <p>!!</p>
+
+                        <div id="detailsCredit"
+                            style="border: 1px solid #ccc; border-radius: 5px; padding: 20px; margin: 20px auto; width: 80%; max-width: 600px;">
+                            <div style="margin-bottom: 20px;">
+                                <h3 id="usuarioNombre" style="margin-bottom: 10px; color: #333;">Nombre Usuario</h3>
+                                <table id="listaCreditos" style="width: 100%;">
+                                    <tr>
+                                        <th style="text-align: left;">Fecha</th>
+                                        <th style="text-align: left;">Valor</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-right: 20px;">03/02/2024</td>
+                                        <td>$10.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-right: 20px;">05/02/2024</td>
+                                        <td>$20.000</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p>------------------------------------------------------</p>
+                            <table id="totalTable" style="width: 100%;">
+                                <tr>
+                                    <td>Total deuda:</td>
+                                    <td style="text-align: right; font-weight: bold; color: #ff0000;">$30.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Total abonos:</td>
+                                    <td style="text-align: right; font-weight: bold; color: #009900;">$15.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Deuda restante:</td>
+                                    <td style="text-align: right; font-weight: bold; color: #ff6600;">$15.000</td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+
+
+
+
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
-                    </div>
+
                 </div>
 
             </div>
         </div>
     </div>
 
-        <!-- endPageContent -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="js/jquery-1.11.2.min.js"></script>
-        <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-        <script src="js/datatables.js"></script>
-        <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="js/sweetalert2.min.js"></script>
-        <script src="js/main.js"></script>
+    <!-- endPageContent -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="js/datatables.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/sweetalert2.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+
+
+    <script>
+        function calculateRemainingDebt() {
+            // Obtenemos el valor de la deuda actual y el abono
+            var currentDebt = parseFloat(document.getElementById('currentDebt').innerText.replace('$', '').replace(',', ''));
+            var payment = parseFloat(document.getElementById('paymentInput').value);
+
+            // Calculamos la deuda pendiente
+            var remainingDebt = currentDebt - payment;
+
+            // Mostramos el resultado
+            document.getElementById('remainingDebt').innerText = '$' + remainingDebt.toFixed(2);
+        }
+
+
+        function showAlert() {
+            var form = document.querySelector('.form');
+            if (form.checkValidity()) {
+                alertSucces();
+                var modal = event.target.closest('.modal');
+                bootstrap.Modal.getInstance(modal).hide();
+            }
+        }
+
+        function alertSucces() {
+            Swal.fire({
+                text: "Guardado con éxito",
+                icon: "success",
+                timer: 1500
+            });
+        }
+
+        function alertQuestion() {
+            Swal.fire({
+                title: "¿Estás seguro de eliminar este crédito?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Estoy seguro"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "¡Eliminado!",
+                        text: "El crédito ha sido eliminado",
+                        icon: "success",
+                        timer: 1500
+                    });
+                }
+            });
+        }
+    </script>
+
+    <script>
+        $('#payment').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Botón que activa el modal
+            var originalValue = button.data('original-value'); // Extrae el valor original de los datos del botón
+            var currentDebt = button.data('current-debt'); // Extrae la deuda actual de los datos del botón
+            var modal = $(this);
+            modal.find('#originalValue').text('$' + originalValue); // Establece el valor original en el campo correspondiente en la ventana modal
+            modal.find('#currentDebt').text('$' + currentDebt); // Establece la deuda actual en el campo correspondiente en la ventana modal
+        });
+    </script>
 
 </body>
 
