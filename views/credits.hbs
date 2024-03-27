@@ -25,7 +25,7 @@
     <!-- navLateral -->
     {{>navLateral }}
 
-    <!-- pageContent -->
+{{!-- ----------------------------------------- PAGE CONTENT ------------------------------------------ --}}
     <section class="full-width pageContent">
 
         <section class="full-width header-well">
@@ -63,41 +63,54 @@
                                             <tr>
                                                 <td>Andrea</td>
                                                 <td>93.000</td>
-                                                <td>0</td>
+                                                <td id="tableCurrentDebt1">0</td>
                                                 <td>93.000</td>
                                                 <td>
-                                                    <button class="btn btn-success p-2" data-bs-toggle="modal"
-                                                        data-bs-target="#payment" data-original-value="93000"
-                                                        data-current-debt="0"> <i class="bi bi-cash"></i></button>
+                                                    <button id="abonarButton1" class="btn btn-success p-2"
+                                                        data-bs-toggle="modal" data-bs-target="#payment"
+                                                        data-original-value="93000" data-current-debt="0"
+                                                        onclick="abonar()">
+                                                        <i class="bi bi-cash"></i>
+                                                    </button>
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-danger p-2"><i class="bi bi-trash-fill"
-                                                            onclick="alertQuestion()"></i></button>
+                                                    <button id="deleteButton1" class="btn btn-danger p-2"
+                                                        onclick="alertQuestion()">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                    </button>
                                                 </td>
                                                 <td>
                                                     <button
                                                         class="btn btn-primary p-2 col-4 align-items-center align-content-center text-align-center"
-                                                        data-bs-toggle="modal" data-bs-target="#detailsModal"><i
-                                                            class="bi bi-eye-fill"></i>
+                                                        data-bs-toggle="modal" data-bs-target="#detailsModal">
+                                                        <i class="bi bi-eye-fill"></i>
                                                     </button>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>Camilo</td>
                                                 <td>68.000</td>
-                                                <td>60.000</td>
+                                                <td id="tableCurrentDebt2">60.000</td>
                                                 <td>8.000</td>
                                                 <td>
-                                                    <button class="btn btn-success p-2" data-bs-toggle="modal"
-                                                        data-bs-target="#payment" data-original-value="68000"
-                                                        data-current-debt="60000"> <i class="bi bi-cash"></i></button>
+                                                    <button id="abonarButton2" class="btn btn-success p-2"
+                                                        data-bs-toggle="modal" data-bs-target="#payment"
+                                                        data-original-value="68000" data-current-debt="60000"
+                                                        onclick="abonar()">
+                                                        <i class="bi bi-cash"></i>
+                                                    </button>
                                                 </td>
-                                                <td> </td>
+                                                <td>
+                                                    <button id="deleteButton2" class="btn btn-danger p-2"
+                                                        onclick="alertQuestion()">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                    </button>
+                                                </td>
                                                 <td>
                                                     <button
                                                         class="btn btn-primary p-2 col-4 align-items-center align-content-center text-align-center"
-                                                        data-bs-toggle="modal" data-bs-target="#detailsModal"><i
-                                                            class="bi bi-eye-fill"></i>
+                                                        data-bs-toggle="modal" data-bs-target="#detailsModal">
+                                                        <i class="bi bi-eye-fill"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -105,6 +118,7 @@
                                     </table>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <!-- /.container-fluid -->
@@ -115,16 +129,15 @@
         </div>
     </section>
 
-    {{!-- --------------------------------------------PAYMENT------------------------------------------ --}}
+{{!-- ------------------------------------------- PAYMENT ------------------------------------------- --}}
     <div class="modal fade" id="payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Abono</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="form">
+                    <form class="formd">
                         <div class="container usuario-info">
                             <h3 id="usuarioNombre" class="usuario-nombre">Nombre Usuario</h3>
                             <table class="table table-success table-borderless">
@@ -150,6 +163,7 @@
                                                 placeholder="Cantidad a abonar" pattern="[0-9]+(\.[0-9]+)?"
                                                 title="Ingrese un número decimal válido"
                                                 oninput="calculateRemainingDebt()" required>
+                                                <div class="invalid-feedback">Formato inválido</div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -161,7 +175,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button class="btn btn-primary" type="submit" onclick="showAlert()">Guardar</button>
+                           <button class="btn btn-primary" type="submit" onclick="showAlert(event)">Guardar</button>
                         </div>
                     </form>
                 </div>
@@ -169,7 +183,7 @@
         </div>
     </div>
 
-    {{!-- ------------------------------------------- DETAILS -------------------------------------------- --}}
+{{!-- ------------------------------------------- DETAILS ------------------------------------------- --}}
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
 
         <div class="modal-dialog">
@@ -231,6 +245,7 @@
     </div>
 
     <!-- endPageContent -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/jquery-1.11.2.min.js"></script>
@@ -242,71 +257,7 @@
     <script src="js/sweetalert2.min.js"></script>
     <script src="js/main.js"></script>
 
-
-
-
-    <script>
-        function calculateRemainingDebt() {
-            // Obtenemos el valor de la deuda actual y el abono
-            var currentDebt = parseFloat(document.getElementById('currentDebt').innerText.replace('$', '').replace(',', ''));
-            var payment = parseFloat(document.getElementById('paymentInput').value);
-
-            // Calculamos la deuda pendiente
-            var remainingDebt = currentDebt - payment;
-
-            // Mostramos el resultado
-            document.getElementById('remainingDebt').innerText = '$' + remainingDebt.toFixed(2);
-        }
-
-
-        function showAlert() {
-            var form = document.querySelector('.form');
-            if (form.checkValidity()) {
-                alertSucces();
-                var modal = event.target.closest('.modal');
-                bootstrap.Modal.getInstance(modal).hide();
-            }
-        }
-
-        function alertSucces() {
-            Swal.fire({
-                text: "Guardado con éxito",
-                icon: "success",
-                timer: 1500
-            });
-        }
-
-        function alertQuestion() {
-            Swal.fire({
-                title: "¿Estás seguro de eliminar este crédito?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Estoy seguro"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: "¡Eliminado!",
-                        text: "El crédito ha sido eliminado",
-                        icon: "success",
-                        timer: 1500
-                    });
-                }
-            });
-        }
-    </script>
-
-    <script>
-        $('#payment').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget); // Botón que activa el modal
-            var originalValue = button.data('original-value'); // Extrae el valor original de los datos del botón
-            var currentDebt = button.data('current-debt'); // Extrae la deuda actual de los datos del botón
-            var modal = $(this);
-            modal.find('#originalValue').text('$' + originalValue); // Establece el valor original en el campo correspondiente en la ventana modal
-            modal.find('#currentDebt').text('$' + currentDebt); // Establece la deuda actual en el campo correspondiente en la ventana modal
-        });
-    </script>
+	<script src="js/scripts.js"></script>
 
 </body>
 
