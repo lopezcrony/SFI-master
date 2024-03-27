@@ -46,8 +46,8 @@ app.get('/categories', (req, res) => {
   res.render('categories')
 });
 
-app.get('/admin', (req, res) => {
-  res.render('admin')
+app.get('/users', (req, res) => {
+  res.render('users')
 });
 
 app.get('/client', (req, res) => {
