@@ -35,14 +35,20 @@
 						<div class="card shadow mb-4 ">
 							<div class="card-header py-3 d-flex justify-content-between">
 								<h1>Roles</h1>
+
+{{!-- -------------------------------------BOTTON BUSCAR-------------------------------------- --}}
+								<form action="/buscar" method="GET">
+									<label for="busqueda">Buscar:</label>
+									<input type="search" id="busqueda" name="q">
+									<button type="submit">Buscar</button>
+								</form>
+
 								<h6 class="m-0 font-weight-bold text-primary"></h6>
 								<button type="button" class="btn btn-success" data-bs-toggle="modal"
 									data-bs-target="#createModal">
 									<i class="bi bi-person-plus"></i> Crear
 								</button>
 							</div>
-
-
 
 							<div class="card-body">
 								<div class="table-responsive">
