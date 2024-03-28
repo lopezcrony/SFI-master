@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Clientes</title>
 
+	<link href="public/css/crud.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -23,7 +24,8 @@
 	{{>navBar }}
 	<!-- navLateral -->
 	{{>navLateral }}
-	<!-- pageContent -->
+	
+	{{!-- ------------------------------------------- PAGE CONTENT ------------------------------------------ --}}
 	<section class="full-width pageContent">
 
 		<section class="full-width header-well">
@@ -37,19 +39,18 @@
 		</section>
 
 		{{!-- CRUD --}}
-			<div id="wrapper">
+		<div id="wrapper">
 			<div id="content-wrapper" class="d-flex flex-column">
 				<div id="content">
 					<div class="container-fluid">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
 								<h6 class="m-0 font-weight-bold text-primary"></h6>
-
 								<button type="button" class="btn btn-success" data-bs-toggle="modal"
 									data-bs-target="#createModal">
-									<i class="bi bi-person-plus"></i> Agregar</button>
+									<i class="bi bi-person-plus"></i> Agregar
+								</button>
 							</div>
-
 							<div class="card-body text-center">
 								<div class="table-responsive">
 									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -72,15 +73,17 @@
 												<td>Cll 50B</td>
 												<td>3002500146</td>
 												<td>
-													<div class="form-check form-switch m-1 ">
-													<div class="form-check form-switch m-3">
-														<input class="form-check-input" type="checkbox" role="switch"
-															checked>
-													</div></div>
+													<div class="form-check form-switch m-1">
+														<div class="form-check form-switch m-3">
+															<input class="form-check-input" type="checkbox"
+																role="switch" checked onchange="confirmStateChange()">
+														</div>
+													</div>
 												</td>
 												<td>
 													<button class="btn btn-warning p-2" data-bs-toggle="modal"
-														data-bs-target="#editModal"><i class="bi bi-pen"></i>
+														data-bs-target="#editModal">
+														<i class="bi bi-pen"></i>
 													</button>
 												</td>
 											</tr>
@@ -91,15 +94,16 @@
 												<td>Cll 77A</td>
 												<td>3003200418</td>
 												<td>
-													<div class="form-check form-switch m-2 ">
-													<div class="form-check form-switch m-3">
-														<input class="form-check-input" type="checkbox" role="switch"
-															checked>
-													</div>
+													<div class="form-check form-switch m-2">
+														<div class="form-check form-switch m-3">
+															<input class="form-check-input" type="checkbox"
+																role="switch" checked onchange="confirmStateChange()">
+														</div>
 												</td>
 												<td>
 													<button class="btn btn-warning p-2" data-bs-toggle="modal"
-														data-bs-target="#editModal"><i class="bi bi-pen"></i>
+														data-bs-target="#editModal">
+														<i class="bi bi-pen"></i>
 													</button>
 												</td>
 											</tr>
@@ -118,42 +122,44 @@
 
 	</section>
 
-	{{!-- --------------------------------------------MODAL CREATE------------------------------------------ --}}
+	{{!-- ------------------------------------------- MODAL CREATE ------------------------------------------ --}}
 	<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Cliente</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<div class="modal-body">
-					<form class="row g-3">
+
+				<div class="modal-body ">
+
+					<form class="row g-3 form">
 						<div class="col-md-6">
 							<label for="inputName" class="form-label">Nombre</label>
-							<input type="text" class="form-control" id="Name">
+							<input type="text" class="form-control" id="Name" pattern="[A-Za-z\s]+" required>
 						</div>
 						<div class="col-6">
 							<label for="inputLastName" class="form-label">Apellido</label>
-							<input type="text" class="form-control" id="LastName">
+							<input type="text" class="form-control" id="LastName" pattern="[A-Za-z\s]+" required>
 						</div>
 						<div class="col-md-6">
 							<label for="inputIdentification" class="form-label">Cédula</label>
-							<input type="text" class="form-control" id="identification">
+							<input type="text" class="form-control" id="identification" pattern="[0-9.]+" required>
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Teléfono</label>
-							<input type="number" class="form-control" id="Phone">
+							<input type="number" class="form-control" id="Phone" pattern="[0-9]+" required>
 						</div>
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Dirección</label>
-							<input type="text" class="form-control" id="Address">
+							<input type="text" class="form-control" id="Address" required>
 						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+							<button class="btn btn-primary submit-button" type="submit">Guardar</button>
+						</div>
+					</form>
 				</div>
-				</form>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
-				</div>
+
 			</div>
 		</div>
 	</div>
@@ -168,47 +174,54 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form class="row g-3">
+
+					<form class="row g-3 form">
 						<div class="col-md-6">
 							<label for="inputName" class="form-label">Nombre</label>
-							<input type="text" class="form-control" id="Name">
+							<input type="text" class="form-control" id="Name" pattern="[A-Za-z\s]+" required>
 						</div>
 						<div class="col-6">
 							<label for="inputLastName" class="form-label">Apellido</label>
-							<input type="text" class="form-control" id="LastName">
+							<input type="text" class="form-control" id="LastName" pattern="[A-Za-z\s]+" required>
 						</div>
 						<div class="col-md-6">
 							<label for="inputIdentification" class="form-label">Cédula</label>
-							<input type="text" class="form-control" id="identification">
+							<input type="text" class="form-control" id="identification" pattern="[0-9.]+" required>
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Teléfono</label>
-							<input type="number" class="form-control" id="Phone">
+							<input type="number" class="form-control" id="Phone" pattern="[0-9]+" required>
 						</div>
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Dirección</label>
-							<input type="text" class="form-control" id="Address">
+							<input type="text" class="form-control" id="Address" required>
 						</div>
-				</div>
-				</form>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+							<button class="btn btn-primary submit-button" type="submit">Guardar</button>
+						</div>
+					</form>
 				</div>
 			</div>
-
 		</div>
 	</div>
 
 	<!-- endPageContent -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+	<script src="js/datatables.js"></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="js/sweetalert2.min.js"></script>
 	<script src="js/main.js"></script>
+
+	{{!-- FORM VALIDATION --}}
+	
+	<script src="js/scripts.js"></script>
+
 </body>
 
 </html>
