@@ -80,7 +80,7 @@
 															style="margin-right: 5px;" data-bs-toggle="modal"
 															data-bs-target="#editModal"><i
 																class="bi bi-pen"></i></button>
-														<button type="button" class="btn btn-danger" name="botonBorrarRol"><i
+														<button type="button" class="btn btn-danger" name="botonBorrarUsuario"><i
 																class="bi bi-trash-fill"></i></button>
 													</div>
 												</td>
@@ -98,7 +98,7 @@
 															style="margin-right: 5px;" data-bs-toggle="modal"
 															data-bs-target="#editModal"><i
 																class="bi bi-pen"></i></button>
-														<button type="button" class="btn btn-danger" name="botonBorrarRol"><i
+														<button type="button" class="btn btn-danger" name="botonBorrarUsuario"><i
 																class="bi bi-trash-fill"></i></button>
 													</div>
 												</td>
@@ -159,7 +159,7 @@
 
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="guardarBotonrol">Guardar</button>
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="guardarBotonUsuario">Guardar</button>
 						</div>
 				</div>
 			</div>
@@ -209,7 +209,7 @@
 
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="editarBotonrol">Guardar</button>
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="editarBotonUsuario">Guardar</button>
 						</div>
 				</div>
 			</div>
@@ -223,18 +223,18 @@
 	</div>
 
 	<script>
-		const guardarBotonrol = document.getElementById("guardarBotonrol");
-		guardarBotonrol.addEventListener("click", function () {
+		const guardarBotonUsuario = document.getElementById("guardarBotonUsuario");
+		guardarBotonUsuario.addEventListener("click", function () {
     Swal.fire({
         position: "top-center",
         icon: "success",
-        title: "¡Usuario creado exitosamente!",
+        title: "¡Usuario añadido exitosamente!",
         showConfirmButton: false,
         timer: 1500
       });
 });
-	const editarBotonrol = document.getElementById("editarBotonrol");
-			editarBotonrol.addEventListener("click", function () {
+	const editarBotonUsuario = document.getElementById("editarBotonUsuario");
+			editarBotonUsuario.addEventListener("click", function () {
 		Swal.fire({
 			position: "top-center",
 			icon: "success",
@@ -243,10 +243,10 @@
 			timer: 1500
 		});
 	});
-			const botonBorrarRol = document.getElementsByName("botonBorrarRol");
+			const botonBorrarUsuario = document.getElementsByName("botonBorrarUsuario");
 
-	for (let i = 0; i < botonBorrarRol.length; i++) {
-		botonBorrarRol[i].addEventListener("click", function() {
+	for (let i = 0; i < botonBorrarUsuario.length; i++) {
+		botonBorrarUsuario[i].addEventListener("click", function() {
 			// Código a ejecutar cuando se hace clic en cualquier botón "borrarBoton"
 			const swalWithBootstrapButtons = Swal.mixin({
 				customClass: {
