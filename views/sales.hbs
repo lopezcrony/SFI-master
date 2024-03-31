@@ -36,24 +36,21 @@
 	<!-- navLateral -->
 	{{>navLateral }}
 	<!-- pageContent -->
-	<section class="full-width pageContent no-margin py-3">
-		<section class=" full-width mt-5 justify-content- mdl-tabs" >
-			<div class="full-width header-well-text">
-				<h3 class="py-4">VENTAS</h3>
+	
+	<section class="full-width pageContent">
+		<section class=" d-flex">
+			<div class="full-width mdl-tabs">
+				<h3 class="d-flex justify-content-center m-0 py-2">VENTAS</h3>
+				<a href="./newSale" class="d-flex justify-content-end  px-3"><button type="submit"
+						class="btn btn-dark px-4">Histórico Venta</button></a>
 			</div>
 		</section>
-		<div class="d-flex justify-content-end px-4 py-2 my-0">
-
-			<a href="./newSale"><button type="submit" class="btn btn-dark px-4">Histórico Venta</button></a>
-		</div>
-
-
 		<div class="mdl-grid">
 			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
 				<div class="row">
 					<div class="col-12">
-						<div class="card border-primary"
-							style="height: 370px; display: static; overflow-y: scroll; max-height: 370px; float: left; width: 70%;">
+						<div class="card border-primary py-3"
+							style="display: flex; overflow-y: scroll;  float: left; width: 70%;">
 							<nav class="navbar navbar-light bg-light">
 								<form class="form-inline d-flex col-8 p-3">
 									<input class="form-control mr-sm-2" type="search" placeholder="Buscar Productos"
@@ -114,8 +111,9 @@
 							<div class="card-body ">
 								<section>
 									<div id="carrito">
-										<h6><b class="p-2">Datos de Venta</b><button class="btn btn-outline-dark" data-bs-toggle="modal"
-													data-bs-target="#createModal" type="submit">Nuevo Cliente</button></h6>
+										<h6><b class="p-2">Datos de Venta</b><button class="btn btn-outline-dark"
+												data-bs-toggle="modal" data-bs-target="#createModal" type="submit">Nuevo
+												Cliente</button></h6>
 										<div class="full-width divider-menu-h"></div>
 
 										<div class="">
@@ -132,19 +130,22 @@
 										<div class="full-width divider-menu-h"></div>
 
 									</div>
-										<div class="full-width divider-menu-h"></div>
-<div>
-										
-										<button type="button" class="btn btn-dark col-12 m-2" onclick="impresion()">Imprimir Factura</button>
+									<div class="full-width divider-menu-h"></div>
+									<div>
+
+										<button type="button" class="btn btn-dark col-12 m-2"
+											onclick="impresion()">Imprimir Factura</button>
 									</div>
 
 									<p><b>TOTAL:</b> 10.000 <br>
-									<b>PAGO:</b> 10.000 <br>
-									<b>DEVUELTA: </b>0</p>
+										<b>PAGO:</b> 10.000 <br>
+										<b>DEVUELTA: </b>0
+									</p>
 
 									<div>
-										
-										<button type="button" class="btn btn-dark col-12 m-2">Finalizar Venta</button>
+
+										<button type="button" class="btn btn-dark col-12 m-2">Finalizar
+											Venta</button>
 									</div>
 								</section>
 							</div>
@@ -153,6 +154,7 @@
 				</div>
 			</div>
 		</div>
+
 	</section>
 
 	{{!-- --------------------------------------------MODAL VIEW------------------------------------------ --}}
@@ -273,7 +275,8 @@
 				</form>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary" onclick="printInvoice()" data-bs-dismiss="modal">Guardar</button>
+					<button type="button" class="btn btn-primary" onclick="printInvoice()"
+						data-bs-dismiss="modal">Guardar</button>
 				</div>
 			</div>
 		</div>
@@ -285,7 +288,7 @@
 </body>
 {{!-- ALERTA DE IMPRESION --}}
 <script>
-	
+
 	function printInvoice()
 
 	// After printing (for both options)
@@ -302,27 +305,27 @@
 
 
 {{!-- ALERTA DE IMPRESION --}}
-		<script>
-			let timerInterval;
+<script>
+	let timerInterval;
 
-			function impresion() {
+	function impresion() {
 
-				// After printing (for both options)
-				Swal.fire({
-					title: "Imprimiendo Factura", // Change title to "Printing Invoice" or similar
-					html: "Espere un momento...", // Change message to "Please wait..." or similar
-					timer: 1000, // Adjust timer duration as needed
-					timerProgressBar: true,
-					didOpen: () => {
-						Swal.showLoading();
-					},
-					willClose: () => {
-						clearInterval(timerInterval);
-					}
-				});
+		// After printing (for both options)
+		Swal.fire({
+			title: "Imprimiendo Factura", // Change title to "Printing Invoice" or similar
+			html: "Espere un momento...", // Change message to "Please wait..." or similar
+			timer: 1000, // Adjust timer duration as needed
+			timerProgressBar: true,
+			didOpen: () => {
+				Swal.showLoading();
+			},
+			willClose: () => {
+				clearInterval(timerInterval);
 			}
+		});
+	}
 
-		</script>
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webcodecam/1.9.1/webcodecam.min.js"></script>
 <script src="productos.json"></script>
 <script src="./js/sales.js"></script>
