@@ -151,36 +151,57 @@
 					<form class="row g-3">
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Nombre producto</label>
-							<input type="text" class="form-control campo-texto" id="Phone">
+							<input type="text" class="form-control campo-texto" id="inputNombreProducto">
+							<div class="invalid-feedback">
+								Por favor ingresa el nombre del producto.
+							</div>
 						</div>
 						<div class="col-6">
 							<label for="inputName" class="form-label">Cantidad</label>
-							<input type="number" class="form-control campo-numerico" id="name">
+							<input type="number" class="form-control campo-numerico" id="inputCantidad">
+							<div class="invalid-feedback">
+								Por favor ingresa la cantidad del producto.
+							</div>
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Cod.Barras</label>
-							<input type="number" class="form-control campo-numerico" id="Seller">
+							<input type="number" class="form-control campo-numerico" id="inputCodBarras">
+							<div class="invalid-feedback">
+								Por favor ingresa el código de barras del producto.
+							</div>
 						</div>
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Precio unit.</label>
-							<input type="number" class="form-control campo-numerico" id="Address">
+							<input type="number" class="form-control campo-numerico" id="inputPrecioUnitario">
+							<div class="invalid-feedback">
+								Por favor ingresa el precio unitario del producto.
+							</div>
 						</div>
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Min existencias</label>
-							<input type="number" class="form-control campo-numerico" id="minExistencias">
+							<input type="number" class="form-control campo-numerico" id="inputMinExistencias">
+							<div class="invalid-feedback">
+								Por favor ingresa la cantidad mínima de existencias del producto.
+							</div>
 						</div>
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Max existencias</label>
-							<input type="number" class="form-control campo-numerico" id="maxExistencias">
+							<input type="number" class="form-control campo-numerico" id="inputMaxExistencias">
+							<div class="invalid-feedback">
+								Por favor ingresa la cantidad máxima de existencias del producto.
+							</div>
 						</div>
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Categoria <a href="/categories"
 									class="btn btn-primary"><i class="bi bi-plus-lg"></i></a></label>
-							<input type="text" class="form-control campo-texto" id="Address">
+							<input type="text" class="form-control campo-texto" id="inputCategoria">
+							<div class="invalid-feedback">
+								Por favor selecciona la categoría del producto.
+							</div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-							<button type="submit" class="btn btn-primary submit-button"
+							<button type="button" class="btn btn-primary submit-button"
 								id="guardarBoton">Guardar</button>
 						</div>
 					</form>
@@ -297,35 +318,136 @@
 	<!-- endPageContent -->
 	<script>
 		// Función para validar números mayores a cero
-	
+
 	</script>
 
 	{{!-- inicio alerts --}}
 	<script>
-		const guardarBoton = document.getElementById("guardarBoton");
+		document.getElementById('guardarBoton').addEventListener('click', function () {
+    // Obtener valores de los campos
+    var nombreProducto = document.getElementById('inputNombreProducto').value.trim();
+    var cantidad = document.getElementById('inputCantidad').value.trim();
+    var codBarras = document.getElementById('inputCodBarras').value.trim();
+    var precioUnitario = document.getElementById('inputPrecioUnitario').value.trim();
+    var minExistencias = document.getElementById('inputMinExistencias').value.trim();
+    var maxExistencias = document.getElementById('inputMaxExistencias').value.trim();
+    var categoria = document.getElementById('inputCategoria').value.trim();
 
-		guardarBoton.addEventListener("click", function () {
-			Swal.fire({
-				position: "top-center",
-				icon: "success",
-				title: "¡Producto guardado exitosamente!",
-				showConfirmButton: false,
-				timer: 1500
-			});
-		});
+    // Verificar campos vacíos
+    if (!nombreProducto || !cantidad || !codBarras || !precioUnitario || !minExistencias || !maxExistencias || !categoria) {
+        // Mostrar mensaje de error y evitar envío del formulario
+        if (!nombreProducto) {
+            document.getElementById('inputNombreProducto').classList.add('is-invalid');
+        } else {
+            document.getElementById('inputNombreProducto').classList.remove('is-invalid');
+        }
+        if (!cantidad) {
+            document.getElementById('inputCantidad').classList.add('is-invalid');
+        } else {
+            document.getElementById('inputCantidad').classList.remove('is-invalid');
+        }
+        if (!codBarras) {
+            document.getElementById('inputCodBarras').classList.add('is-invalid');
+        } else {
+            document.getElementById('inputCodBarras').classList.remove('is-invalid');
+        }
+        if (!precioUnitario) {
+            document.getElementById('inputPrecioUnitario').classList.add('is-invalid');
+        } else {
+            document.getElementById('inputPrecioUnitario').classList.remove('is-invalid');
+        }
+        if (!minExistencias) {
+            document.getElementById('inputMinExistencias').classList.add('is-invalid');
+        } else {
+            document.getElementById('inputMinExistencias').classList.remove('is-invalid');
+        }
+        if (!maxExistencias) {
+            document.getElementById('inputMaxExistencias').classList.add('is-invalid');
+        } else {
+            document.getElementById('inputMaxExistencias').classList.remove('is-invalid');
+        }
+        if (!categoria) {
+            document.getElementById('inputCategoria').classList.add('is-invalid');
+        } else {
+            document.getElementById('inputCategoria').classList.remove('is-invalid');
+        }
+    } else {
+        // Si todos los campos están completos, mostrar alerta y enviar formulario
+        Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "¡Producto guardado exitosamente!",
+            showConfirmButton: false,
+            timer: 1500
+        });
 
-		const editarBoton = document.getElementById("editarBoton");
+        // Limpiar clases de error
+        document.getElementById('inputNombreProducto').classList.remove('is-invalid');
+        document.getElementById('inputCantidad').classList.remove('is-invalid');
+        document.getElementById('inputCodBarras').classList.remove('is-invalid');
+        document.getElementById('inputPrecioUnitario').classList.remove('is-invalid');
+        document.getElementById('inputMinExistencias').classList.remove('is-invalid');
+        document.getElementById('inputMaxExistencias').classList.remove('is-invalid');
+        document.getElementById('inputCategoria').classList.remove('is-invalid');
 
-		editarBoton.addEventListener("click", function () {
-			Swal.fire({
-				position: "top-center",
-				icon: "success",
-				title: "¡Producto editado exitosamente!",
-				showConfirmButton: false,
-				timer: 1500
-			});
-		});
+        // Aquí puedes enviar el formulario o realizar otras acciones
+    }
+});
 
+		document.getElementById('editarBoton').addEventListener('click', function () {
+    // Obtener valores de los campos
+    var nombreProducto = document.getElementById('Phone').value.trim();
+    var cantidad = document.getElementById('name').value.trim();
+    var codBarras = document.getElementById('Seller').value.trim();
+    var precioUnitario = document.getElementById('Address').value.trim();
+    var minExistencias = document.getElementById('Address').value.trim();
+    var maxExistencias = document.getElementById('Address').value.trim();
+    var categoria = document.getElementById('Address').value.trim();
+
+    // Verificar campos vacíos
+    if (!nombreProducto || !cantidad || !codBarras || !precioUnitario || !minExistencias || !maxExistencias || !categoria) {
+        // Mostrar mensaje de error y evitar envío del formulario
+        if (!nombreProducto) {
+            document.getElementById('Phone').classList.add('is-invalid');
+        } else {
+            document.getElementById('Phone').classList.remove('is-invalid');
+        }
+        if (!cantidad) {
+            document.getElementById('name').classList.add('is-invalid');
+        } else {
+            document.getElementById('name').classList.remove('is-invalid');
+        }
+        if (!codBarras) {
+            document.getElementById('Seller').classList.add('is-invalid');
+        } else {
+            document.getElementById('Seller').classList.remove('is-invalid');
+        }
+        if (!precioUnitario) {
+            document.getElementById('Address').classList.add('is-invalid');
+        } else {
+            document.getElementById('Address').classList.remove('is-invalid');
+        }
+        if (!minExistencias) {
+            document.getElementById('Address').classList.add('is-invalid');
+        } else {
+            document.getElementById('Address').classList.remove('is-invalid');
+        }
+        if (!maxExistencias) {
+            document.getElementById('Address').classList.add('is-invalid');
+        } else {
+            document.getElementById('Address').classList.remove('is-invalid');
+        }
+        if (!categoria) {
+            document.getElementById('Address').classList.add('is-invalid');
+        } else {
+            document.getElementById('Address').classList.remove('is-invalid');
+        }
+    } else {
+        // Si todos los campos están completos, enviar formulario o realizar otras acciones
+        // Aquí puedes enviar el formulario o realizar otras acciones
+        console.log("Formulario enviado correctamente");
+    }
+});
 
 		const botonBorrar = document.getElementsByName("borrarBoton");
 
