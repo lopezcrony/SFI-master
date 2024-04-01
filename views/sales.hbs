@@ -198,7 +198,7 @@
 			</section>
 
 		</div>
-
+	</div>
 		{{!-- --------------------------------------------MODAL VIEW------------------------------------------ --}}
 		<div class="modal fade" id="viewModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -287,45 +287,46 @@
 
 		{{!-- --------------------------------------------MODAL CREATE------------------------------------------ --}}
 		<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Cliente</h1>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<form class="row g-3">
-							<div class="col-md-6">
-								<label for="inputName" class="form-label">Nombre</label>
-								<input type="text" class="form-control" id="Name">
-							</div>
-							<div class="col-6">
-								<label for="inputLastName" class="form-label">Apellido</label>
-								<input type="text" class="form-control" id="LastName">
-							</div>
-							<div class="col-md-6">
-								<label for="inputIdentification" class="form-label">Cédula</label>
-								<input type="text" class="form-control" id="identification">
-							</div>
-							<div class="col-md-6">
-								<label for="inputPhone" class="form-label">Teléfono</label>
-								<input type="number" class="form-control" id="Phone">
-							</div>
-							<div class="col-12">
-								<label for="inputAddress" class="form-label">Dirección</label>
-								<input type="text" class="form-control" id="Address">
-							</div>
-					</div>
-					</form>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-						<button type="button" class="btn btn-primary" onclick="printInvoice()"
-							data-bs-dismiss="modal">Guardar</button>
-					</div>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Cliente</h1>
 				</div>
+
+				<div class="modal-body ">
+
+					<form class="row g-3 form">
+						<div class="col-md-6">
+							<label for="inputName" class="form-label">Nombre</label>
+							<input type="text" class="form-control" id="Name" pattern="[A-Za-z\s]+" required>
+						</div>
+						<div class="col-6">
+							<label for="inputLastName" class="form-label">Apellido</label>
+							<input type="text" class="form-control" id="LastName" pattern="[A-Za-z\s]+" required>
+						</div>
+						<div class="col-md-6">
+							<label for="inputIdentification" class="form-label">Cédula</label>
+							<input type="text" class="form-control" id="identification" pattern="[0-9.]+" required>
+						</div>
+						<div class="col-md-6">
+							<label for="inputPhone" class="form-label">Teléfono</label>
+							<input type="number" class="form-control" id="Phone" pattern="[0-9]+" required>
+						</div>
+						<div class="col-12">
+							<label for="inputAddress" class="form-label">Dirección</label>
+							<input type="text" class="form-control" id="Address" required>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+							<button class="btn btn-primary submit-button" type="submit">Guardar</button>
+						</div>
+					</form>
+				</div>
+
 			</div>
 		</div>
-</div>
+	</div>
+
 
 
 
@@ -379,5 +380,8 @@
     <script src="vendor/jquery/jquery.min.js"></script>
 <script src="js/datatables.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{!-- FORM VALIDATION --}}
+	
+	<script src="js/scripts.js"></script>
 
 </html>
