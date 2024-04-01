@@ -134,32 +134,32 @@
 					<form class="row g-3" id="createForm">
 						<div class="col-6">
 							<label for="inputName" class="form-label">Nombre</label>
-							<input type="text" class="form-control" id="nombre" required pattern="[a-zA-Z0-9]+">
+							<input type="text" class="form-control" id="nombre" required pattern="[A-Za-z\s]+">
 						</div>
 						<div class="col-6">
 							<label for="inputName" class="form-label">Apellido</label>
-							<input type="text" class="form-control" id="apellido" required pattern="[a-zA-Z0-9]+">
+							<input type="text" class="form-control" id="apellido" required pattern="[A-Za-z\s]+">
 						</div>
 						<div class="col-6">
 							<label for="inputName" class="form-label">Teléfono</label>
-							<input type="text" class="form-control" id="teléfono" required pattern="[a-zA-Z0-9]+">
+							<input type="text" class="form-control" id="teléfono" required pattern="\d{10}">
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Cédula</label>
-							<input type="text" class="form-control" id="cédula" required pattern="[a-zA-Z0-9]+">
+							<input type="text" class="form-control" id="cédula" required pattern="\d{10}">
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Correo</label>
-							<input type="text" class="form-control" id="correo" required pattern="[a-zA-Z0-9]+">
+							<input type="text" class="form-control" id="correo" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Contraseña</label>
-							<input type="password" class="form-control" id="contraseña" required pattern="[a-zA-Z0-9]+">
+							<input type="password" class="form-control" id="contraseña" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,16}">
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Confirmar contraseña</label>
 							<input type="password" class="form-control" id="ConfirmarContraseña" required
-								pattern="[a-zA-Z0-9]+">
+								pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,16}">
 						</div>
 
 						<div class="modal-footer">
