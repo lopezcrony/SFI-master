@@ -46,6 +46,10 @@ app.get('/categories', (req, res) => {
   res.render('categories')
 });
 
+app.get('/restore', (req, res) => {
+  res.render('restore')
+});
+
 app.get('/users', (req, res) => {
   res.render('users')
 });
