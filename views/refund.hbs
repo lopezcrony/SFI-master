@@ -7,12 +7,11 @@
 	<title>Sales</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-		integrity="sha384-0evYQm+GUOYOnApiGpGX694GqJ65nFFf2O6pq0us32Vrs8R91m773Lqt6RkYvHmwv" crossorigin="anonymous">
 
+	<!-- Bootstrap Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+	<!-- Otros estilos -->
 	<link rel="stylesheet" href="css/normalize.min.css">
 	<link rel="stylesheet" href="/public/css/sales.css">
 	<link rel="stylesheet" href="css/sweetalert2.min.css">
@@ -21,7 +20,19 @@
 	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link href="/public/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+	<head>
+		<!-- Bootstrap CSS -->
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Font Awesome -->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+		<!-- SweetAlert2 CSS -->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.0.18/sweetalert2.min.css" rel="stylesheet">
+	</head>
+
 </head>
 
 <body>
@@ -73,7 +84,7 @@
 																<div class="card shadow mb-4"
 																	style="height: 410px; display: static; overflow-y: scroll; max-height: 410px;">
 																	<div class="card-header d-flex justify-content-end">
-																		<button class="btn btn-dark p-2"
+																		<button class="btn btn-dark p-2" type="button"
 																			data-bs-toggle="modal"
 																			data-bs-target="#createModal"><i
 																				class="bi bi-person-plus"></i>Agregar
@@ -249,7 +260,7 @@
 															<div class="card shadow mb-4"
 																style="height: 410px; display: static; overflow-y: scroll; max-height: 410px;">
 																<div class="card-header d-flex justify-content-end">
-																	<button class="btn btn-dark p-2"
+																	<button class="btn btn-dark p-2" type="button"
 																		data-bs-toggle="modal"
 																		data-bs-target="#editModal"><i
 																			class="bi bi-person-plus"></i>Agregar
@@ -460,16 +471,18 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form class="row g-3 needs-validation" novalidate id="yourFormId">
+					<form class="row g-3 needs-validation" novalidate id="createForm">
+						<!-- Tu formulario aquí -->
 						<div class="col-md-6">
 							<label for="inputNit" class="form-label">Código</label>
 							<i class="bi bi-upc-scan"> <input type="number" class="form-control" id="inputNit" required
-									pattern="[0-9]+"></i>
-							<div class="invalid-feedback">
-								Por favor, ingrese un código válido (solo números).
-							</div>
-						</div>
+									pattern="[0-9]+">
+								<div class="invalid-feedback">
+									Por favor, ingrese un código válido (solo números).
+								</div>
+							</i>
 
+						</div>
 
 						<div class="col-md-6">
 							<label for="inputProducto" class="form-label">Producto</label>
@@ -487,7 +500,7 @@
 							</div>
 						</div>
 
-						<div class="col-6">
+						<div class="col-md-6">
 							<label for="inputProveedor" class="form-label">Proveedor/Empresa</label>
 							<input type="text" class="form-control" id="inputProveedor" required pattern="[a-zA-Z0-9]+">
 							<div class="invalid-feedback">
@@ -498,7 +511,7 @@
 						<div class="form-group col-md-12">
 							<label for="exampleFormControlSelect1" class="form-label">Tipo Devolución</label>
 							<select class="form-control" id="exampleFormControlSelect1" required>
-								<option>Seleccione</option>
+								<option disabled selected value="">Seleccione</option>
 								<option>Caducidad</option>
 								<option>Defecto</option>
 								<option>Reembolso</option>
@@ -509,103 +522,93 @@
 						</div>
 					</form>
 				</div>
-
-
-
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary" onclick="confirmar()"
-						data-bs-dismiss="modal">Guardar</button>
+					<button type="button" class="btn btn-primary submit-button"
+						onclick="handleSubmit1()">Guardar</button>
 				</div>
 			</div>
-
 		</div>
 	</div>
+
 
 	{{!-- ------------------------------------------- MODAL EDIT--------------------------------------------
 	--}}
 	<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Devolucion por Venta</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body my-3">
-        <form class="row g-3 needs-validation" novalidate id="yourFormId">
-          <div class="row">
-            <div class="form-group col-md-4">
-              <label for="exampleFormControlSelect1" class="form-label">Motivo</label>
-              <select class="form-control" id="exampleFormControlSelect1" required>
-                <option value="">Seleccione</option>
-                <option value="caducidad">Caducidad</option>
-                <option value="defecto">Defecto</option>
-                <option value="reembolso">Reembolso</option>
-              </select>
-              <div class="invalid-feedback">
-                Por favor, seleccione un tipo de devolución.
-              </div>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="exampleFormControlSelect2" class="form-label">Tipo Reembolso</label>
-              <select class="form-control" id="exampleFormControlSelect2" required>
-                <option value="">Seleccione</option>
-                <option value="producto">Producto</option>
-                <option value="efectivo">Efectivo</option>
-              </select>
-              <div class="invalid-feedback">
-                Por favor, seleccione un tipo de reembolso.
-              </div>
-            </div>
-            <div class="col-md-4">
-              <label for="inputNit" class="form-label">Código</label>
-              <i class="bi bi-upc-scan">
-                <input type="number" class="form-control" id="inputNit" pattern="[0-9]+" required>
-              </i>
-              <div class="invalid-feedback">
-                Por favor, ingrese un código válido (solo números).
-              </div>
-            </div>
-            <div class="col-md-4">
-              <br>
-              <label for="inputProductNumber" class="form-label">N° Producto Reembolsado</label>
-              <input type="number" class="form-control" id="inputProductNumber" required pattern="[0-9]+">
-              <div class="invalid-feedback">
-                Por favor, ingrese un código válido (solo números).
-              </div>
-            </div>
-            <div class="col-md-4">
-              <br>
-              <label for="inputCantidad" class="form-label">Cantidad</label><br><br>
-              <input type="number" class="form-control" id="inputCantidad" min="1" pattern="[0-9]+" required>
-              <div class="invalid-feedback">
-                Por favor, ingrese una cantidad válida (mínimo 1).
-              </div>
-            </div>
-            <div class="col-md-4">
-              <br>
-              <label for="inputValue" class="form-label">Valor</label><br><br>
-              <input type="number" class="form-control" id="inputValue" min="100" pattern="[0-9]+" required>
-              <div class="invalid-feedback">
-                Por favor, ingrese un cantidad válida (mínimo 100).
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary" id="submitButton" onclick="return validateForm()">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Devolución por Venta</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body my-3">
+					<form class="row g-3 needs-validation" novalidate id="editForm">
+						<!-- Tu formulario aquí -->
+						<div class="row">
+							<div class="form-group col-md-4">
+								<label for="exampleFormControlSelect1" class="form-label">Motivo</label>
+								<select class="form-control" id="SelectMotivo" required>
+									<option value="">Seleccione</option>
+									<option value="caducidad">Caducidad</option>
+									<option value="defecto">Defecto</option>
+									<option value="reembolso">Reembolso</option>
+								</select>
+								<div class="invalid-feedback">
+								Por favor, seleccione un motivo.
+							</div>
+							</div>
+							<div class="form-group col-md-4">
+								<label for="exampleFormControlSelect1" class="form-label">Tipo Reembolso</label>
+								<select class="form-control" id="exampleFormControlSelect1" required>
+									<option value="">Seleccione</option>
+									<option value="producto">Producto</option>
+									<option value="efectivo">Efectivo</option>
+								</select>
+								<div class="invalid-feedback">
+								Por favor, seleccione un tipo de reembolso.
+							</div>
+							</div>
+							<div class="col-md-4">
+								<label for="inputNit" class="form-label">Código</label>
+								<i class="bi bi-upc-scan"> <input type="number" class="form-control" id="code"
+										pattern="[0-9]+" required><div class="invalid-feedback">
+									Por favor, ingrese un código válido (solo números).
+								</div>
+								</i>
+							</div>
+							<div class="col-md-4"><br>
+								<label for="inputNit" class="form-label">N° Producto Reembolsado</label>
+								<input type="number" class="form-control" id="productoReembolsado" required
+									pattern="[0-9]+">
+									<div class="invalid-feedback">
+									Por favor, ingrese un código válido (solo números).
+								</div>
+							</div>
+							<div class="col-md-4"><br>
+								<label for="inputCantidad" class="form-label">Cantidad</label><br><br>
+								<input type="number" class="form-control" id="Cantidad" min="1" pattern="[0-9]+"
+									required><div class="invalid-feedback">
+								Por favor, ingrese una cantidad válida (mínimo 1).
+							</div>
+							</div>
+							<div class="col-md-4"><br>
+								<label for="inputCantidad" class="form-label">Valor</label><br><br>
+								<input type="number" class="form-control" id="valorCantidad" min="50" pattern="[0-9]+"
+									required><div class="invalid-feedback">
+								Por favor, ingrese un valor válido (mínimo 50).
+							</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
+					<button class="btn btn-primary submit-button" type="button"
+						onclick="handleSubmit2()">Guardar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<script>
 		function guardar() {
@@ -614,12 +617,12 @@
 				icon: "success",
 				title: "Saved",
 				showConfirmButton: true,
-				timer: 1500
+				timer: 1000
 			});
 		}
 
-		function confirmar() {
-			Swal.fire({
+		async function confirmar() {
+			const result = await Swal.fire({
 				icon: "info",
 				title: "Desea realizar una nueva devolución?",
 				showDenyButton: true,
@@ -627,34 +630,59 @@
 				confirmButtonText: "Save",
 				denyButtonText: `Don't save`,
 				confirmButtonColor: '#2196F3'
-			}).then((result) => {
-				/* Read more about isConfirmed, isDenied below */
-				if (result.isConfirmed) {
-					Swal.fire({
-
-						icon: "success",
-						title: "Saved",
-						showConfirmButton: true,
-						timer: 1500,
-						confirmButtonColor: '#2196F3'
-					});
-				} else if (result.isDenied) {
-					Swal.fire("Changes are not saved", "", "info");
-				}
 			});
+
+			if (result.isConfirmed) {
+				Swal.fire({
+					icon: "success",
+					title: "Saved",
+					showConfirmButton: true,
+					confirmButtonColor: '#2196F3'
+				});
+			} else if (result.isDenied) {
+				Swal.fire("Changes are not saved", "", "info");
+			}
 		}
+
+
+		// Función para manejar la validación y envío del primer formulario
+		function handleSubmit1() {
+			var form = document.getElementById("createForm");
+			if (form.checkValidity()) {
+				// Aquí puedes realizar acciones adicionales antes de enviar el formulario, si es necesario
+				form.submit();
+				guardar(); // Llama a la función confirmar solo si el formulario es válido
+			} else {
+				event.preventDefault();
+				event.stopPropagation();
+				form.classList.add('was-validated');
+			}
+		}
+
+		// Función para manejar la validación y envío del segundo formulario
+		function handleSubmit2() {
+			var form = document.getElementById("editForm");
+			if (form.checkValidity()) {
+				// Aquí puedes realizar acciones adicionales antes de enviar el formulario, si es necesario
+				form.submit();
+				guardar();
+			} else {
+				event.preventDefault();
+				event.stopPropagation();
+				form.classList.add('was-validated');
+			}
+
+		}
+
 	</script>
-	{{!-- FORM VALIDATION --}}
 
-	<script src="js/scripts.js"></script>
-
-
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcodecam/1.9.1/webcodecam.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="js/jquery-1.11.2.min.js"></script>
+
+	<!-- Bootstrap Bundle (JS que incluye Popper.js) -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Otros scripts -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcodecam/1.9.1/webcodecam.min.js"></script>
 	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
 	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 	<script src="js/datatables.js"></script>
@@ -663,14 +691,10 @@
 	<script src="js/main.js"></script>
 	<script src="/public/js/sales.js"></script>
 	<script src="js/material.min.js"></script>
-	<script src="js/sweetalert2.min.js"></scrip >
-			<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="js/main.min.js"></script>
-	<script src="../public/vendor/jquery/jquery.min.js"></script>
-	<script src="js/sweetalert2.min.js"></script>
-	<script src="js/main.js"></script>
 	<script src="/Tabmain.js"></script>
 	<script src="/main.js"></script>
+
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
