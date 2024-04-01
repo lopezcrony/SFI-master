@@ -13,10 +13,10 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="css/recove.css">
-	<link rel="stylesheet" href="css/sweetalert2.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/sweetalert2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
-    <title>Recuperar contraseña</title>
+    <title>Restablecer contraseña</title>
   </head>
   <body>
   
@@ -30,45 +30,54 @@
           <div class="col-md-6">
             <div class="form-block">
               <div class="text-center mb-5">
-              <h3>Recupera tu contraseña</h3>
+              <h3>Restablece tu contraseña</h3>
               <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
               </div>
               <form action="#" method="post">
-                <div class="form-group first">
-                  <label for="username">Ingresa tu correo</label>
-                  <input type="text" class="form-control" placeholder="tu-email@gmail.com" id="username">
+                <div class="form-group last mb-3">
+                  <label for="password">Nueva contraseña</label>
+                  <input type="password" class="form-control" id="password">
                 </div>
-                
+                <div class="form-group last mb-3">
+                  <label for="password">Confirmar contraseña</label>
+                  <input type="password" class="form-control" id="password">
+                </div>
+
                 <div class="d-sm-flex mb-5 align-items-center">
                   <span class="ml-auto"><a href="/" class="forgot-pass">Iniciar sesión</a></span> 
                 </div>
-				
-                <button type="button" class="btn btn-block btn-primary" data-bs-dismiss="modal" id="confirmBoton">Enviar</button>
-				
+
+                <button type="button" class="btn btn-block btn-primary" data-bs-dismiss="modal" id="guardarBoton">Guardar</button>
 
               </form>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div>  
   </div>
 
-	<script>
-		const confirmBoton = document.getElementById("confirmBoton");
-		confirmBoton.addEventListener("click", function () {
-    Swal.fire({
-		title: "Envio exitoso!",
-		text: "Se ha enviado exitosamente un link a su correo, por favor revise su bandeja de entrada para poder acceder al restablecimineto de su contraseña.",
-		icon: "success",
-		confirmButtonText: "Ok",
-		confirmButtonColor: "#7CAEE0",
-		})
-	});
-	</script>
+    <script>
+        const guardarBoton = document.getElementById("guardarBoton");
+                guardarBoton.addEventListener("click", function () {
+       Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Tu contraseña ha sido restablecida",
+        showConfirmButton: false,
+        timer: 1500,
+        backdrop: `
+            rgba(0,0,123,0.4)
+            url(assets/img/cat.gif)
+            left top
+            no-repeat
+        `
+        })
+    });
 
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="js/jquery-3.3.1.min.js"></script>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
