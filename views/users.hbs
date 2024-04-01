@@ -36,7 +36,8 @@
 							<div class="card-header py-3 d-flex justify-content-between">
 								<h1>Usuarios</h1>
 
-{{!-- -------------------------------------BOTTON BUSCAR-------------------------------------- --}}
+								{{!-- -------------------------------------BOTTON
+								BUSCAR-------------------------------------- --}}
 								<form action="/buscar" method="GET">
 									<label for="busqueda">Buscar:</label>
 									<input type="search" id="busqueda" name="q">
@@ -52,59 +53,62 @@
 
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table dt-responsive table-bordered" id="dataTable" width="100%" cellspacing="0">
-									<table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
-										<thead>
-											<tr>
-												<th>ID</th>
-												<th>NOMBRE</th>
-												<th>APELLIDO</th>
-												<th>CORREO</th>
-												<th>TELÉFONO</th>
-												<th>ROL</th>		
-												<th>ACCIONES</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>001</td>						
-												<td>Jeimer</td>
-												<td>Valencia</td>
-												<td>Jeimer@gmail.com</td>
-												<td>3004562329</td>
-												<td>Administrador</td>
-												<td>
-													{{!-- boton grup --}}
-													<div class="btn-group" role="group" aria-label="Basic example">
-														<button type="button" class="btn btn-warning "
-															style="margin-right: 5px;" data-bs-toggle="modal"
-															data-bs-target="#editModal"><i
-																class="bi bi-pen"></i></button>
-														<button type="button" class="btn btn-danger" name="botonBorrarUsuario"><i
-																class="bi bi-trash-fill"></i></button>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td>002</td>						
-												<td>Carol</td>
-												<td>Acevedo</td>
-												<td>Carola@gmail.com</td>
-												<td>3053073952</td>
-												<td>Empleado</td>
-												<td>
-													<div class="btn-group" role="group" aria-label="Basic example">
-														<button type="button" class="btn btn-warning "
-															style="margin-right: 5px;" data-bs-toggle="modal"
-															data-bs-target="#editModal"><i
-																class="bi bi-pen"></i></button>
-														<button type="button" class="btn btn-danger" name="botonBorrarUsuario"><i
-																class="bi bi-trash-fill"></i></button>
-													</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
+									<table class="table dt-responsive table-bordered" id="dataTable" width="100%"
+										cellspacing="0">
+										<table class="table table-bordered " id="dataTable" width="100%"
+											cellspacing="0">
+											<thead>
+												<tr>
+													<th>ID</th>
+													<th>NOMBRE</th>
+													<th>APELLIDO</th>
+													<th>CORREO</th>
+													<th>TELÉFONO</th>
+													<th>ROL</th>
+													<th>ACCIONES</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>001</td>
+													<td>Jeimer</td>
+													<td>Valencia</td>
+													<td>Jeimer@gmail.com</td>
+													<td>3004562329</td>
+													<td>Administrador</td>
+													<td>
+														{{!-- boton grup --}}
+														<div class="btn-group" role="group" aria-label="Basic example">
+															<button type="button" class="btn btn-warning "
+																style="margin-right: 5px;" data-bs-toggle="modal"
+																data-bs-target="#editModal"><i
+																	class="bi bi-pen"></i></button>
+															<button type="button" class="btn btn-danger"
+																 onclick="alertQuestion()"><i
+																	class="bi bi-trash-fill"></i></button>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>002</td>
+													<td>Carol</td>
+													<td>Acevedo</td>
+													<td>Carola@gmail.com</td>
+													<td>3053073952</td>
+													<td>Empleado</td>
+													<td>
+														<div class="btn-group" role="group" aria-label="Basic example">
+															<button type="button" class="btn btn-warning "
+																style="margin-right: 5px;" data-bs-toggle="modal"
+																data-bs-target="#editModal"><i
+																	class="bi bi-pen"></i></button>
+															<button type="button" class="btn btn-danger" onclick="alertQuestion()"><i
+																	class="bi bi-trash-fill"></i></button>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 								</div>
 							</div>
 						</div>
@@ -126,40 +130,41 @@
 					<h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Usuario</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-							<div class="modal-body">
-					<form class="row g-3">
+				<div class="modal-body">
+					<form class="row g-3" id="createForm">
 						<div class="col-6">
 							<label for="inputName" class="form-label">Nombre</label>
-							<input type="text" class="form-control" id="name">
+							<input type="text" class="form-control" id="nombre" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-6">
 							<label for="inputName" class="form-label">Apellido</label>
-							<input type="text" class="form-control" id="name">
+							<input type="text" class="form-control" id="apellido" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-6">
 							<label for="inputName" class="form-label">Teléfono</label>
-							<input type="text" class="form-control" id="name">
+							<input type="text" class="form-control" id="teléfono" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Cédula</label>
-							<input type="text" class="form-control" id="Seller">
+							<input type="text" class="form-control" id="cédula" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Correo</label>
-							<input type="text" class="form-control" id="Seller">
+							<input type="text" class="form-control" id="correo" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Contraseña</label>
-							<input type="password" class="form-control" id="Phone">
+							<input type="password" class="form-control" id="contraseña" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Confirmar contraseña</label>
-							<input type="password" class="form-control" id="Phone">
+							<input type="password" class="form-control" id="ConfirmarContraseña" required
+								pattern="[a-zA-Z0-9]+">
 						</div>
 
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="guardarBotonUsuario">Guardar</button>
+							<button type="button" class="btn btn-primary" onclick="handleSubmit1()">Guardar</button>
 						</div>
 				</div>
 			</div>
@@ -181,35 +186,37 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form class="row g-3">
+					<form class="row g-3" id="editForm">
 						<div class="col-6">
 							<label for="inputName" class="form-label">Nombre</label>
-							<input type="text" class="form-control" id="name" requiered>
+							<input type="text" class="form-control" id="Nombre" requiered pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-6">
 							<label for="inputName" class="form-label">Apellido</label>
-							<input type="text" class="form-control" id="name" required>
+							<input type="text" class="form-control" id="Apellido" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-6">
 							<label for="inputName" class="form-label">Correo</label>
-							<input type="text" class="form-control" id="name" required>
+							<input type="text" class="form-control" id="correo" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Teléfono</label>
-							<input type="text" class="form-control" id="Seller" required>
+							<input type="text" class="form-control" id="Tel" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Contraseña</label>
-							<input type="password" class="form-control" id="Phone" requiered>
+							<input type="password" class="form-control" id="Contraseña" requiered
+								pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Confirmar contraseña</label>
-							<input type="password" class="form-control" id="Phone" required>
+							<input type="password" class="form-control" id="ConfirmarContraseña" required
+								pattern="[a-zA-Z0-9]+">
 						</div>
 
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="editarBotonUsuario">Guardar</button>
+							<button type="button" class="btn btn-primary" onclick="handleSubmit2()">Guardar</button>
 						</div>
 				</div>
 			</div>
@@ -223,67 +230,66 @@
 	</div>
 
 	<script>
-		const guardarBotonUsuario = document.getElementById("guardarBotonUsuario");
-		guardarBotonUsuario.addEventListener("click", function () {
-    Swal.fire({
-        position: "top-center",
-        icon: "success",
-        title: "¡Usuario añadido exitosamente!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-});
-	const editarBotonUsuario = document.getElementById("editarBotonUsuario");
-			editarBotonUsuario.addEventListener("click", function () {
-		Swal.fire({
-			position: "top-center",
-			icon: "success",
-			title: "¡Usuario editado exitosamente!",
-			showConfirmButton: false,
-			timer: 1500
-		});
-	});
-			const botonBorrarUsuario = document.getElementsByName("botonBorrarUsuario");
 
-	for (let i = 0; i < botonBorrarUsuario.length; i++) {
-		botonBorrarUsuario[i].addEventListener("click", function() {
-			// Código a ejecutar cuando se hace clic en cualquier botón "borrarBoton"
-			const swalWithBootstrapButtons = Swal.mixin({
-				customClass: {
-				confirmButton: "btn btn-success",
-				cancelButton: "btn btn-danger"
-				},
-				buttonsStyling: false
+		function editar() {
+			Swal.fire({
+				position: "top-center",
+				icon: "success",
+				title: "¡Usuario editado exitosamente!",
+				showConfirmButton: false,
+				timer: 1500
 			});
-			swalWithBootstrapButtons.fire({
-				title: "Estas seguro?",
-				text: "Esta acción no se puede deshacer.",
-				icon: "warning",
-				showCancelButton: true,
-				confirmButtonText: "Si, eliminar!",
-				cancelButtonText: "No, cancelar!",
-				reverseButtons: true
+		}
 
-			}).then((result) => {
-				if (result.isConfirmed) {
-				swalWithBootstrapButtons.fire({
-					title: "Eliminado!",
-					text: "El usuario a sido eliminado.",
-					icon: "success"
+		// Función para manejar la validación y envío del primer formulario
+		function handleSubmit2() {
+			var form = document.getElementById("editForm");
+			if (form.checkValidity()) {
+				// Aquí puedes realizar acciones adicionales antes de enviar el formulario, si es necesario
+				setTimeout(function () {
+					form.submit();
+				}, 2000);
 
-				});
-				} else if (
-				result.dismiss === Swal.DismissReason.cancel
-				) {
-				swalWithBootstrapButtons.fire({
-					title: "Cancelado",
-					text: "El proceso ha sido cancelado",
-					icon: "error"
-				});
-				}
-			});	
-		});
-	}
+				editar();
+
+				} else {
+				event.preventDefault();
+				event.stopPropagation();
+				form.classList.add('was-validated');
+			}
+		}
+
+		// Crear Usuario
+
+		function crear() {
+			Swal.fire({
+				position: "top-center",
+				icon: "success",
+				title: "¡Usuario añadido exitosamente!",
+				showConfirmButton: false,
+				timer: 1500
+			});
+		}
+
+		// Función para manejar la validación y envío del primer formulario
+		function handleSubmit1() {
+			var form = document.getElementById("createForm");
+			if (form.checkValidity()) {
+				// Aquí puedes realizar acciones adicionales antes de enviar el formulario, si es necesario
+				setTimeout(function () {
+					form.submit();
+				}, 2000);
+
+				crear();
+
+				// Llama a la función confirmar solo si el formulario es válido
+			} else {
+				event.preventDefault();
+				event.stopPropagation();
+				form.classList.add('was-validated');
+			}
+		}
+		
 	</script>
 
 	<!-- endPageContent -->
@@ -298,6 +304,7 @@
 	<script src="js/sweetalert2.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="js/scripts.js"></script>
 
 </body>
 
