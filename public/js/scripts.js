@@ -18,7 +18,7 @@ function alertError() {
 
 function alertQuestion() {
     Swal.fire({
-        title: "¿Estás seguro de eliminar este crédito?",
+        title: "¿Estás seguro?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -28,11 +28,19 @@ function alertQuestion() {
         if (result.isConfirmed) {
             Swal.fire({
                 title: "¡Eliminado!",
-                text: "El crédito ha sido eliminado",
+                text: "Eliminado con éxito",
                 icon: "success",
                 timer: 1500
             });
+        }else if (result.dismiss) {
+            Swal.fire({
+                title: "Cancelado",
+                text: "El proceso ha sido cancelado",
+                icon: "error",
+                timer: 3000
+            });
         }
+    
     });
 }
 
