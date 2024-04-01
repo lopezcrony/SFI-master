@@ -64,12 +64,17 @@ app.get('/products', (req, res) => {
 app.get('/compras', (req, res) => {
   res.render('compras')
 });
-
+app.get('/historialcod', (req, res) => {
+  res.render('historialcod')
+});
 app.get('/credits', (req, res) => {
   res.render('credits')
 })
 app.get('/entradas', (req, res) => {
   res.render('entradas')
+})
+app.get('/entradasregistro', (req, res) => {
+  res.render('entradasregistro')
 })
 
 app.get('/sales', (req, res) => {

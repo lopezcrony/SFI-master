@@ -25,14 +25,13 @@
 	<!-- navLateral -->
 	{{>navLateral }}
 	<!-- pageContent -->
-	<section class="full-width pageContent mt-6">
-
+	<section class="full-width pageContent">
 		{{!-- CRUD --}}
 		<div id="wrapper">
 			<div id="content-wrapper" class="d-flex flex-column">
 				<div id="content">
 					<div class="container-fluid">
-						<div class="card shadow mb-4 ">
+						<div class="card shadow mb-4">
 							<div class="card-header py-3 d-flex justify-content-between">
 								<h1>Productos</h1>
 								<h6 class="m-0 font-weight-bold text-primary"></h6>
@@ -42,12 +41,9 @@
 								</button>
 							</div>
 
-
-
 							<div class="card-body">
 								<div class="table-responsive">
-									<table class="table dt-responsive table-bordered" id="dataTable" width="100%" cellspacing="0">
-									<table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 										<thead>
 											<tr>
 												<th>ID</th>
@@ -76,7 +72,8 @@
 												<td>lacteos</td>
 												<td>
 													<div class="form-check form-switch mt-2  text-center">
-														<input class="form-check-input" type="checkbox" role="switch" id="cambiarBoton">
+														<input class="form-check-input" type="checkbox" role="switch"
+															id="cambiarBoton">
 													</div>
 												</td>
 												<td>
@@ -91,8 +88,8 @@
 															style="margin-right: 5px;" data-bs-toggle="modal"
 															data-bs-target="#editModal"><i
 																class="bi bi-pen"></i></button>
-														<button type="button" class="btn btn-danger" name="borrarBoton"><i
-																class="bi bi-trash-fill" ></i></button>
+														<button type="button" class="btn btn-danger"
+															name="borrarBoton"><i class="bi bi-trash-fill"></i></button>
 													</div>
 												</td>
 											</tr>
@@ -108,8 +105,8 @@
 												<td>lacteos</td>
 												<td>
 													<div class="form-check form-switch mt-2 text-center">
-														<input class="form-check-input" type="checkbox" role="switch" id="cambiarBoton"
-															checked>
+														<input class="form-check-input" type="checkbox" role="switch"
+															id="cambiarBoton" checked>
 													</div>
 												</td>
 												<td>
@@ -122,8 +119,8 @@
 															style="margin-right: 5px;" data-bs-toggle="modal"
 															data-bs-target="#editModal"><i
 																class="bi bi-pen"></i></button>
-														<button type="button" class="btn btn-danger" name="borrarBoton"><i
-																class="bi bi-trash-fill"></i></button>
+														<button type="button" class="btn btn-danger"
+															name="borrarBoton"><i class="bi bi-trash-fill"></i></button>
 													</div>
 												</td>
 											</tr>
@@ -154,103 +151,101 @@
 					<form class="row g-3">
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Nombre producto</label>
-							<input type="password" class="form-control" id="Phone">
+							<input type="text" class="form-control campo-texto" id="Phone">
 						</div>
 						<div class="col-6">
 							<label for="inputName" class="form-label">Cantidad</label>
-							<input type="text" class="form-control" id="name">
+							<input type="number" class="form-control campo-numerico" id="name">
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Cod.Barras</label>
-							<input type="text" class="form-control" id="Seller">
+							<input type="number" class="form-control campo-numerico" id="Seller">
 						</div>
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Precio unit.</label>
-							<input type="text" class="form-control" id="Address">
+							<input type="number" class="form-control campo-numerico" id="Address">
 						</div>
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Min existencias</label>
-							<input type="text" class="form-control" id="Address">
+							<input type="number" class="form-control campo-numerico" id="minExistencias">
 						</div>
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Max existencias</label>
-							<input type="text" class="form-control" id="Address">
+							<input type="number" class="form-control campo-numerico" id="maxExistencias">
 						</div>
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Categoria <a href="/categories"
 									class="btn btn-primary"><i class="bi bi-plus-lg"></i></a></label>
-							<input type="text" class="form-control" id="Address">
+							<input type="text" class="form-control campo-texto" id="Address">
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="guardarBoton">Guardar</button>
+							<button type="submit" class="btn btn-primary submit-button"
+								id="guardarBoton">Guardar</button>
 						</div>
+					</form>
 
 				</div>
+
 			</div>
-
-
-			</form>
-
 		</div>
 
-	</div>
-	</div>
+		{{!-- ------------------------------------------- MODAL EDIT -------------------------------------------- --}}
+		<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
 
-	{{!-- ------------------------------------------- MODAL EDIT -------------------------------------------- --}}
-	<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Editar Producto</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form class="row g-3">
+							<div class="col-md-6">
+								<label for="inputPhone" class="form-label">Nombre producto</label>
+								<input type="text" class="form-control" id="Phone">
+							</div>
+							<div class="col-6">
+								<label for="inputName" class="form-label">Cantidad</label>
+								<input type="number" class="form-control" id="name" pattern="[0-9]+" required>
+							</div>
+							<div class="col-md-6">
+								<label for="inputSeller" class="form-label">Cod.Barras <a href="#"
+										class="btn btn-primary"><i class="bi bi-plus-lg"></i></a></label>
+								<input type="number" class="form-control" id="Seller" pattern="[0-9]+" required>
+							</div>
+							<div class="col-12">
+								<label for="inputAddress" class="form-label">Precio unit.</label>
+								<input type="number" class="form-control" id="Address" pattern="[0-9]+" required>
+							</div>
+							<div class="col-12">
+								<label for="inputAddress" class="form-label">Min existencias</label>
+								<input type="number" class="form-control" id="Address" pattern="[0-9]+" required>
+							</div>
+							<div class="col-12">
+								<label for="inputAddress" class="form-label">Max existencias</label>
+								<input type="number" class="form-control" id="Address" pattern="[0-9]+" required>
+							</div>
+							<div class="col-12">
+								<label for="inputAddress" class="form-label">Categoria</label>
+								<input type="text" class="form-control" id="Address">
+							</div>
 
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar Producto</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">Cancelar</button>
+								<button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+									id="editarBoton">Guardar</button>
+							</div>
+					</div>
 				</div>
-				<div class="modal-body">
-					<form class="row g-3">
-						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Nombre producto</label>
-							<input type="password" class="form-control" id="Phone">
-						</div>
-						<div class="col-6">
-							<label for="inputName" class="form-label">Cantidad</label>
-							<input type="text" class="form-control" id="name">
-						</div>
-						<div class="col-md-6">
-							<label for="inputSeller" class="form-label">Cod.Barras <a href="#"
-									class="btn btn-primary"><i class="bi bi-plus-lg"></i></a></label>
-							<input type="text" class="form-control" id="Seller">
-						</div>
-						<div class="col-12">
-							<label for="inputAddress" class="form-label">Precio unit.</label>
-							<input type="text" class="form-control" id="Address">
-						</div>
-						<div class="col-12">
-							<label for="inputAddress" class="form-label">Min existencias</label>
-							<input type="text" class="form-control" id="Address">
-						</div>
-						<div class="col-12">
-							<label for="inputAddress" class="form-label">Max existencias</label>
-							<input type="text" class="form-control" id="Address">
-						</div>
-						<div class="col-12">
-							<label for="inputAddress" class="form-label">Categoria</label>
-							<input type="text" class="form-control" id="Address">
-						</div>
 
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="editarBoton">Guardar</button>
-						</div>
-				</div>
+
+				</form>
+
 			</div>
 
-
-			</form>
-
 		</div>
-
-	</div>
 	</div>
 
 	{{!-- ------------------------------------------- MODAL VER DETALLE --------------------------------------------
@@ -265,6 +260,12 @@
 				</div>
 				<div class="modal-body">
 					<form class="row g-3">
+
+						<div class="col-12">
+							<img src="https://copservir.vtexassets.com/arquivos/ids/773025/LECHE-ALQUERIA-ENTERA_F.png?v=637951135283030000"
+								alt="Imagen del producto" class="img-fluid">
+						</div>
+
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Nombre producto: leche alqueria</label>
 						</div>
@@ -286,88 +287,87 @@
 						<div class="col-12">
 							<label for="inputAddress" class="form-label">Categoria:lacteos</label>
 						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-						</div>
+					</form>
 				</div>
 			</div>
-
-
-			</form>
-
 		</div>
+	</div>
 
-	</div>
-	</div>
 
 	<!-- endPageContent -->
+	<script>
+		// Función para validar números mayores a cero
+	
+	</script>
+
+	{{!-- inicio alerts --}}
 	<script>
 		const guardarBoton = document.getElementById("guardarBoton");
 
 		guardarBoton.addEventListener("click", function () {
-    Swal.fire({
-        position: "top-center",
-        icon: "success",
-        title: "¡Producto guardado exitosamente!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-});
+			Swal.fire({
+				position: "top-center",
+				icon: "success",
+				title: "¡Producto guardado exitosamente!",
+				showConfirmButton: false,
+				timer: 1500
+			});
+		});
 
-const editarBoton = document.getElementById("editarBoton");
+		const editarBoton = document.getElementById("editarBoton");
 
-editarBoton.addEventListener("click", function () {
-    Swal.fire({
-        position: "top-center",
-        icon: "success",
-        title: "¡Producto editado exitosamente!",
-        showConfirmButton: false,
-        timer: 1500
-      });
-});
+		editarBoton.addEventListener("click", function () {
+			Swal.fire({
+				position: "top-center",
+				icon: "success",
+				title: "¡Producto editado exitosamente!",
+				showConfirmButton: false,
+				timer: 1500
+			});
+		});
 
 
-const botonBorrar = document.getElementsByName("borrarBoton");
+		const botonBorrar = document.getElementsByName("borrarBoton");
 
-for (let i = 0; i < botonBorrar.length; i++) {
-    botonBorrar[i].addEventListener("click", function() {
-        // Código a ejecutar cuando se hace clic en cualquier botón "borrarBoton"
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-              confirmButton: "btn btn-success",
-              cancelButton: "btn btn-danger"
-            },
-            buttonsStyling: false
-          });
-          swalWithBootstrapButtons.fire({
-            title: "Estas seguro?",
-            text: "Esta acción no se puede deshacer.",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "Si, eliminar!",
-            cancelButtonText: "No, cancelar!",
-            reverseButtons: true
-          }).then((result) => {
-            if (result.isConfirmed) {
-              swalWithBootstrapButtons.fire({
-                title: "Eliminado!",
-                text: "El archivo a sido eliminado.",
-                icon: "success"
-              });
-            } else if (
-              result.dismiss === Swal.DismissReason.cancel
-            ) {
-              swalWithBootstrapButtons.fire({
-                title: "Cancelado",
-                text: "El registro es a salvo :)",
-                icon: "error"
-              });
-            }
-          });
-    });
-}
+		for (let i = 0; i < botonBorrar.length; i++) {
+			botonBorrar[i].addEventListener("click", function () {
+				// Código a ejecutar cuando se hace clic en cualquier botón "borrarBoton"
+				const swalWithBootstrapButtons = Swal.mixin({
+					customClass: {
+						confirmButton: "btn btn-success",
+						cancelButton: "btn btn-danger"
+					},
+					buttonsStyling: false
+				});
+				swalWithBootstrapButtons.fire({
+					title: "Estas seguro?",
+					text: "Esta acción no se puede deshacer.",
+					icon: "warning",
+					showCancelButton: true,
+					confirmButtonText: "Si, eliminar!",
+					cancelButtonText: "No, cancelar!",
+					reverseButtons: true
+				}).then((result) => {
+					if (result.isConfirmed) {
+						swalWithBootstrapButtons.fire({
+							title: "Eliminado!",
+							text: "El archivo a sido eliminado.",
+							icon: "success"
+						});
+					} else if (
+						result.dismiss === Swal.DismissReason.cancel
+					) {
+						swalWithBootstrapButtons.fire({
+							title: "Cancelado",
+							text: "El registro es a salvo :)",
+							icon: "error"
+						});
+					}
+				});
+			});
+		}
 	</script>
-
+	{{!-- end alerts --}}
 
 
 

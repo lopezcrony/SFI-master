@@ -26,20 +26,55 @@
     {{>navLateral }}
     <!-- pageContent -->
     <section class="full-width pageContent">
-        {{!-- CRUD --}}
+        {{!-- FORM --}}
+
         <div id="wrapper">
-           
+
             <div id="content-wrapper" class="d-flex flex-column">
                 <div id="content">
                     <div class="container-fluid">
                         <div class="card shadow mb-4">
-                            <div class="card-header py-3 d-flex justify-content-between">
-                                <h1>Entradas</h1>
+                            <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary"></h6>
-                                <a href="/entradasregistro"  class="btn btn-success"><i class="bi bi-person-plus"></i> Agregar</a>
+                                <h1>Registrar entrada</h1>
                             </div>
 
-                            
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <div class="container d-flex justify-content-center">
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <form class="row g-3">
+                                                    <div class="col-md-6">
+                                                        <label for="searchInput" class="form-label">Buscar
+                                                            producto</label>
+                                                        <input type="text" class="form-control" id="searchInput"
+                                                            placeholder="Ingrese nombre del producto">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputPhone" class="form-label">cod. barras</label>
+                                                        <input type="password" class="form-control" id="Phone">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputPhone" class="form-label">cantidad</label>
+                                                        <input type="password" class="form-control" id="Phone">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputPhone" class="form-label">valor
+                                                            unitario</label>
+                                                        <input type="password" class="form-control" id="Phone">
+                                                    </div>
+                                                    <div class="col-12 text-center"> <button type="button"
+                                                            class="btn btn-primary" id="guardarBoton">Guardar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{!-- tabladetalle --}}
+                                <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
@@ -85,7 +120,8 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            
+                            </div>
+                            </div>
                         </div>
                     </div>
                     <!-- /.container-fluid -->
@@ -94,6 +130,8 @@
             </div>
             <!-- End of Content Wrapper -->
         </div>
+
+
 
     </section>
 
