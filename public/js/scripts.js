@@ -52,7 +52,23 @@ function confirmStateChange() {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Estoy seguro"
-    })
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Estado modificado con éxito",
+                icon: "success",
+                timer: 1700
+            });
+        }else if (result.dismiss) {
+            Swal.fire({
+                title: "Cancelado",
+                text: "El proceso ha sido cancelado",
+                icon: "error",
+                timer: 3000
+            });
+        }
+    
+    });
   }
 // ------------------------------------------------ FORM VALIDATION ----------------------------------------------------
 function handleSubmit(event) {
