@@ -1,38 +1,77 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Form-v6 by Colorlib</title>
-	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!-- Font-->
-	<link rel="stylesheet" type="text/css" href="css/nunito-font.css">
-	<!-- Main Style Css -->
-    <link rel="stylesheet" href="css/recove.css"/>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-</head>
-<body class="form-v6">
-	<div class="page-content">
-		<div class="form-v6-content ">
-			<div class="form-left full-width">
-				<img src="assets/img/recove.jpg">
-			</div>
-			<form class="form-detail " action="#" method="post">
-				<h2>Recuperar contraseña</h2>
-				<div class="form-row m-2">
-					<input type="text" name="full-name" id="full-name" class="input-text" placeholder="USUARIO" required>
-				</div> 
-					<div class="form-row-last">
-						<input type="submit" name="recover" class="recover" value="Enviar">
-					</div>
-			
-				<div style="text-align: center;">
-					<span><a href="/">Iniciar sesión</a></span>
-				</div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/recove.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/recove.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="css/recove.css">
+	<link rel="stylesheet" href="css/sweetalert2.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <title>Login #3</title>
+  </head>
+  <body>
+  
+
+  <div class="half">
+    <div class="bg order-1 order-md-2" style="background-image: url('assets/img/carrots.jpg');"></div>
+    <div class="contents order-2 order-md-1">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-6">
+            <div class="form-block">
+              <div class="text-center mb-5">
+              <h3>Recupera tu contraseña</h3>
+              <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
+              </div>
+              <form action="#" method="post">
+                <div class="form-group first">
+                  <label for="username">Ingresa tu correo</label>
+                  <input type="text" class="form-control" placeholder="tu-email@gmail.com" id="username">
+                </div>
+                
+                <div class="d-sm-flex mb-5 align-items-center">
+                  <span class="ml-auto"><a href="/" class="forgot-pass">Iniciar sesión</a></span> 
+                </div>
 				
-			</form>
-		</div>
-	</div>
-</body>
+                <button type="button" class="btn btn-block btn-primary" data-bs-dismiss="modal" id="confirmBoton">Enviar</button>
+				
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	<script>
+		const confirmBoton = document.getElementById("confirmBoton");
+		confirmBoton.addEventListener("click", function () {
+    Swal.fire({
+		title: "Envio exitoso!",
+		text: "Se ha enviado exitosamente un link a su correo, por favor revise su bandeja de entrada para poder acceder al restablecimineto de su contraseña.",
+		icon: "success",
+		confirmButtonText: "Ok",
+		confirmButtonColor: "#7CAEE0",
+		})
+	});
+	</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
 </html>
