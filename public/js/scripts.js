@@ -32,7 +32,7 @@ function alertQuestion() {
                 icon: "success",
                 timer: 1500
             });
-        }else if (result.dismiss) {
+        } else if (result.dismiss) {
             Swal.fire({
                 title: "Cancelado",
                 text: "El proceso ha sido cancelado",
@@ -40,36 +40,17 @@ function alertQuestion() {
                 timer: 3000
             });
         }
-    
+
     });
 }
 
-function confirmStateChange() {
+function alertSuccesClients() {
     Swal.fire({
-        title: "¿Estás seguro del cambiar el estado?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Estoy seguro"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: "Estado modificado con éxito",
-                icon: "success",
-                timer: 1700
-            });
-        }else if (result.dismiss) {
-            Swal.fire({
-                title: "Cancelado",
-                text: "El proceso ha sido cancelado",
-                icon: "error",
-                timer: 3000
-            });
-        }
-    
+        icon: "success",
+        title: "Estado cambiado con éxito",
+        timer: 1200
     });
-  }
+}
 // ------------------------------------------------ FORM VALIDATION ----------------------------------------------------
 function handleSubmit(event) {
 
@@ -82,7 +63,7 @@ function handleSubmit(event) {
         setTimeout(function () {
             form.submit();
             resetForm(form);
-        }, 1200); 
+        }, 1200);
 
     } else {
         event.stopPropagation();
@@ -106,13 +87,12 @@ function handleSubmit(event) {
 document.querySelectorAll(".submit-button")
     .forEach(button => button.addEventListener("click", handleSubmit));
 
-
 // El botón de Enter funciona como un click
 document.querySelectorAll('input').forEach(input => {
-    input.addEventListener('keypress', function(event) {
-     
+    input.addEventListener('keypress', function (event) {
+
         if (event.key === 'Enter') {
-        
+
             const form = input.closest('form');
 
             const submitButton = form.querySelector('.submit-button');
@@ -141,7 +121,7 @@ function calculateRemainingDebt() {
     var remainingDebt = currentDebt - payment;
 
     document.getElementById('remainingDebt').innerText = '$' + remainingDebt.toFixed(2);
-    
+
 }
 
 function showAlert(event) {
@@ -156,7 +136,7 @@ function showAlert(event) {
         bootstrap.Modal.getInstance(modal).hide();
 
         alertSucces();
-        form.reset(); 
+        form.reset();
     }
 }
 
@@ -172,29 +152,22 @@ $('#payment').on('show.bs.modal', function (event) {
     modal.find('#currentDebt').text('$' + currentDebt);
 });
 
-// Valida que el botón de eliminar solo se muestre si la deuda actual es de 0
-function updateDeleteButtonVisibility() {
+// Valida que el botón de eliminar solo está disponible si la deuda actual es de 0
+function updateDeleteButtonAvailability() {
 
     const currentDebtElement1 = document.getElementById('tableCurrentDebt1');
     const deleteButton1 = document.getElementById('deleteButton1');
-
     const currentDebtElement2 = document.getElementById('tableCurrentDebt2');
     const deleteButton2 = document.getElementById('deleteButton2');
 
-    const currentDebt1 = parseFloat(currentDebtElement1.textContent);
+    const currentDebtValue1 = parseFloat(currentDebtElement1.innerText);
+    const currentDebtValue2 = parseFloat(currentDebtElement2.innerText);
 
-    if (currentDebt1 === 0) {
-        deleteButton1.style.display = 'inline-block';
-    } else {
-        deleteButton1.style.display = 'none';
-    }
 
-    const currentDebt2 = parseFloat(currentDebtElement2.textContent);
-    if (currentDebt2 === 0) {
-        deleteButton2.style.display = 'inline-block';
-    } else {
-        deleteButton2.style.display = 'none';
-    }
+
+    deleteButton1.disabled = (currentDebtElement1.textContent !== "0");
+    deleteButton2.disabled = (currentDebtElement2.textContent !== "0");
+
 }
 
 // El botón de abonar solo está disponible si hay una deuda pendiente
@@ -209,7 +182,7 @@ function updateAbonarButtonAvailability() {
     abonarButton2.disabled = (currentDebt2 === 0);
 }
 
-updateDeleteButtonVisibility();
+updateDeleteButtonAvailability();
 updateAbonarButtonAvailability();
 
 

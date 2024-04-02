@@ -24,7 +24,7 @@
 	{{>navBar }}
 	<!-- navLateral -->
 	{{>navLateral }}
-	
+
 	{{!-- ------------------------------------------- PAGE CONTENT ------------------------------------------ --}}
 	<section class="full-width pageContent">
 
@@ -37,7 +37,7 @@
 							<div class="card-header py-3 d-flex justify-content-between">
 								<h1>Clientes</h1>
 								<h6 class="m-0 font-weight-bold text-primary"></h6>
-								
+
 								<button type="button" class="btn btn-success" data-bs-toggle="modal"
 									data-bs-target="#createModal">
 									<i class="bi bi-person-plus"></i> Agregar</button>
@@ -53,8 +53,7 @@
 												<th>APELLIDO</th>
 												<th>DIRECCIÓN</th>
 												<th>TELÉFONO</th>
-												<th>ESTADO</th>
-												<th>EDITAR</th>
+												<th>ACCIONES</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -64,19 +63,20 @@
 												<td>Fernandez</td>
 												<td>Cll 50B</td>
 												<td>3002500146</td>
-												<td>
-													<div class="form-check form-switch m-1">
-														<div class="form-check form-switch m-3">
-															<input class="form-check-input" type="checkbox"
-																role="switch" checked onchange="confirmStateChange()">
+												<td class="align-middle text-center">
+													<div
+														style="display: flex; justify-content: center; align-items: center;">
+														<div style="margin-right: 10px;">
+															<div class="form-check form-switch">
+															<input class="form-check-input" type="checkbox" role="switch" checked onclick="alertSuccesClients()">
+
+															</div>
 														</div>
+														<button class="btn btn-warning" data-bs-toggle="modal"
+															data-bs-target="#editModal">
+															<i class="bi bi-pen"></i>
+														</button>
 													</div>
-												</td>
-												<td>
-													<button class="btn btn-warning p-2" data-bs-toggle="modal"
-														data-bs-target="#editModal">
-														<i class="bi bi-pen"></i>
-													</button>
 												</td>
 											</tr>
 											<tr>
@@ -85,25 +85,26 @@
 												<td>González</td>
 												<td>Cll 77A</td>
 												<td>3003200418</td>
-												<td>
-													<div class="form-check form-switch m-2">
-														<div class="form-check form-switch m-3">
-															<input class="form-check-input" type="checkbox"
-																role="switch" checked onchange="confirmStateChange()">
+												<td class="align-middle text-center">
+													<div
+														style="display: flex; justify-content: center; align-items: center;">
+														<div style="margin-right: 10px;">
+															<div class="form-check form-switch ">
+																<input class="form-check-input" type="checkbox" role="switch" checked onclick="alertSuccesClients()">
+															</div>
 														</div>
+														<button class="btn btn-warning p-2" data-bs-toggle="modal"
+															data-bs-target="#editModal">
+															<i class="bi bi-pen"></i>
+														</button>
 													</div>
-												</td>
-												<td>
-													<button class="btn btn-warning p-2" data-bs-toggle="modal"
-														data-bs-target="#editModal">
-														<i class="bi bi-pen"></i>
-													</button>
 												</td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
 							</div>
+
 						</div>
 					</div>
 					<!-- /.container-fluid -->
@@ -212,7 +213,7 @@
 	<script src="js/main.js"></script>
 
 	{{!-- FORM VALIDATION --}}
-	
+
 	<script src="js/scripts.js"></script>
 
 </body>
