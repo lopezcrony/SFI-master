@@ -68,7 +68,9 @@
 														style="display: flex; justify-content: center; align-items: center;">
 														<div style="margin-right: 10px;">
 															<div class="form-check form-switch">
-															<input class="form-check-input" type="checkbox" role="switch" checked onclick="alertSuccesClients()">
+																<input class="form-check-input" type="checkbox"
+																	role="switch" checked
+																	onclick="alertSuccesClients()">
 
 															</div>
 														</div>
@@ -90,7 +92,9 @@
 														style="display: flex; justify-content: center; align-items: center;">
 														<div style="margin-right: 10px;">
 															<div class="form-check form-switch ">
-																<input class="form-check-input" type="checkbox" role="switch" checked onclick="alertSuccesClients()">
+																<input class="form-check-input" type="checkbox"
+																	role="switch" checked
+																	onclick="alertSuccesClients()">
 															</div>
 														</div>
 														<button class="btn btn-warning p-2" data-bs-toggle="modal"
@@ -127,24 +131,31 @@
 				<div class="modal-body ">
 
 					<form class="row g-3 form">
+						<p class="text-muted">Todos los campos marcados con <span class="text-danger">*</span> son
+							obligatorios</p>
+
 						<div class="col-md-6">
-							<label for="inputName" class="form-label">Nombre</label>
+							<label for="inputName" class="form-label">Nombre<span class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="Name" pattern="[A-Za-z\s]+" required>
 						</div>
 						<div class="col-6">
-							<label for="inputLastName" class="form-label">Apellido</label>
+							<label for="inputLastName" class="form-label">Apellido<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="LastName" pattern="[A-Za-z\s]+" required>
 						</div>
 						<div class="col-md-6">
-							<label for="inputIdentification" class="form-label">Cédula</label>
+							<label for="inputIdentification" class="form-label">Cédula<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="identification" pattern="[0-9.]+" required>
 						</div>
 						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Teléfono</label>
+							<label for="inputPhone" class="form-label">Teléfono<span
+									class="text-danger">*</span></label>
 							<input type="number" class="form-control" id="Phone" pattern="[0-9]+" required>
 						</div>
 						<div class="col-12">
-							<label for="inputAddress" class="form-label">Dirección</label>
+							<label for="inputAddress" class="form-label">Dirección<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="Address" required>
 						</div>
 						<div class="modal-footer">
@@ -170,24 +181,30 @@
 				<div class="modal-body">
 
 					<form class="row g-3 form">
+						<p class="text-muted">Todos los campos marcados con <span class="text-danger">*</span> son
+							obligatorios</p>
 						<div class="col-md-6">
-							<label for="inputName" class="form-label">Nombre</label>
+							<label for="inputName" class="form-label">Nombre<span class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="Name" pattern="[A-Za-z\s]+" required>
 						</div>
 						<div class="col-6">
-							<label for="inputLastName" class="form-label">Apellido</label>
+							<label for="inputLastName" class="form-label">Apellido<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="LastName" pattern="[A-Za-z\s]+" required>
 						</div>
 						<div class="col-md-6">
-							<label for="inputIdentification" class="form-label">Cédula</label>
+							<label for="inputIdentification" class="form-label">Cédula<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="identification" pattern="[0-9.]+" required>
 						</div>
 						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Teléfono</label>
+							<label for="inputPhone" class="form-label">Teléfono<span
+									class="text-danger">*</span></label>
 							<input type="number" class="form-control" id="Phone" pattern="[0-9]+" required>
 						</div>
 						<div class="col-12">
-							<label for="inputAddress" class="form-label">Dirección</label>
+							<label for="inputAddress" class="form-label">Dirección<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="Address" required>
 						</div>
 						<div class="modal-footer">

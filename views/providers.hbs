@@ -130,25 +130,30 @@
 				<div class="modal-body">
 
 					<form class="row g-3 form">
+						<p class="text-muted">Todos los campos marcados con <span class="text-danger">*</span> son obligatorios</p>
 						<div class="col-md-6">
-							<label for="inputNit" class="form-label">NIT</label>
+							<label for="inputNit" class="form-label">NIT<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="nit1" pattern="[0-9]+" required>
 						</div>
 						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Teléfono</label>
+							<label for="inputPhone" class="form-label">Teléfono<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="phone1" pattern="[0-9]+"
 								title="Ingrese solo números" required>
 						</div>
 						<div class="col-md-6">
-							<label for="inputName" class="form-label">Nombre de la Empresa</label>
+							<label for="inputName" class="form-label">Nombre de la Empresa<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="name1" pattern="[A-Za-z\s.,]+" required>
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Nombre del vendedor</label>
-							<input type="text" class="form-control" id="Seller1" pattern="[A-Za-z\s]+" required>
+							<input type="text" class="form-control" id="Seller1" pattern="[A-Za-z\s]+">
 						</div>
 						<div class="col-md-12">
-							<label for="inputAddress" class="form-label">Dirección</label>
+							<label for="inputAddress" class="form-label">Dirección de la empresa <span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="address1" required>
 						</div>
 
@@ -244,28 +249,33 @@
 				<div class="modal-body">
 
 					<form class="row g-3 form">
+						<p class="text-muted">Todos los campos marcados con <span class="text-danger">*</span> son
 						<div class="col-md-6">
-							<label for="inputNit" class="form-label">NIT</label>
+							<label for="inputNit" class="form-label">NIT <span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="nit1" pattern="[0-9]+"
 								title="Ingrese solo números" required>
 						</div>
 						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Teléfono</label>
+							<label for="inputPhone" class="form-label">Teléfono <span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="phone1" pattern="[0-9]+"
 								title="Ingrese solo números" required>
 						</div>
 						<div class="col-6">
-							<label for="inputName" class="form-label">Nombre de la Empresa</label>
+							<label for="inputName" class="form-label">Nombre de la Empresa <span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="name1" pattern="[A-Za-z\s.,]+"
 								title="Ingrese solo letras" required>
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Nombre del vendedor</label>
 							<input type="text" class="form-control" id="Seller1" pattern="[A-Za-z\s]+"
-								title="Ingrese solo letras" required>
+								title="Ingrese solo letras">
 						</div>
 						<div class="col-12">
-							<label for="inputAddress" class="form-label">Dirección</label>
+							<label for="inputAddress" class="form-label">Dirección de la empresa <span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="address1" required>
 						</div>
 
