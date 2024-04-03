@@ -22,10 +22,6 @@ app.get('/roles', (req, res) => {
   res.render('roles')
 });
 
-app.get('/home', (req, res) => {
-  res.render('home')
-});
-
 app.get('/dashboard', (req, res) => {
   res.render('dashboard')
 });

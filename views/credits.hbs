@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/sweetalert2.css">
     <link rel="stylesheet" href="css/material.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="vendor/datatables/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 
 
@@ -25,15 +27,8 @@
     <!-- navLateral -->
     {{>navLateral }}
 
-{{!-- ----------------------------------------- PAGE CONTENT ------------------------------------------ --}}
-    <section class="full-width pageContent">
-
-        <section class="full-width header-well">
-
-            <div class="full-width header-well-text">
-
-            </div>
-        </section>
+    {{!-- ----------------------------------------- PAGE CONTENT ------------------------------------------ --}}
+    <section class="full-width pageContent mt-4">
 
         {{!-- CRUD --}}
         <div id="wrapper">
@@ -42,6 +37,7 @@
                     <div class="container-fluid">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
+                                <h1>Créditos</h1>
                                 <h6 class="m-0 font-weight-bold text-primary"></h6>
                             </div>
 
@@ -51,12 +47,10 @@
                                         <thead>
                                             <tr>
                                                 <th>NOMBRE</th>
-                                                <th>VALOR ORIGINAL</th>
+                                                <th>DEUDA TOTAL</th>
                                                 <th>DEUDA ACTUAL</th>
                                                 <th>TOTAL ABONOS</th>
-                                                <th>ABONAR</th>
-                                                <th>BORRAR</th>
-                                                <th>HISTORIAL</th>
+                                                <th>ACCIONES</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -65,24 +59,19 @@
                                                 <td>93.000</td>
                                                 <td id="tableCurrentDebt1">0</td>
                                                 <td>93.000</td>
-                                                <td>
+                                                <td class="d-flex justify-content-center align-items-center">
                                                     <button id="abonarButton1" class="btn btn-success p-2"
                                                         data-bs-toggle="modal" data-bs-target="#payment"
                                                         data-original-value="93000" data-current-debt="0"
                                                         onclick="abonar()">
                                                         <i class="bi bi-cash"></i>
                                                     </button>
-                                                </td>
-                                                <td>
-                                                    <button id="deleteButton1" class="btn btn-danger p-2"
+                                                    <button id="deleteButton1" class="btn btn-danger p-2 ms-2"
                                                         onclick="alertQuestion()">
                                                         <i class="bi bi-trash-fill"></i>
                                                     </button>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-primary p-2 col-4 align-items-center align-content-center text-align-center"
-                                                        data-bs-toggle="modal" data-bs-target="#detailsModal">
+                                                    <button class="btn btn-primary p-2 ms-2" data-bs-toggle="modal"
+                                                        data-bs-target="#detailsModal">
                                                         <i class="bi bi-eye-fill"></i>
                                                     </button>
                                                 </td>
@@ -92,24 +81,19 @@
                                                 <td>68.000</td>
                                                 <td id="tableCurrentDebt2">60.000</td>
                                                 <td>8.000</td>
-                                                <td>
+                                                <td class="d-flex justify-content-center align-items-center">
                                                     <button id="abonarButton2" class="btn btn-success p-2"
                                                         data-bs-toggle="modal" data-bs-target="#payment"
                                                         data-original-value="68000" data-current-debt="60000"
                                                         onclick="abonar()">
                                                         <i class="bi bi-cash"></i>
                                                     </button>
-                                                </td>
-                                                <td>
-                                                    <button id="deleteButton2" class="btn btn-danger p-2"
+                                                    <button id="deleteButton2" class="btn btn-danger p-2 ms-2"
                                                         onclick="alertQuestion()">
                                                         <i class="bi bi-trash-fill"></i>
                                                     </button>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-primary p-2 col-4 align-items-center align-content-center text-align-center"
-                                                        data-bs-toggle="modal" data-bs-target="#detailsModal">
+                                                    <button class="btn btn-primary p-2 ms-2" data-bs-toggle="modal"
+                                                        data-bs-target="#detailsModal">
                                                         <i class="bi bi-eye-fill"></i>
                                                     </button>
                                                 </td>
@@ -118,6 +102,7 @@
                                     </table>
                                 </div>
                             </div>
+
 
                         </div>
                     </div>
@@ -129,7 +114,7 @@
         </div>
     </section>
 
-{{!-- ------------------------------------------- PAYMENT ------------------------------------------- --}}
+    {{!-- ------------------------------------------- PAYMENT ------------------------------------------- --}}
     <div class="modal fade" id="payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -163,7 +148,7 @@
                                                 placeholder="Cantidad a abonar" pattern="[0-9]+(\.[0-9]+)?"
                                                 title="Ingrese un número decimal válido"
                                                 oninput="calculateRemainingDebt()" required>
-                                                <div class="invalid-feedback">Formato inválido</div>
+                                            <div class="invalid-feedback">Formato inválido</div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -175,7 +160,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                           <button class="btn btn-primary" type="submit" onclick="showAlert(event)">Guardar</button>
+                            <button class="btn btn-primary" type="submit" onclick="showAlert(event)">Guardar</button>
                         </div>
                     </form>
                 </div>
@@ -183,69 +168,103 @@
         </div>
     </div>
 
-{{!-- ------------------------------------------- DETAILS ------------------------------------------- --}}
+    {{!-- ------------------------------------------- DETAILS ------------------------------------------- --}}
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
 
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Historial de créditos</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="modal-body">
 
-                        <div id="detailsCredit"
-                            style="border: 1px solid #ccc; border-radius: 5px; padding: 20px; margin: 20px auto; width: 80%; max-width: 600px;">
-                            <div style="margin-bottom: 20px;">
-                                <h3 id="usuarioNombre" style="margin-bottom: 10px; color: #333;">Nombre Usuario</h3>
-                                <table id="listaCreditos" style="width: 100%;">
-                                    <tr>
-                                        <th style="text-align: left;">Fecha</th>
-                                        <th style="text-align: left;">Valor</th>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-right: 20px;">03/02/2024</td>
-                                        <td>$10.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-right: 20px;">05/02/2024</td>
-                                        <td>$20.000</td>
-                                    </tr>
+                <div class="modal-body">
+                    <h3 id="usuarioNombre" style="margin-bottom: 10px; color: #333;">Nombre Usuario</h3>
+                    <div id="detailsCredit"
+                        style="border: 1px solid #ccc; border-radius: 5px; padding: 20px; margin: 20px auto; width: 80%; max-width: 600px;">
+                        
+                        
+
+                        <div class="card-body text-center">
+                            <h6>HISTORIAL DE CRÉDITOS</h6>
+                            <p>------------------------------------------------------</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>FECHA</th>
+                                            <th>MOTIVO</th>
+                                            <th>TOTAL</th>
+                                            <th>ACCIONES</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>10/3/2024</td>
+                                            <td>CRÉDITO</td>
+                                            <td>50.000</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>20/3/2024</td>
+                                            <td>ABONO</td>
+                                            <td>10.000</td>
+                                            <td>
+                                                <button id="deleteButton2" class="btn btn-danger p-2 ms-2"
+                                                    onclick="alertQuestion()">
+                                                    <i class="bi bi-x-circle"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>23/3/2024</td>
+                                            <td>ABONO</td>
+                                            <td>20.000</td>
+                                            <td>
+                                                <button id="deleteButton2" class="btn btn-danger p-2 ms-2"
+                                                    onclick="alertQuestion()">
+                                                    <i class="bi bi-x-circle"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
-                            <p>------------------------------------------------------</p>
-                            <table id="totalTable" style="width: 100%;">
-                                <tr>
-                                    <td>Total deuda:</td>
-                                    <td style="text-align: right; font-weight: bold; color: #ff0000;">$30.000</td>
-                                </tr>
-                                <tr>
-                                    <td>Total abonos:</td>
-                                    <td style="text-align: right; font-weight: bold; color: #009900;">$15.000</td>
-                                </tr>
-                                <tr>
-                                    <td>Deuda restante:</td>
-                                    <td style="text-align: right; font-weight: bold; color: #ff6600;">$15.000</td>
-                                </tr>
-                            </table>
                         </div>
 
-
-
-
-
-
+                        <p>------------------------------------------------------</p>
+                        <table id="totalTable" style="width: 100%;">
+                            <tr>
+                                <td>TOTAL DEUDA</td>
+                                <td style="text-align: right; font-weight: bold; color: #ff0000;">
+                                    $50.000</td>
+                            </tr>
+                            <tr>
+                                <td>TOTAL ABONOS</td>
+                                <td style="text-align: right; font-weight: bold; color: #009900;">
+                                    $30.000</td>
+                            </tr>
+                            <tr>
+                                <td>DEUDA RESTANTE</td>
+                                <td style="text-align: right; font-weight: bold; color: #ff6600;">
+                                    $20.000</td>
+                            </tr>
+                        </table>
                     </div>
 
+
+
+
+
+
                 </div>
+
+
 
             </div>
         </div>
     </div>
 
     <!-- endPageContent -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/jquery-1.11.2.min.js"></script>
@@ -257,7 +276,9 @@
     <script src="js/sweetalert2.min.js"></script>
     <script src="js/main.js"></script>
 
-	<script src="js/scripts.js"></script>
+    <!-- Form validation -->
+    <script src="js/scripts.js"></script>
+
 
 </body>
 
