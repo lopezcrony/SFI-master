@@ -48,7 +48,8 @@ function alertSuccesClients() {
     Swal.fire({
         icon: "success",
         title: "Estado cambiado con éxito",
-        timer: 1200
+        timer: 1200,
+        showConfirmButton: false
     });
 }
 // ------------------------------------------------ FORM VALIDATION ----------------------------------------------------

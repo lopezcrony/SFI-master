@@ -53,6 +53,7 @@
 												<th>ID</th>
 												<th>ROL</th>
 												<th>PERMISOS</th>
+												<td>ESTADO</td>
 												<th>ACCIONES</th>
 											</tr>
 										</thead>
@@ -61,6 +62,18 @@
 												<td>001</td>
 												<td>Administrador</td>
 												<td>Todos</td>
+												<td class="align-middle text-center">
+													<div
+														style="display: flex; justify-content: center; align-items: center;">
+														<div style="margin-right: 10px;">
+															<div class="form-check form-switch ">
+																<input class="form-check-input" type="checkbox"
+																	role="switch" checked
+																	onclick="alertSuccesClients()">
+															</div>
+														</div>
+													</div>
+												</td>
 												<td>
 													{{!-- boton grup --}}
 													<div class="btn-group" role="group" aria-label="Basic example">
@@ -78,6 +91,18 @@
 												<td>002</td>
 												<td>Empleado</td>
 												<td>Abonos-Ventas</td>
+												<td class="align-middle text-center">
+													<div
+														style="display: flex; justify-content: center; align-items: center;">
+														<div style="margin-right: 10px;">
+															<div class="form-check form-switch ">
+																<input class="form-check-input" type="checkbox"
+																	role="switch" checked
+																	onclick="alertSuccesClients()">
+															</div>
+														</div>
+													</div>
+												</td>
 												<td>
 													<div class="btn-group" role="group" aria-label="Basic example">
 														<button type="button" class="btn btn-warning "
@@ -336,6 +361,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="js/sweetalert2.min.js"></script>
 	<script src="js/main.js"></script>
+
+	<!-- Form validation -->
+	<script src="js/scripts.js"></script>
 
 </body>
 
