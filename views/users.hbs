@@ -140,7 +140,8 @@
 
 	</section>
 
-	{{!-- --------------------------------------------MODAL CREATE------------------------------------------ --}}
+	{{!-- --------------------------------------------MODAL CREATE (Añadir)------------------------------------------
+	--}}
 	<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -150,36 +151,53 @@
 				</div>
 				<div class="modal-body">
 					<form class="row g-3" id="createForm">
+						<p class="text-muted">Todos los campos marcados con <span class="text-danger">*</span> son obligatorios</p>
 						<div class="col-6">
-							<label for="inputName" class="form-label">Nombre</label>
+							<label for="inputName" class="form-label">Nombre<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="nombre" required pattern="[A-Za-z\s]+">
 						</div>
 						<div class="col-6">
-							<label for="inputName" class="form-label">Apellido</label>
+							<label for="inputName" class="form-label">Apellido<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="apellido" required pattern="[A-Za-z\s]+">
 						</div>
+						<div class="col-md-6">
+							<label for="inputSeller" class="form-label">Seleccione su tipo de documento<span
+									class="text-danger">*</span></label>
+							<select class="form-select" id="tiposId" required>
+								<option value="opcion1">Cédula de ciudadania</option>
+								<option value="opcion2">Cédula de extranjería</option>
+								<option value="opcion2">Tarjeta de identidad</option>
+							</select>
+						</div>
+						<div class="col-md-6">
+							<label for="inputSeller" class="form-label">Número de documento<span
+									class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="cédula" required pattern="^\d{5,10}$">
+						</div>
 						<div class="col-6">
-							<label for="inputName" class="form-label">Teléfono</label>
-							<input type="text" class="form-control" id="teléfono" required pattern="\d{10}">
+							<label for="inputName" class="form-label">Teléfono<span
+									class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="teléfono" required pattern="\d{7,10}">
 						</div>
 						<div class="col-md-6">
-							<label for="inputSeller" class="form-label">Cédula</label>
-							<input type="text" class="form-control" id="cédula" required pattern="\d{10}">
-						</div>
-						<div class="col-md-6">
-							<label for="inputSeller" class="form-label">Correo</label>
+							<label for="inputSeller" class="form-label">Correo<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="correo" required
-								pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+								pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
 						</div>
 						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Contraseña</label>
+							<label for="inputPhone" class="form-label">Contraseña<span
+									class="text-danger">*</span></label>
 							<input type="password" class="form-control" id="contraseña" required
-								pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,16}">
+								pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$">
 						</div>
 						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Confirmar contraseña</label>
+							<label for="inputPhone" class="form-label">Confirmar contraseña<span
+									class="text-danger">*</span></label>
 							<input type="password" class="form-control" id="ConfirmarContraseña" required
-								pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,16}">
+								pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$">
 						</div>
 
 						<div class="modal-footer">
@@ -206,29 +224,37 @@
 				</div>
 				<div class="modal-body">
 					<form class="row g-3" id="editForm">
+						<p class="text-muted">Todos los campos marcados con <span class="text-danger">*</span> son obligatorios</p>
 						<div class="col-6">
-							<label for="inputName" class="form-label">Nombre</label>
-							<input type="text" class="form-control" id="Nombre" requiered pattern="[a-zA-Z0-9]+">
+							<label for="inputName" class="form-label">Nombre<span
+									class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="Nombre" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-6">
-							<label for="inputName" class="form-label">Apellido</label>
+							<label for="inputName" class="form-label">Apellido<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="Apellido" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-6">
-							<label for="correo" class="form-label">Correo</label>
-							<input type="text" class="form-control" id="correo" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+							<label for="correo" class="form-label">Correo<span
+									class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="correo" required
+								pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
 						</div>
 						<div class="col-md-6">
-							<label for="inputSeller" class="form-label">Teléfono</label>
+							<label for="inputSeller" class="form-label">Teléfono<span
+									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="Tel" required pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Contraseña</label>
-							<input type="password" class="form-control" id="Contraseña" requiered
+							<label for="inputPhone" class="form-label">Contraseña<span
+									class="text-danger">*</span></label>
+							<input type="password" class="form-control" id="Contraseña" required
 								pattern="[a-zA-Z0-9]+">
 						</div>
 						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Confirmar contraseña</label>
+							<label for="inputPhone" class="form-label">Confirmar contraseña<span
+									class="text-danger">*</span></label>
 							<input type="password" class="form-control" id="ConfirmarContraseña" required
 								pattern="[a-zA-Z0-9]+">
 						</div>
@@ -278,9 +304,9 @@
 			}
 		}
 
-		// Crear Usuario
+		// Crear Usuario (Añadir)
 
-		function crear() {
+		 function crear() {
 			Swal.fire({
 				position: "top-center",
 				icon: "success",
@@ -290,18 +316,30 @@
 			});
 		}
 
-		// Función para manejar la validación y envío del primer formulario
 		function handleSubmit1() {
 			var form = document.getElementById("createForm");
+			var password = document.getElementById("contraseña").value;
+			var confirmPassword = document.getElementById("ConfirmarContraseña").value;
+
+			// Verifica si las contraseñas coinciden
+			if (password !== confirmPassword) {
+				// Muestra un mensaje de error si las contraseñas no coinciden
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Las contraseñas no coinciden',
+					showConfirmButton: true
+				});
+				return;
+			}
+
+			// Continúa con la validación del formulario si las contraseñas coinciden
 			if (form.checkValidity()) {
-				// Aquí puedes realizar acciones adicionales antes de enviar el formulario, si es necesario
 				setTimeout(function () {
 					form.submit();
 				}, 2000);
 
 				crear();
-
-				// Llama a la función confirmar solo si el formulario es válido
 			} else {
 				event.preventDefault();
 				event.stopPropagation();
