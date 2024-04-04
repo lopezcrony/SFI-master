@@ -17,6 +17,15 @@ function alertError() {
     });
 }
 
+function alertErrorPassword(){
+    Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Las contraseñas no coinciden',
+        showConfirmButton: true
+    });
+}
+
 function alertQuestion() {
     Swal.fire({
         title: "¿Estás seguro?",
@@ -64,9 +73,11 @@ function handleInputChange(event) {
         input.classList.remove('is-invalid');
     }
 }
+
 document.querySelectorAll('.form-control').forEach(input => {
     input.addEventListener('input', handleInputChange);
 });
+
 
 // Función para manejar el envío del formulario
 function handleSubmit(event) {
@@ -75,6 +86,12 @@ function handleSubmit(event) {
     var form = event.target.closest('.form');
     var isValid = true;
 
+    // Validar campos de contraseña y confirmar contraseña específicamente
+    if (!validatePasswordFields(form)) {
+        isValid = false;
+    }
+
+    // Validar el resto de los campos
     form.querySelectorAll('.form-control').forEach(input => {
         if (!input.checkValidity()) {
             input.classList.add('is-invalid');
@@ -92,8 +109,27 @@ function handleSubmit(event) {
         }, 1200);
     }
 }
+
 document.querySelectorAll(".submit-button")
     .forEach(button => button.addEventListener("click", handleSubmit));
+
+
+// Función para validar los campos de contraseña y confirmar contraseña
+function validatePasswordFields(form) {
+    var password = form.querySelector("#contraseña");
+    var confirmPassword = form.querySelector("#ConfirmarContraseña");
+
+    if (password.value !== confirmPassword.value) {
+        password.classList.add('is-invalid');
+        confirmPassword.classList.add('is-invalid');
+        alertErrorPassword();
+        return;
+    } else {
+        password.classList.remove('is-invalid');
+        confirmPassword.classList.remove('is-invalid');
+        return true;
+    }
+}
 
 // El botón de Enter funciona como un click
 document.querySelectorAll('input').forEach(input => {
