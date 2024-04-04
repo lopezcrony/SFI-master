@@ -41,7 +41,7 @@
 								<h6 class="m-0 font-weight-bold text-primary"></h6>
 								<button type="button" class="btn btn-success" data-bs-toggle="modal"
 									data-bs-target="#createModal">
-									<i class="bi bi-person-plus"></i> Agregar
+									<i class="zmdi zmdi-label"></i> Agregar
 								</button>
 							</div>
 
@@ -68,7 +68,7 @@
 													<button class="btn btn-warning p-2" data-bs-toggle="modal"
 														data-bs-target="#editModal"><i class="bi bi-pen"></i>
 													</button>
-													<button class="btn btn-danger p-2" name="botonBorrarcategoria"><i
+													<button class="btn btn-danger p-2" onclick="alertQuestion()"><i
 															class="bi bi-trash-fill"></i></button>
 												</td>
 											</tr>
@@ -85,7 +85,7 @@
 														data-bs-toggle="modal" data-bs-target="#editModal"><i
 															class="bi bi-pen"></i>
 													</button>
-													<button class="btn btn-danger p-2" name="botonBorrarcategoria"><i
+													<button class="btn btn-danger p-2" onclick="alertQuestion()"><i
 															class="bi bi-trash-fill"></i></button>
 												</td>
 											</tr>
@@ -220,47 +220,6 @@
 		}
 
 		document.querySelectorAll(".submit-button").forEach(button => button.addEventListener("click", handleSubmit));
-
-
-		const botonBorrarcategoria = document.getElementsByName("botonBorrarcategoria");
-
-		for (let i = 0; i < botonBorrarcategoria.length; i++) {
-			botonBorrarcategoria[i].addEventListener("click", function () {
-				// Código a ejecutar cuando se hace clic en cualquier botón "borrarBoton"
-				const swalWithBootstrapButtons = Swal.mixin({
-					customClass: {
-						confirmButton: "btn btn-success",
-						cancelButton: "btn btn-danger"
-					},
-					buttonsStyling: false
-				});
-				swalWithBootstrapButtons.fire({
-					title: "Estas seguro?",
-					text: "Esta acción no se puede deshacer.",
-					icon: "warning",
-					showCancelButton: true,
-					confirmButtonText: "Si, eliminar!",
-					cancelButtonText: "No, cancelar!",
-					reverseButtons: true
-				}).then((result) => {
-					if (result.isConfirmed) {
-						swalWithBootstrapButtons.fire({
-							title: "Eliminado!",
-							text: "La categoria a sido eliminada.",
-							icon: "success"
-						});
-					} else if (
-						result.dismiss === Swal.DismissReason.cancel
-					) {
-						swalWithBootstrapButtons.fire({
-							title: "Cancelado",
-							text: "La categoria esta a salvo :)",
-							icon: "error"
-						});
-					}
-				});
-			});
-		}
 	</script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
