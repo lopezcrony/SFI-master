@@ -39,25 +39,22 @@
             <form action="./dashboard" id="formLogin">
               <div class="form-group first">
                 <label for="username">Usuario</label>
-
-
-                <input for="correo" type="text" class="form-control" placeholder="" id="username" required
-                  pattern="/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;">
+                <input for="correo " type="text" class="form-control" placeholder="" id="username" required
+                  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
 
                 <div class="invalid-feedback">
-                  Por favor ingrese su correo electrónico.
+                  Por favor, ingresa una dirección de correo electrónico válida.
                 </div>
-
               </div>
 
               <div class="form-group last mb-3">
                 <label for="password">Contraseña</label>
 
                 <input type="password" class="form-control" placeholder="" id="password" required
-                  pattern="\d{2}">
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$">
 
                   <div class="invalid-feedback">
-                  Formato no valido.
+                  Por favor, recuerda utilizar una combinación de letras mayúsculas, minúsculas y números.
                   </div>
 
               </div>
