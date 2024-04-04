@@ -91,13 +91,14 @@
 													<div
 														style="display: flex; justify-content: center; align-items: center;">
 														<div style="margin-right: 10px;">
-															<div class="form-check form-switch ">
+															<div class="form-check form-switch">
 																<input class="form-check-input" type="checkbox"
 																	role="switch" checked
 																	onclick="alertSuccesClients()">
+
 															</div>
 														</div>
-														<button class="btn btn-warning p-2" data-bs-toggle="modal"
+														<button class="btn btn-warning" data-bs-toggle="modal"
 															data-bs-target="#editModal">
 															<i class="bi bi-pen"></i>
 														</button>
@@ -130,39 +131,52 @@
 
 				<div class="modal-body ">
 
-					<form class="row g-3 form">
-						<p class="text-muted">Todos los campos marcados con <span class="text-danger">*</span> son
-							obligatorios</p>
-
+					<form class="needs-validation row g-3 form" novalidate>
 						<div class="col-md-6">
-							<label for="inputName" class="form-label">Nombre<span class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="Name" pattern="[A-Za-z\s]+" required>
-						</div>
-						<div class="col-6">
-							<label for="inputLastName" class="form-label">Apellido<span
-									class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="LastName" pattern="[A-Za-z\s]+" required>
+							<label for="inputName" class="form-label">Nombre<span class="text-danger"> * </span></label>
+							<input type="text" class="form-control" id="inputName" pattern="[A-Za-z\s]+" required>
+							<div class="invalid-feedback">
+								Por favor ingresa un nombre válido.
+							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="inputIdentification" class="form-label">Cédula<span
-									class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="identification" pattern="[0-9.]+" required>
+							<label for="inputLastName" class="form-label">Apellido<span class="text-danger"> *
+								</span></label>
+							<input type="text" class="form-control" id="inputLastName" pattern="[A-Za-z\s]+" required>
+							<div class="invalid-feedback">
+								Por favor ingresa un apellido válido.
+							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Teléfono<span
-									class="text-danger">*</span></label>
-							<input type="number" class="form-control" id="Phone" pattern="[0-9]+" required>
+							<label for="inputIdentification" class="form-label">Cédula<span class="text-danger"> *
+								</span></label>
+							<input type="text" class="form-control" id="inputIdentification" pattern="[0-9]+" required>
+							<div class="invalid-feedback">
+								Por favor ingresa una cédula válida.
+							</div>
+						</div>
+						<div class="col-md-6">
+							<label for="inputPhone" class="form-label">Teléfono<span class="text-danger"> *
+								</span></label>
+							<input type="text" class="form-control" id="inputPhone" pattern="[0-9]+" required>
+							<div class="invalid-feedback">
+								Por favor ingresa un número de teléfono válido.
+							</div>
 						</div>
 						<div class="col-12">
-							<label for="inputAddress" class="form-label">Dirección<span
-									class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="Address" required>
+							<label for="inputAddress" class="form-label">Dirección<span class="text-danger"> *
+								</span></label>
+							<input type="text" class="form-control" id="inputAddress" required>
+							<div class="invalid-feedback">
+								Por favor ingresa una dirección válida.
+							</div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 							<button class="btn btn-primary submit-button" type="submit">Guardar</button>
 						</div>
 					</form>
+
 				</div>
 
 			</div>
@@ -180,38 +194,52 @@
 				</div>
 				<div class="modal-body">
 
-					<form class="row g-3 form">
-						<p class="text-muted">Todos los campos marcados con <span class="text-danger">*</span> son
-							obligatorios</p>
+					<form class="needs-validation row g-3 form" novalidate>
 						<div class="col-md-6">
-							<label for="inputName" class="form-label">Nombre<span class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="Name" pattern="[A-Za-z\s]+" required>
-						</div>
-						<div class="col-6">
-							<label for="inputLastName" class="form-label">Apellido<span
-									class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="LastName" pattern="[A-Za-z\s]+" required>
+							<label for="inputName" class="form-label">Nombre<span class="text-danger"> * </span></label>
+							<input type="text" class="form-control" id="inputName" pattern="[A-Za-z\s]+" required>
+							<div class="invalid-feedback">
+								Por favor ingresa un nombre válido.
+							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="inputIdentification" class="form-label">Cédula<span
-									class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="identification" pattern="[0-9.]+" required>
+							<label for="inputLastName" class="form-label">Apellido<span class="text-danger"> *
+								</span></label>
+							<input type="text" class="form-control" id="inputLastName" pattern="[A-Za-z\s]+" required>
+							<div class="invalid-feedback">
+								Por favor ingresa un apellido válido.
+							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Teléfono<span
-									class="text-danger">*</span></label>
-							<input type="number" class="form-control" id="Phone" pattern="[0-9]+" required>
+							<label for="inputIdentification" class="form-label">Cédula<span class="text-danger"> *
+								</span></label>
+							<input type="text" class="form-control" id="inputIdentification" pattern="[0-9]+" required>
+							<div class="invalid-feedback">
+								Por favor ingresa una cédula válida.
+							</div>
+						</div>
+						<div class="col-md-6">
+							<label for="inputPhone" class="form-label">Teléfono<span class="text-danger"> *
+								</span></label>
+							<input type="text" class="form-control" id="inputPhone" pattern="[0-9]+" required>
+							<div class="invalid-feedback">
+								Por favor ingresa un número de teléfono válido.
+							</div>
 						</div>
 						<div class="col-12">
-							<label for="inputAddress" class="form-label">Dirección<span
-									class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="Address" required>
+							<label for="inputAddress" class="form-label">Dirección<span class="text-danger"> *
+								</span></label>
+							<input type="text" class="form-control" id="inputAddress" required>
+							<div class="invalid-feedback">
+								Por favor ingresa una dirección válida.
+							</div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 							<button class="btn btn-primary submit-button" type="submit">Guardar</button>
 						</div>
 					</form>
+
 				</div>
 			</div>
 		</div>

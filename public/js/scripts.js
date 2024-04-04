@@ -4,7 +4,8 @@ function alertSucces() {
     Swal.fire({
         icon: "success",
         title: "Guardado con éxito",
-        timer: 1200
+        timer: 1200,
+        showConfirmButton: false
     });
 }
 
@@ -53,38 +54,48 @@ function alertSuccesClients() {
     });
 }
 // ------------------------------------------------ FORM VALIDATION ----------------------------------------------------
-function handleSubmit(event) {
+// Valida los campos en tiempo real
+function handleInputChange(event) {
+    var input = event.target;
 
+    if (!input.checkValidity()) {
+        input.classList.add('is-invalid');
+    } else {
+        input.classList.remove('is-invalid');
+    }
+}
+document.querySelectorAll('.form-control').forEach(input => {
+    input.addEventListener('input', handleInputChange);
+});
+
+// Función para manejar el envío del formulario
+function handleSubmit(event) {
     event.preventDefault();
 
     var form = event.target.closest('.form');
-    if (form.checkValidity()) {
-        alertSucces();
+    var isValid = true;
 
+    // Validar todos los campos antes de enviar el formulario
+    form.querySelectorAll('.form-control').forEach(input => {
+        if (!input.checkValidity()) {
+            // Si algún campo es inválido, mostrar el mensaje de error y marcarlo como inválido
+            input.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            // Si el campo es válido, marcarlo como válido
+            input.classList.remove('is-invalid');
+        }
+    });
+
+    // Si el formulario es válido, enviarlo y mostrar una alerta de éxito
+    if (isValid) {
+        alertSucces();
         setTimeout(function () {
             form.submit();
             resetForm(form);
         }, 1200);
-
-    } else {
-        event.stopPropagation();
-        form.classList.add('was-validated');
-
-        // Mensaje de error
-        form.querySelectorAll('.form-control').forEach(input => {
-            if (!input.checkValidity()) {
-                var invalidFeedback = input.nextElementSibling;
-                if (!invalidFeedback || !invalidFeedback.classList.contains('invalid-feedback')) {
-                    invalidFeedback = document.createElement('div');
-                    invalidFeedback.classList.add('invalid-feedback');
-                    invalidFeedback.textContent = "Formato inválido";
-                    input.parentNode.insertBefore(invalidFeedback, input.nextSibling);
-                }
-            }
-        });
     }
 }
-
 document.querySelectorAll(".submit-button")
     .forEach(button => button.addEventListener("click", handleSubmit));
 

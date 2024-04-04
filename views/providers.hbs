@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Proveedores</title>
-	
+
 	<link href="public/css/crud.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
@@ -39,7 +39,7 @@
 							<div class="card-header py-3 d-flex justify-content-between">
 								<h1>Proveedores</h1>
 								<h6 class="m-0 font-weight-bold text-primary"></h6>
-								
+
 								<button type="button" class="btn btn-success" data-bs-toggle="modal"
 									data-bs-target="#createModal">
 									<i class="bi bi-person-plus"></i> Agregar</button>
@@ -72,7 +72,9 @@
 														style="display: flex; justify-content: center; align-items: center;">
 														<div style="margin-right: 10px;">
 															<div class="form-check form-switch ">
-																<input class="form-check-input" type="checkbox" role="switch" checked onclick="alertSuccesClients()">
+																<input class="form-check-input" type="checkbox"
+																	role="switch" checked
+																	onclick="alertSuccesClients()">
 															</div>
 														</div>
 														<button class="btn btn-warning p-2" data-bs-toggle="modal"
@@ -94,7 +96,9 @@
 														style="display: flex; justify-content: center; align-items: center;">
 														<div style="margin-right: 10px;">
 															<div class="form-check form-switch ">
-																<input class="form-check-input" type="checkbox" role="switch" checked onclick="alertSuccesClients()">
+																<input class="form-check-input" type="checkbox"
+																	role="switch" checked
+																	onclick="alertSuccesClients()">
 															</div>
 														</div>
 														<button class="btn btn-warning p-2" data-bs-toggle="modal"
@@ -129,103 +133,73 @@
 
 				<div class="modal-body">
 
-					<form class="row g-3 form">
-						<p class="text-muted">Todos los campos marcados con <span class="text-danger">*</span> son obligatorios</p>
+					<form class="needs-validation row g-3 form" novalidate>
 						<div class="col-md-6">
-							<label for="inputNit" class="form-label">NIT<span
-									class="text-danger">*</span></label>
+							<label for="inputNit" class="form-label">NIT<span class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="nit1" pattern="[0-9]+" required>
+							<div class="invalid-feedback">Por favor ingresa un NIT válido.</div>
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Teléfono<span
 									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="phone1" pattern="[0-9]+"
 								title="Ingrese solo números" required>
+							<div class="invalid-feedback">Por favor ingresa un número válido.</div>
 						</div>
 						<div class="col-md-6">
-							<label for="inputName" class="form-label">Nombre de la Empresa<span
+							<label for="inputName" class="form-label">Nombre de la Empresa <span
 									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="name1" pattern="[A-Za-z\s.,]+" required>
+							<div class="invalid-feedback">Por favor ingresa un nombre de empresa válido.</div>
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Nombre del vendedor</label>
 							<input type="text" class="form-control" id="Seller1" pattern="[A-Za-z\s]+">
+							<div class="invalid-feedback">Por favor ingresa un nombre válido.</div>
 						</div>
 						<div class="col-md-12">
 							<label for="inputAddress" class="form-label">Dirección de la empresa <span
 									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="address1" required>
+							<div class="invalid-feedback">Por favor ingresa una dirección válida.</div>
 						</div>
-
-						<div class="row">
-							<div class="col-md-12 mt-3 text-center">
-								<label for="inputState" class="form-label margin-top-3 ">Horario</label>
-							</div>
-
-							<div class="col-md-3">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck8">
-									<label class="form-check-label" for="defaultCheck1">
-										Lunes
-									</label>
+						{{!-- ------------------------------------------ --}}
+						<!-- Dentro del cuerpo de tu formulario -->
+						<div class="col-12">
+							<div class="form-group">
+								<div class="col-md-12 text-center">
+									<label for="inputState" class="form-label">Horarios</label>
 								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck9">
-									<label class="form-check-label" for="defaultCheck2">
-										Martes
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck10">
-									<label class="form-check-label" for="defaultCheck3">
-										Miércoles
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck11">
-									<label class="form-check-label" for="defaultCheck4">
-										Jueves
-									</label>
-								</div>
-							</div>
-
-							<div class="col-md-3">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck12">
-									<label class="form-check-label" for="defaultCheck5">
-										Viernes
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck13">
-									<label class="form-check-label" for="defaultCheck6">
-										Sábado
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="defaultCheck14">
-									<label class="form-check-label" for="defaultCheck7">
-										Domingo
-									</label>
-								</div>
-							</div>
-
-							<div class="col-md-6">
-								<!-- Campos de hora -->
-								<div class="row">
-									<div class="col-md-12">
-										<label for="inputState" class="form-label">Desde</label>
-										<input type="time" id="start-time1" class="form-control">
+								<div id="horarioContainer">
+									<div class="row">
+										<div class="col-md-4">
+											<label class="form-label">Día</label>
+											<select class="form-control" name="dia${horarioCount}">
+												<option value="Lunes">Lunes</option>
+												<option value="Martes">Martes</option>
+												<option value="Miércoles">Miércoles</option>
+												<option value="Jueves">Jueves</option>
+												<option value="Viernes">Viernes</option>
+												<option value="Sábado">Sábado</option>
+												<option value="Domingo">Domingo</option>
+											</select>
+										</div>
+										<div class="col-md-4">
+											<label class="form-label">Desde</label>
+											<input type="time" class="form-control" name="desde${horarioCount}">
+										</div>
+										<div class="col-md-4">
+											<label class="form-label">Hasta</label>
+											<input type="time" class="form-control" name="hasta${horarioCount}">
+										</div>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<label for="inputState" class="form-label">Hasta</label>
-										<input type="time" id="end-time1" class="form-control">
-									</div>
-								</div>
+								<button type="button" class="btn btn-primary mt-4" id="agregarHorario">Agregar
+									Horario</button>
 							</div>
 						</div>
+
+						{{!-- -------------------------------------------- --}}
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 							<button class="btn btn-primary submit-button" type="submit">Guardar</button>
@@ -248,35 +222,35 @@
 				</div>
 				<div class="modal-body">
 
-					<form class="row g-3 form">
-						<p class="text-muted">Todos los campos marcados con <span class="text-danger">*</span> son
+					<form class="needs-validation row g-3 form" novalidate>
 						<div class="col-md-6">
-							<label for="inputNit" class="form-label">NIT <span
-									class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="nit1" pattern="[0-9]+"
-								title="Ingrese solo números" required>
+							<label for="inputNit" class="form-label">NIT<span class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="nit1" pattern="[0-9]+" required>
+							<div class="invalid-feedback">Por favor ingresa un NIT válido.</div>
 						</div>
 						<div class="col-md-6">
-							<label for="inputPhone" class="form-label">Teléfono <span
+							<label for="inputPhone" class="form-label">Teléfono<span
 									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="phone1" pattern="[0-9]+"
 								title="Ingrese solo números" required>
+							<div class="invalid-feedback">Por favor ingresa un número válido.</div>
 						</div>
-						<div class="col-6">
+						<div class="col-md-6">
 							<label for="inputName" class="form-label">Nombre de la Empresa <span
 									class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="name1" pattern="[A-Za-z\s.,]+"
-								title="Ingrese solo letras" required>
+							<input type="text" class="form-control" id="name1" pattern="[A-Za-z\s.,]+" required>
+							<div class="invalid-feedback">Por favor ingresa un nombre de empresa válido.</div>
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Nombre del vendedor</label>
-							<input type="text" class="form-control" id="Seller1" pattern="[A-Za-z\s]+"
-								title="Ingrese solo letras">
+							<input type="text" class="form-control" id="Seller1" pattern="[A-Za-z\s]+">
+							<div class="invalid-feedback">Por favor ingresa un nombre válido.</div>
 						</div>
-						<div class="col-12">
+						<div class="col-md-12">
 							<label for="inputAddress" class="form-label">Dirección de la empresa <span
 									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="address1" required>
+							<div class="invalid-feedback">Por favor ingresa una dirección válida.</div>
 						</div>
 
 						<div class="row">
@@ -348,7 +322,6 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 							<button class="btn btn-primary submit-button" type="submit">Guardar</button>
@@ -376,6 +349,49 @@
 
 	<!-- Form validation -->
 	<script src="js/scripts.js"></script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var container = document.getElementById("horarioContainer");
+			var addButton = document.getElementById("agregarHorario");
+
+			var horarioCount = 1;
+
+			addButton.addEventListener("click", function () {
+				var div = document.createElement("div");
+				div.className = "row";
+
+				div.innerHTML = `
+                <div class="col-md-4">
+                    <label class="form-label">Día</label>
+                    <select class="form-control" name="dia${horarioCount}">
+                        <option value="Lunes">Lunes</option>
+                        <option value="Martes">Martes</option>
+                        <option value="Miércoles">Miércoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Sábado">Sábado</option>
+                        <option value="Domingo">Domingo</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Desde</label>
+                    <input type="time" class="form-control" name="desde${horarioCount}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Hasta</label>
+                    <input type="time" class="form-control" name="hasta${horarioCount}">
+                </div>
+            `;
+
+				container.appendChild(div);
+				horarioCount++;
+			});
+		});
+	</script>
+
+
+
 
 </body>
 
