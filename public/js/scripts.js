@@ -75,19 +75,15 @@ function handleSubmit(event) {
     var form = event.target.closest('.form');
     var isValid = true;
 
-    // Validar todos los campos antes de enviar el formulario
     form.querySelectorAll('.form-control').forEach(input => {
         if (!input.checkValidity()) {
-            // Si algún campo es inválido, mostrar el mensaje de error y marcarlo como inválido
             input.classList.add('is-invalid');
             isValid = false;
         } else {
-            // Si el campo es válido, marcarlo como válido
             input.classList.remove('is-invalid');
         }
     });
 
-    // Si el formulario es válido, enviarlo y mostrar una alerta de éxito
     if (isValid) {
         alertSucces();
         setTimeout(function () {
