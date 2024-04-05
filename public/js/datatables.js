@@ -8,3 +8,6 @@ $(function() {
   $('#dataTable2').DataTable();
 });
 
+$(function() {
+  $('#dataTable3').DataTable();
+});

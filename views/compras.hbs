@@ -40,7 +40,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary"></h6>
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal"
                                     data-bs-target="#createModal">
-                                    <i class="bi bi-person-plus"></i> Agregar </button>
+                                    <i class="bi bi-currency-dollar"></i> Agregar </button>
                             </div>
 
                             <div class="card-body">
@@ -49,14 +49,12 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>CATEGORIA</th>
-                                                <th>PROVEEDOR</th>
                                                 <th>NIT</th>
+                                                <th>PROVEEDOR</th>
                                                 <th>FECHA.RECIBO</th>
                                                 <th>FECHA.REGISTRO</th>
                                                 <th>NRO.RECIBO</th>
                                                 <th>VALOR DE COMPRA</th>
-                                                <th>COD.BARRA</th>
                                                 <th>ESTADO</th>
                                                 <th>ACCIONES</th>
                                             </tr>
@@ -64,25 +62,24 @@
                                         <tbody>
                                             <tr>
                                                 <td>001</td>
-                                                <td>lacteos</td>
-                                                <td>colanta</td>
                                                 <td>432344</td>
+                                                <td>colanta</td>
                                                 <td>12/04/2024</td>
                                                 <td>03/04/2024</td>
                                                 <td>7654345</td>
                                                 <td>40000</td>
-                                                <td>2500</td>
                                                 <td>activa</td>
                                                 <td class="align-middle text-center">
                                                     <div
                                                         style="display: flex; justify-content: center; align-items: center;">
                                                         <div style="margin-right: 10px;">
                                                             <div class="form-check form-switch ">
-                                                                <input class="form-check-input" type="checkbox" checked
-                                                                    role="switch" onclick="alertSuccesClients()">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    role="switch" checked
+                                                                    onclick="alertSuccesClients()">
                                                             </div>
                                                         </div>
-                                                        <button class="btn btn-success p-2 " data-bs-toggle="modal"
+                                                        <button class="btn btn-primary p-2 " data-bs-toggle="modal"
                                                             data-bs-target="#detailsModal"><i
                                                                 class=" bi bi-eye-fill"></i>
                                                         </button>
@@ -92,26 +89,23 @@
                                             </tr>
                                             <tr>
                                                 <td>002</td>
-                                                <td>lacteos</td>
-                                                <td>colanta</td>
                                                 <td>7654654</td>
+                                                <td>colanta</td>
                                                 <td>1/01/2024</td>
                                                 <td>2/01/2024</td>
                                                 <td>8765567</td>
                                                 <td>30000</td>
-                                                <td>2000</td>
                                                 <td>anulada</td>
                                                 <td class="align-middle text-center">
                                                     <div
                                                         style="display: flex; justify-content: center; align-items: center;">
-
                                                         <div style="margin-right: 10px;">
                                                             <div class="form-check form-switch ">
                                                                 <input class="form-check-input" type="checkbox"
                                                                     role="switch" onclick="alertSuccesClients()">
                                                             </div>
                                                         </div>
-                                                        <button class="btn btn-success p-2" data-bs-toggle="modal"
+                                                        <button class="btn btn-primary p-2" data-bs-toggle="modal"
                                                             data-bs-target="#detailsModal">
                                                             <i class="bi bi-eye-fill"></i>
                                                         </button>
@@ -120,7 +114,6 @@
                                                 </td>
                                             </tr>
                                         </tbody>
-                                                
                                     </table>
                                 </div>
                             </div>
@@ -143,34 +136,48 @@
                 </div>
                 <div class="modal-body">
 
-                    <form class="row g-3 form">
+                    <form class="needs-validation row g-3 form" novalidate>
                         <div class="col-md-6">
                             <label for="searchInput" class="form-label">Buscar producto</label>
-                            <input type="search" class="form-control" id="inputNombreCategoria" pattern="[A-Za-z\s]+"
+                            <input type="search" class="form-control" id="inputNombreCategoria" pattern="[A-Za-z\s]+" required
                                 placeholder="ingrese nombre del producto">
                             <div class="invalid-feedback">formato no valido</div>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputNombreCategoria" class="form-label">
-                                Cd. Barra</label>
-                            <input type="search" class="form-control" id="inputNombreCategoria" pattern="[A-Za-z\s]+"
-                                required>
-                            <div class="invalid-feedback">Por favor ingresa un nombre al
-                                producto.</div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="inputDescripcion" class="form-label">Stock</label>
+                            <label for="inputDescripcion" class="form-label">Cantidad</label>
                             <input type="text" class="form-control" id="inputDescripcion" pattern="[0-9]+" required>
                             <div class="invalid-feedback">Por favor ingresa una existencia
                                 valida.</div>
                         </div>
                         <div class="col-md-6">
+                            <label for="inputNombreCategoria" class="form-label">Cd. Barra <button id="alertButton" type="button" class="btn btn-success style="float: inline-end;""> <i
+                                    class="bi bi-upc-scan"></i></button></label>
+                            <input type="search" class="form-control" id="inputNombreCategoria" pattern="[0-9\s]+"
+                                required>
+                            <div class="invalid-feedback">Por favor ingresa un nombre al producto.</div>
+                            
+                        </div>
+
+                       
+                        <div class="col-md-6">
                             <label for="inputDescripcion" class="form-label">Precio unitario</label>
                             <input type="text" class="form-control" id="inputDescripcion" pattern="[0-9]+" required>
                             <div class="invalid-feedback">Por favor ingresa un minimo de
                                 existencia valida.</div>
-                        </div>               
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputDescripcion" class="form-label">Precio venta</label>
+                            <input type="text" class="form-control" id="inputDescripcion" pattern="[0-9]+" required>
+                            <div class="invalid-feedback">Por favor ingresa un minimo de
+                                existencia valida.</div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="inputDescripcion" class=""><i class="bi bi-info-circle-fill"></i>
+                                precio venta anterior</label>
+                            <p class="form-label">2.500</p>
+                        </div>
+                        
+                            <button type="button" class="btn btn-success submit-button d-flex justify-content-center">guardar</button>
                     </form>
 
                     {{!-- tabladetalle --}}
@@ -180,8 +187,9 @@
                                 <tr>
                                     <th>PRODUCTO</th>
                                     <th>CD. BARRAS</th>
-                                    <th>STOCK</th>
+                                    <th>CANTIDAD</th>
                                     <th>PRECIO UNITARIO</th>
+                                    <th>PRECIO VENTA</th>
                                     <th>ACCIONES</th>
                                 </tr>
                             </thead>
@@ -191,16 +199,18 @@
                                     <td>0010</td>
                                     <td>15</td>
                                     <td>5.300</td>
+                                    <td>2.500</td>
                                     <td>
                                         <button type="button" class="btn btn-danger" onclick="alertQuestion()"><i
                                                 class="bi bi-trash-fill"></i></button>
                                     </td>
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <td>Agua</td>
                                     <td>0010</td>
                                     <td>10</td>
                                     <td>1.300</td>
+                                    <td>800</td>
                                     <td>
                                         <button type="button" class="btn btn-danger" onclick="alertQuestion()"><i
                                                 class="bi bi-trash-fill"></i></button>
@@ -212,9 +222,9 @@
                     </div>
 
                     <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button class="btn btn-primary submit-button" type="button">Guardar</button>
-                        </div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-success submit-button" type="button" onclick="alertSucces()">Registrar</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -235,24 +245,23 @@
 
                     <form class="row g-3">
                         <div class="col-md-6">
-                            <label for="inputPhone" class="form-label">Usuario : crony</label>
+                            <label for="inputPhone" class="form-label">Usuario:     crony</label>
                         </div>
                         <div class="col-6">
-                            <label for="inputName" class="form-label">fecha:23/01/2024</label>
+                            <label for="inputName" class="form-label">proveedor:    colanta</label>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputSeller" class="form-label">Nro.factura:234543223</label>
+                            <label for="inputSeller" class="form-label">fecha.recibo :12/04/2024</label>
                         </div>
-                        <div class="col-12">
-                            <label for="inputAddress" class="form-label">Proveedor: colanto</label>
+                        <div class="col-md-6">
+                            <label for="inputAddress" class="form-label">fecha.registro: 	03/04/2024</label>
                         </div>
-                        <div class="col-12">
-                            <label for="inputAddress" class="form-label">Valor de compra :20.000</label>
+                        <div class="col-md-6">
+                            <label for="inputAddress" class="form-label">Valor de compra :40000</label>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <div class="col-md-6">
+                            <label for="inputAddress" class="form-label">Estado : pagada</label>
                         </div>
-                                 
                     </form>
 
                 </div>
@@ -261,15 +270,30 @@
     </div>
 
     <script>
-        function mostrarAlerta() {
+       document.getElementById('alertButton').addEventListener('click', function () {
+            let timerInterval;
             Swal.fire({
-                position: "top-center",
-                icon: "success",
-                title: "compra guardada exitosamente",
-                showConfirmButton: false,
-                timer: 1500
+                title: "activando scaner",
+                html: "escaneando....",
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                    const timer = Swal.getPopup().querySelector("b");
+                    timerInterval = setInterval(() => {
+                        timer.textContent = `${Swal.getTimerLeft()}`;
+                    }, 100);
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                }
+            }).then((result) => {
+                /* Leer más sobre cómo manejar desestimaciones a continuación */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log("I was closed by the timer");
+                }
             });
-        }
+        });
     </script>
 
     <!-- endPageContent -->
@@ -283,6 +307,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/sweetalert2.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/scripts.js"></script>
 
 </body>
 
