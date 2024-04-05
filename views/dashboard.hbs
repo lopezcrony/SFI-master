@@ -94,10 +94,9 @@
                             </div>
 
                             <div class="d-flex justify-content-center">
-                                <button type="button" class="btn btn-info mb-3" onclick="alertButton()"> <i
-                                        class="bi bi-arrow-bar-down"></i></i></button>
-                                <button type="button" class="btn btn-info mb-3"><i
-                                        class="bi bi-arrow-bar-down"></i></i></button>
+                                <button type="button" class="btn btn-info mb-3" style="margin-right: 5px;"
+                                    onclick="alertButton()"> <i class="bi bi-arrow-bar-down"></i></i></button>
+                                <button type="button" class="btn btn-info mb-3"><i class="bi bi-pen"></i></button>
                             </div>
 
                         </div>
@@ -123,12 +122,9 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <button type="button" id="alertButton" class="btn btn-dark" style=" float: inline-end;"> <i class="bi bi-arrow-bar-down"></i></i></button>
-
-                                <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-success mb-3 ">Descargar</button>
-                                </div>
-
+                                <button type="button" class="btn btn-info mb-3" style="margin-right: 5px;"
+                                    onclick="alertButton()"> <i class="bi bi-arrow-bar-down"></i></i></button>
+                                <button type="button" class="btn btn-info mb-3"><i class="bi bi-pen"></i></i></button>
                             </div>
                         </div>
                     </div>
@@ -155,8 +151,10 @@
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-success mb-3">Descargar</button>
-                                </div>
+                                <button type="button" class="btn btn-info mb-3" style="margin-right: 5px;"
+                                    onclick="alertButton()"> <i class="bi bi-arrow-bar-down"></i></i></button>
+                                <button type="button" class="btn btn-info mb-3"><i class="bi bi-pen"></i></button>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -171,26 +169,26 @@
 
     <script>
         function activarScanner() {
-			let timerInterval;
-			Swal.fire({
-				title: "Espere un momento",
-				html: "Descargando...",
-				timer: 2000,
-				timerProgressBar: true,
-				didOpen: () => {
-					Swal.showLoading();
-					const timer = Swal.getPopup().querySelector("b");
-					timerInterval = setInterval(() => {
-						timer.textContent = `${Swal.getTimerLeft()}`;
-					}, 100);
-				},
-				willClose: () => {
-					clearInterval(timerInterval);
-				}
-			});
-		}
+            let timerInterval;
+            Swal.fire({
+                title: "Espere un momento",
+                html: "Descargando...",
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                    const timer = Swal.getPopup().querySelector("b");
+                    timerInterval = setInterval(() => {
+                        timer.textContent = `${Swal.getTimerLeft()}`;
+                    }, 100);
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                }
+            });
+        }
 
-		document.getElementById('alertButton').addEventListener('click', activarScanner);
+        document.getElementById('alertButton').addEventListener('click', activarScanner);
     </script>
     <!-- Incluye Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
