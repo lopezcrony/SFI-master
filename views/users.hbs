@@ -162,6 +162,9 @@
 						<div class="col-6">
 							<label for="inputName" class="form-label">Apellido<span class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="apellido" required pattern="[A-Za-z\s]+">
+							<div class="invalid-feedback">
+								Por favor ingresa un apellido válido.
+							</div>
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Seleccione su tipo de documento<span
@@ -176,27 +179,42 @@
 							<label for="inputSeller" class="form-label">Número de documento<span
 									class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="cédula" required pattern="^\d{5,10}$">
+							<div class="invalid-feedback">
+								Por favor ingresa un número de documento válido.
+							</div>
 						</div>
 						<div class="col-6">
 							<label for="inputName" class="form-label">Teléfono<span class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="teléfono" required pattern="\d{7,10}">
+							<div class="invalid-feedback">
+								Por favor ingresa un teléfono válido.
+							</div>
 						</div>
 						<div class="col-md-6">
 							<label for="inputSeller" class="form-label">Correo<span class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="correo" required
 								pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+							<div class="invalid-feedback">
+								Por favor ingresa un correo válido.
+							</div>
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Contraseña<span
 									class="text-danger">*</span></label>
 							<input type="password" class="form-control" id="contraseña" required
 								pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$">
+							<div class="invalid-feedback">
+								Por favor ingresa una contraseña válida.
+							</div>
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Confirmar contraseña<span
 									class="text-danger">*</span></label>
 							<input type="password" class="form-control" id="ConfirmarContraseña" required
 								pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$">
+							<div class="invalid-feedback">
+								Por favor ingresa una contraseña válida.
+							</div>
 						</div>
 
 						<div class="modal-footer">
@@ -220,69 +238,78 @@
 					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar Usuario</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
+
 				<div class="modal-body">
-					
-					<form class="row g-3" id="editForm">
-						<p class="text-muted">Todos los campos marcados con <span class="text-danger">*</span> son obligatorios</p>
+					<form class="needs-validation row g-3 form" novalidate>
 						<div class="col-6">
-							<label for="inputName" class="form-label">Nombre<span class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="Nombre" required pattern="[a-zA-Z0-9]+">
+							<label for="Nombre" class="form-label">Nombre<span class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="Nombre" required pattern="[A-Za-z\s]+">
+							<div class="invalid-feedback">
+								Por favor ingresa un nombre válido.
+							</div>
 						</div>
 						<div class="col-6">
-							<label for="inputName" class="form-label">Apellido<span class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="Apellido" required pattern="[a-zA-Z0-9]+">
+							<label for="Apellido" class="form-label">Apellido<span class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="Apellido" required pattern="[A-Za-z\s]+">
+							<div class="invalid-feedback">
+								Por favor ingresa un apellido válido.
+							</div>
 						</div>
 						<div class="col-6">
 							<label for="correo" class="form-label">Correo<span class="text-danger">*</span></label>
 							<input type="text" class="form-control" id="correo" required
 								pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+							<div class="invalid-feedback">
+								Por favor ingresa un correo válido.
+							</div>
 						</div>
 						<div class="col-md-6">
-							<label for="inputSeller" class="form-label">Teléfono<span
-									class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="Tel" required pattern="[a-zA-Z0-9]+">
+							<label for="Tel" class="form-label">Teléfono<span class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="Tel" required pattern="\d{7,10}">
+							<div class="invalid-feedback">
+								Por favor ingresa un teléfono válido.
+							</div>
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Contraseña<span
 									class="text-danger">*</span></label>
-							<input type="password" class="form-control" id="Contraseña" required pattern="[a-zA-Z0-9]+">
+							<input type="password" class="form-control" id="contraseña" required
+								pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$">
+							<div class="invalid-feedback">
+								Por favor ingresa una contraseña válida.
+							</div>
 						</div>
 						<div class="col-md-6">
 							<label for="inputPhone" class="form-label">Confirmar contraseña<span
 									class="text-danger">*</span></label>
 							<input type="password" class="form-control" id="ConfirmarContraseña" required
-								pattern="[a-zA-Z0-9]+">
+								pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$">
+							<div class="invalid-feedback">
+								Por favor ingresa una contraseña válida.
+							</div>
 						</div>
-
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-primary" onclick="handleSubmit2()">Guardar</button>
+							<button class="btn btn-primary submit-button" type="submit">Guardar</button>
 						</div>
+					</form>
 				</div>
-			</div>
 
 
-			</form>
+				<!-- endPageContent -->
+				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+				<script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+				<script src="js/jquery-1.11.2.min.js"></script>
+				<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+				<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+				<script src="js/datatables.js"></script>
+				<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+				<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+				<script src="js/sweetalert2.min.js"></script>
+				<script src="js/main.js"></script>
 
-		</div>
-
-	</div>
-
-
-	<!-- endPageContent -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="js/jquery-1.11.2.min.js"></script>
-	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-	<script src="js/datatables.js"></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="js/sweetalert2.min.js"></script>
-	<script src="js/main.js"></script>
-
-	<!-- Form validation -->
-	<script src="js/scripts.js"></script>
+				<!-- Form validation -->
+				<script src="js/scripts.js"></script>
 
 </body>
 
