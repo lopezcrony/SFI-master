@@ -62,14 +62,30 @@
 												<td>lacteos</td>
 												<td>derivados de la leche</td>
 												<td>
-													<button class="btn btn-primary p-2" data-bs-toggle="modal"
-														data-bs-target="#viewModal"><i class=" bi bi-eye-fill"></i>
-													</button>
-													<button class="btn btn-warning p-2" data-bs-toggle="modal"
-														data-bs-target="#editModal"><i class="bi bi-pen"></i>
-													</button>
-													<button class="btn btn-danger p-2" onclick="alertQuestion()"><i
-															class="bi bi-trash-fill"></i></button>
+													<div
+														style="display: flex; justify-content: center; align-items: center;">
+														<div style="margin-right: 10px;">
+															<select name="selectCambioEstados" class="form-select px-4"
+																style="border-radius: 5px; border-color:rgba(0, 110, 255, 0.856)">
+																<option value="">
+																	Estado
+																</option>
+																<option value="0">Activo
+																</option>
+																<option value="1">
+																	Inactivo
+																</option>
+															</select>
+														</div>
+														<button class="btn btn-primary p-2" data-bs-toggle="modal"
+															data-bs-target="#viewModal"><i class=" bi bi-eye-fill"></i>
+														</button>
+														<button class="btn btn-warning p-2" data-bs-toggle="modal"
+															data-bs-target="#editModal"><i class="bi bi-pen"></i>
+														</button>
+														<button class="btn btn-danger p-2" onclick="alertQuestion()"><i
+																class="bi bi-trash-fill"></i></button>
+													</div>
 												</td>
 											</tr>
 											<tr>
@@ -77,16 +93,30 @@
 												<td>hogar</td>
 												<td>cosas para el hogar</td>
 												<td>
-													<button class="btn btn-primary p-2" data-bs-toggle="modal"
-														data-bs-target="#viewModal">
-														<i class="bi bi-eye-fill"></i>
-													</button>
-													<button class="btn btn-warning p-2" class="submit"
-														data-bs-toggle="modal" data-bs-target="#editModal"><i
-															class="bi bi-pen"></i>
-													</button>
-													<button class="btn btn-danger p-2" onclick="alertQuestion()"><i
-															class="bi bi-trash-fill"></i></button>
+													<div
+														style="display: flex; justify-content: center; align-items: center;">
+														<div style="margin-right: 10px;">
+															<select name="selectCambioEstados" class="form-select px-4"
+																style="border-radius: 5px; border-color:rgba(0, 110, 255, 0.856)">
+																<option value="">
+																	Estado
+																</option>
+																<option value="0">Activo
+																</option>
+																<option value="1">
+																	Inactivo
+																</option>
+															</select>
+														</div>
+														<button class="btn btn-primary p-2" data-bs-toggle="modal"
+															data-bs-target="#viewModal"><i class=" bi bi-eye-fill"></i>
+														</button>
+														<button class="btn btn-warning p-2" data-bs-toggle="modal"
+															data-bs-target="#editModal"><i class="bi bi-pen"></i>
+														</button>
+														<button class="btn btn-danger p-2" onclick="alertQuestion()"><i
+																class="bi bi-trash-fill"></i></button>
+													</div>
 												</td>
 											</tr>
 										</tbody>
@@ -150,12 +180,14 @@
 					<form class="row g-3 form">
 						<div class="col-md-6">
 							<label for="inputNombreProducto" class="form-label">Nombre producto</label>
-							<input type="text" class="form-control" id="inputNombreProducto" pattern="[A-Za-z\s]+" required>
+							<input type="text" class="form-control" id="inputNombreProducto" pattern="[A-Za-z\s]+"
+								required>
 							<div class="invalid-feedback">Por favor ingresa el nombre del producto.</div>
 						</div>
 						<div class="col-md-6">
 							<label for="inputDescripcion" class="form-label">Descripción</label>
-							<input type="text" class="form-control" id="inputDescripcion" pattern="[A-Za-z\s]+" required>
+							<input type="text" class="form-control" id="inputDescripcion" pattern="[A-Za-z\s]+"
+								required>
 							<div class="invalid-feedback">Por favor ingresa la descripción del producto.</div>
 						</div>
 						<div class="modal-footer">

@@ -53,7 +53,6 @@
 												<th>ID</th>
 												<th>ROL</th>
 												<th>PERMISOS</th>
-												<td>ESTADO</td>
 												<th>ACCIONES</th>
 											</tr>
 										</thead>
@@ -66,17 +65,18 @@
 													<div
 														style="display: flex; justify-content: center; align-items: center;">
 														<div style="margin-right: 10px;">
-															<div class="form-check form-switch ">
-																<input class="form-check-input" type="checkbox"
-																	role="switch" checked
-																	onclick="alertSuccesClients()">
-															</div>
+															<select name="selectCambioEstados" class="form-select px-4"
+																style="border-radius: 5px; border-color:rgba(0, 110, 255, 0.856)">
+																<option value="">
+																	Estado
+																</option>
+																<option value="0">Activo
+																</option>
+																<option value="1">
+																	Inactivo
+																</option>
+															</select>
 														</div>
-													</div>
-												</td>
-												<td>
-													{{!-- boton grup --}}
-													<div class="btn-group" role="group" aria-label="Basic example">
 														<button type="button" class="btn btn-warning "
 															style="margin-right: 5px;" data-bs-toggle="modal"
 															data-bs-target="#editModal"><i
@@ -95,16 +95,18 @@
 													<div
 														style="display: flex; justify-content: center; align-items: center;">
 														<div style="margin-right: 10px;">
-															<div class="form-check form-switch ">
-																<input class="form-check-input" type="checkbox"
-																	role="switch" checked
-																	onclick="alertSuccesClients()">
-															</div>
+															<select name="selectCambioEstados" class="form-select px-4"
+																style="border-radius: 5px; border-color:rgba(0, 110, 255, 0.856)">
+																<option value="">
+																	Estado
+																</option>
+																<option value="0">Activo
+																</option>
+																<option value="1">
+																	Inactivo
+																</option>
+															</select>
 														</div>
-													</div>
-												</td>
-												<td>
-													<div class="btn-group" role="group" aria-label="Basic example">
 														<button type="button" class="btn btn-warning "
 															style="margin-right: 5px;" data-bs-toggle="modal"
 															data-bs-target="#editModal"><i
