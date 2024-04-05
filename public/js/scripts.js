@@ -86,10 +86,10 @@ function handleSubmit(event) {
     var form = event.target.closest('.form');
     var isValid = true;
 
-    // Validar campos de contraseña y confirmar contraseña específicamente
-    if (!validatePasswordFields(form)) {
-        isValid = false;
-    }
+    // // Validar campos de contraseña y confirmar contraseña específicamente
+    // if (!validatePasswordFields(form)) {
+    //     isValid = false;
+    // }
 
     // Validar el resto de los campos
     form.querySelectorAll('.form-control').forEach(input => {
