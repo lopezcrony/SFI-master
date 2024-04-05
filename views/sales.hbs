@@ -46,7 +46,7 @@
 				<div class="col-5 d-flex justify-content-end py-4">
 
 					<a href="./newSale" class=""><button type="submit" class="btn btn-dark px-4"><i
-								class="bi bi-person-plus"></i>Historico Ventas</button></a>
+								class="bi bi-file-earmark-bar-graph"></i> Historico Ventas</button></a>
 				</div>
 			</div>
 
@@ -57,13 +57,24 @@
 							<div class="row">
 								<div class="col-12">
 									<div class="card border-primary py-3" ;
-										style="height: 400px; display: static; overflow-y: scroll; max-height: 400px;  float: left; width: 65%;">
-										<nav class="navbar navbar-light bg-light">
-											<form class="form-inline d-flex col-8 p-3">
-												<input class="form-control mr-sm-2" type="search"
-													placeholder="Buscar Productos" aria-label="Search">
-											</form>
-										</nav>
+										style="height: 440px; display: static; overflow-y: scroll; max-height: 440px;  float: left; width: 65%;">
+										<div class="row">
+											<div class="col-8 m-0 ">
+												<nav class="navbar navbar-light bg-light">
+													<form class="form-inline d-flex col-12 p-3">
+														<input class="form-control mr-sm-2" type="search"
+															placeholder="Buscar Productos" aria-label="Search">
+													</form>
+												</nav>
+											</div>
+											<div class="col-4 my-2 py-3 d-flex justify-content ">
+												<button class="btn btn-outline-dark py-1">+</i>
+												</button>
+											</div>
+
+										</div>
+
+
 										<table class="table table-striped">
 											<thead>
 												<tr>
@@ -85,9 +96,9 @@
 													<td>
 														<button class="btn btn-outline-info py-1">+</i>
 														</button>
-														<button class="btn btn-warning py-1">-
+														<button class="btn btn-outline-warning py-1">-
 														</button>
-														<button class="btn btn-danger py-1"><i
+														<button class="btn btn-outline-danger py-1"><i
 																class="bi bi-trash-fill"></i></button>
 													</td>
 												</tr>
@@ -100,9 +111,9 @@
 													<td>
 														<button class="btn btn-outline-info py-1">+</i>
 														</button>
-														<button class="btn btn-warning py-1">-
+														<button class="btn btn-outline-warning py-1">-
 														</button>
-														<button class="btn btn-danger py-1"><i
+														<button class="btn btn-outline-danger py-1"><i
 																class="bi bi-trash-fill"></i></button>
 													</td>
 												</tr>
@@ -115,9 +126,9 @@
 													<td>
 														<button class="btn btn-outline-info py-1">+</i>
 														</button>
-														<button class="btn btn-warning py-1">-
+														<button class="btn btn-outline-warning py-1">-
 														</button>
-														<button class="btn btn-danger py-1"><i
+														<button class="btn btn-outline-danger py-1"><i
 																class="bi bi-trash-fill"></i></button>
 													</td>
 												</tr>
@@ -130,9 +141,9 @@
 													<td>
 														<button class="btn btn-outline-info py-1">+</i>
 														</button>
-														<button class="btn btn-warning py-1">-
+														<button class="btn btn-outline-warning py-1">-
 														</button>
-														<button class="btn btn-danger py-1"><i
+														<button class="btn btn-outline-danger py-1"><i
 																class="bi bi-trash-fill"></i></button>
 													</td>
 												</tr>
@@ -144,8 +155,8 @@
 										</div>
 									</div>
 									<div class="card border-primary no-margin"
-										style="height: 400px; display: static; overflow-y: scroll; max-height: 400px; float: left; width: 35%;">
-										<div class="card-body ">
+										style="height: 440px; display: static; overflow-y: scroll; max-height: 440px; float: left; width: 35%;">
+										<div class="card-body m-0 ">
 											<section>
 												<div id="carrito">
 													<h6><b class="p-3">Datos de Venta</b><button
@@ -153,17 +164,41 @@
 															data-bs-target="#createModal" type="submit">Nuevo
 															Cliente</button></h6>
 													<div class="full-width divider-menu-h"></div>
+													<div class="full-width divider-menu-h"></div>
 
-													<div class="">
-														<nav class="navbar navbar-light bg-light">
-															<form class="d-flex">
-																<input class="form-control mr-2" type="search"
-																	placeholder="Asocia un crédito" aria-label="Search">
-															</form>
-															<button class="btn btn-outline-dark" data-bs-toggle="modal"
-																data-bs-target="#viewModal2"
-																type="submit">Nuevo</button>
-														</nav>
+
+													<div class="py-2">
+														<input type="checkbox" id="checkboxCreditos"
+															onchange="toggleCreditos()">
+														<label for="checkboxCreditos">Asignar crédito</label>
+
+														<div id="creditosContainer" style="display:none;">
+															<nav class="navbar navbar-light bg-light">
+																<form class="d-flex">
+																	<input class="form-control mr-2" type="search"
+																		placeholder="Asocia un crédito"
+																		aria-label="Search">
+																</form>
+																<button class="btn btn-outline-dark"
+																	data-bs-toggle="modal" data-bs-target="#viewModal2"
+																	type="submit">Nuevo</button>
+															</nav>
+															
+														</div>
+														<input type="text" class="form-control my-2" placeholder="Ingrese nombre del cliente">
+
+														<script>
+															function toggleCreditos() {
+																var checkbox = document.getElementById("checkboxCreditos");
+																var creditosContainer = document.getElementById("creditosContainer");
+
+																if (checkbox.checked) {
+																	creditosContainer.style.display = "block";
+																} else {
+																	creditosContainer.style.display = "none";
+																}
+															}
+														</script>
 													</div>
 
 													<div class="full-width divider-menu-h"></div>
