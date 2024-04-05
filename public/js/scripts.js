@@ -17,7 +17,7 @@ function alertError() {
     });
 }
 
-function alertErrorPassword(){
+function alertErrorPassword() {
     Swal.fire({
         icon: 'error',
         title: 'Error',
@@ -78,18 +78,12 @@ document.querySelectorAll('.form-control').forEach(input => {
     input.addEventListener('input', handleInputChange);
 });
 
-
 // Función para manejar el envío del formulario
 function handleSubmit(event) {
     event.preventDefault();
 
     var form = event.target.closest('.form');
     var isValid = true;
-
-    // // Validar campos de contraseña y confirmar contraseña específicamente
-    // if (!validatePasswordFields(form)) {
-    //     isValid = false;
-    // }
 
     // Validar el resto de los campos
     form.querySelectorAll('.form-control').forEach(input => {
@@ -113,23 +107,105 @@ function handleSubmit(event) {
 document.querySelectorAll(".submit-button")
     .forEach(button => button.addEventListener("click", handleSubmit));
 
-
 // Función para validar los campos de contraseña y confirmar contraseña
 function validatePasswordFields(form) {
-    var password = form.querySelector("#contraseña");
-    var confirmPassword = form.querySelector("#ConfirmarContraseña");
+    var password = form.querySelector("#password");
+    var confirmPassword = form.querySelector("#confirmPassword");
 
     if (password.value !== confirmPassword.value) {
         password.classList.add('is-invalid');
         confirmPassword.classList.add('is-invalid');
         alertErrorPassword();
-        return;
+        return false;
     } else {
         password.classList.remove('is-invalid');
         confirmPassword.classList.remove('is-invalid');
         return true;
     }
 }
+
+// Función para restablacer y validar contraseña
+function restorePassword(event) {
+    event.preventDefault();
+
+    var form = event.target.closest('.form');
+    var isValid = true;
+
+    // Validar campos de contraseña y confirmar contraseña específicamente
+    if (!validatePasswordFields(form)) {
+        isValid = false;
+    }
+
+    // Validar el resto de los campos
+    form.querySelectorAll('.form-control').forEach(input => {
+        if (!input.checkValidity()) {
+            input.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            input.classList.remove('is-invalid');
+        }
+    });
+
+    if (isValid) {
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Tu contraseña ha sido restablecida",
+            showConfirmButton: false,
+            timer: 1500,
+            backdrop: `
+              rgba(0,0,123,0.4)
+              url(assets/img/cat.gif)
+              left top
+              no-repeat
+            `
+        });
+
+        // Redirigir después de un cierto tiempo (por ejemplo, 2 segundos)
+        setTimeout(function () {
+            window.location.href = "/";
+        }, 2000); // 2000 milisegundos = 2 segundos
+    }
+}
+document.querySelectorAll(".submit-button-Password")
+    .forEach(button => button.addEventListener("click", restorePassword));
+
+// Función para validar contraseña de Usuarios
+function validatePassword(event) {
+    event.preventDefault();
+
+    var form = event.target.closest('.form');
+    var isValid = true;
+
+    // Validar campos de contraseña y confirmar contraseña específicamente
+    if (!validatePasswordFields(form)) {
+        isValid = false;
+    }
+
+    // Validar el resto de los campos
+    form.querySelectorAll('.form-control').forEach(input => {
+        if (!input.checkValidity()) {
+            input.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            input.classList.remove('is-invalid');
+        }
+    });
+
+    if (isValid) {
+        alertSucces();
+        setTimeout(function () {
+            form.submit();
+            resetForm(form);
+        }, 1200);
+    }
+
+ 
+}
+
+document.querySelectorAll(".submit-button-user")
+    .forEach(button => button.addEventListener("click", validatePassword));
+
 
 // El botón de Enter funciona como un click
 document.querySelectorAll('input').forEach(input => {
