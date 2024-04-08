@@ -77,7 +77,11 @@
 																	onclick="alertSuccesClients()">
 															</div>
                                                         </div>
-                                                        <button class="btn btn-primary p-2 " data-bs-toggle="modal"
+                                                        <button class="btn btn-primary p-2 " style="margin-right: 5px;" data-bs-toggle="modal"
+                                                            data-bs-target="#detailsModal"><i
+                                                                class=" bi bi-eye-fill"></i>
+                                                        </button>
+                                                        <button class="btn btn-warning p-2 " data-bs-toggle="modal"
                                                             data-bs-target="#detailsModal"><i
                                                                 class=" bi bi-eye-fill"></i>
                                                         </button>
@@ -102,7 +106,11 @@
 																	onclick="alertSuccesClients()">
 															</div>
                                                         </div>
-                                                        <button class="btn btn-primary p-2 " data-bs-toggle="modal"
+                                                        <button class="btn btn-primary p-2 " style="margin-right: 5px;" data-bs-toggle="modal"
+                                                            data-bs-target="#detailsModal"><i
+                                                                class=" bi bi-eye-fill"></i>
+                                                        </button>
+                                                        <button class="btn btn-warning p-2 " data-bs-toggle="modal"
                                                             data-bs-target="#detailsModal"><i
                                                                 class=" bi bi-eye-fill"></i>
                                                         </button>
@@ -170,7 +178,7 @@
                         </div>
                         <div class="col-md-6 ">
                             <label for="inputDescripcion" class=""><i class="bi bi-info-circle-fill"></i>
-                                precio venta anterior</label>
+                                precio venta actual</label>
                             <p class="form-label">2.500</p>
                         </div>
 
@@ -188,6 +196,7 @@
                                     <th>CANTIDAD</th>
                                     <th>PRECIO UNITARIO</th>
                                     <th>PRECIO VENTA</th>
+                                    <th>SUBTOTAL</th>
                                     <th>ACCIONES</th>
                                 </tr>
                             </thead>
@@ -198,9 +207,11 @@
                                     <td>15</td>
                                     <td>5.300</td>
                                     <td>2.500</td>
+                                    <td>79,500</td>
                                     <td>
                                         <button type="button" class="btn btn-danger" onclick="alertQuestion()"><i
                                                 class="bi bi-trash-fill"></i></button>
+                                                
                                     </td>
                                 </tr>
                                 <tr>
@@ -209,6 +220,7 @@
                                     <td>10</td>
                                     <td>1.300</td>
                                     <td>800</td>
+                                    <td>1300</td>
                                     <td>
                                         <button type="button" class="btn btn-danger" onclick="alertQuestion()"><i
                                                 class="bi bi-trash-fill"></i></button>
