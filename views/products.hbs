@@ -38,12 +38,12 @@
 								<h1>Productos</h1>
 								<h6 class="m-0 font-weight-bold text-primary"></h6>
 								<div>
+									<button type="button" class="btn btn-dark">
+										<i class="bi bi-file-earmark-arrow-down"></i> Informe
+									</button>
 									<button type="button" class="btn btn-success" data-bs-toggle="modal"
 										data-bs-target="#createModal">
 										<i class="bi bi-basket"></i> Agregar
-									</button>
-									<button type="button" class="btn btn-dark">
-										<i class="bi bi-file-earmark-arrow-down"></i> Informe
 									</button>
 								</div>
 
@@ -61,6 +61,7 @@
 												<th>EXISTENCIAS</th>
 												<th>MIN_EXIS</th>
 												<th>MAX_EXIS</th>
+												<th>ESTADO</th>
 												<th>ACCIONES</th>
 											</tr>
 										</thead>
@@ -79,10 +80,11 @@
 												<td>18</td>
 												<td>7</td>
 												<td>78</td>
+												<td>activo</td>
 												<td class="align-middle text-center">
 													<div
 														style="display: flex; justify-content: center; align-items: center;">
-														<div style="margin-right: 10px;">
+														<div style="margin-right: 5px;">
 															<div class="form-check form-switch ">
 																<input class="form-check-input" type="checkbox"
 																	role="switch" checked
@@ -90,12 +92,12 @@
 															</div>
 														</div>
 														<button type="button" class="btn btn-primary "
-															style="margin-right: 5px;" data-bs-toggle="modal"
+															style="margin-right: 2px;" data-bs-toggle="modal"
 															data-bs-target="#viewModal"><i
 																class=" bi bi-eye-fill"></i></button>
 
 														<button type="button" class="btn btn-warning "
-															style="margin-right: 5px;" data-bs-toggle="modal"
+															style="margin-right: 2px;" data-bs-toggle="modal"
 															data-bs-target="#editModal"><i
 																class="bi bi-pen"></i></button>
 
@@ -118,10 +120,11 @@
 												<td>12</td>
 												<td>20</td>
 												<td>40</td>
+												<td>activo</td>
 												<td class="align-middle text-center">
 													<div
 														style="display: flex; justify-content: center; align-items: center;">
-														<div style="margin-right: 10px;">
+														<div style="margin-right: 5px;">
 															<div class="form-check form-switch ">
 																<input class="form-check-input" type="checkbox"
 																	role="switch" checked
@@ -129,12 +132,12 @@
 															</div>
 														</div>
 														<button type="button" class="btn btn-primary "
-															style="margin-right: 5px;" data-bs-toggle="modal"
+															style="margin-right: 2px;" data-bs-toggle="modal"
 															data-bs-target="#viewModal"><i
 																class=" bi bi-eye-fill"></i></button>
 
 														<button type="button" class="btn btn-warning "
-															style="margin-right: 5px;" data-bs-toggle="modal"
+															style="margin-right: 2px;" data-bs-toggle="modal"
 															data-bs-target="#editModal"><i
 																class="bi bi-pen"></i></button>
 
@@ -171,31 +174,37 @@
 					{{!-- formulario con validaciones --}}
 					<form class="needs-validation row g-3 form" novalidate>
 						<div class="col-md-6">
-							<label for="inputNombreCategoria" class="form-label">Nombre producto</label>
-							<input type="text" class="form-control" id="inputNombreCategoria" pattern="[A-Za-z\s]+"
+							<label for="inputNombreProducto" class="form-label">Nombre producto</label>
+							<input type="text" class="form-control" id="inputNombreProducto" pattern="[A-Za-z\s]+"
 								required>
 							<div class="invalid-feedback">Por favor ingresa un nombre al producto.</div>
 						</div>
 						<div class="col-md-6">
-							<label for="inputNombreCategoria" class="form-label">Categoria producto</label>
-							<input type="text" class="form-control" id="inputNombreCategoria" pattern="[A-Za-z\s]+"
+							<label for="selectCategoriaProducto" class="form-label">Categoría producto</label>
+							<select class="form-select" id="selectCategoriaProducto" required>
+								<option value="">Selecciona una categoría</option>
+								<option value="categoria1">Lacteos</option>
+								<option value="categoria2">Hogar</option>
+							</select>
+							<div class="invalid-feedback">Por favor selecciona una categoría para el producto.</div>
+						</div>
+						<div class="col-md-6">
+							<label for="inputExistencias" class="form-label">Existencias</label>
+							<input type="text" class="form-control" id="inputExistencias" pattern="[0-9]+" required>
+							<div class="invalid-feedback">Por favor ingresa una cantidad válida para las existencias.
+							</div>
+						</div>
+						<div class="col-md-6">
+							<label for="inputMinimoExistencias" class="form-label">Mínimo de existencias</label>
+							<input type="text" class="form-control" id="inputMinimoExistencias" pattern="[0-9]+"
 								required>
-							<div class="invalid-feedback">Por favor ingresa una categoria al producto.</div>
+							<div class="invalid-feedback">Por favor ingresa un mínimo de existencias válido.</div>
 						</div>
 						<div class="col-md-6">
-							<label for="inputDescripcion" class="form-label">existencias</label>
-							<input type="text" class="form-control" id="inputDescripcion" pattern="[0-9]+" required>
-							<div class="invalid-feedback">Por favor ingresa una existencia valida.</div>
-						</div>
-						<div class="col-md-6">
-							<label for="inputDescripcion" class="form-label">minimo.exs</label>
-							<input type="text" class="form-control" id="inputDescripcion" pattern="[0-9]+" required>
-							<div class="invalid-feedback">Por favor ingresa un minimo de existencia valida.</div>
-						</div>
-						<div class="col-md-6">
-							<label for="inputDescripcion" class="form-label">maximo.exs</label>
-							<input type="text" class="form-control" id="inputDescripcion" pattern="[0-9]+" required>
-							<div class="invalid-feedback">Por favor ingresa un maximo de existencia valida.</div>
+							<label for="inputMaximoExistencias" class="form-label">Máximo de existencias</label>
+							<input type="text" class="form-control" id="inputMaximoExistencias" pattern="[0-9]+"
+								required>
+							<div class="invalid-feedback">Por favor ingresa un máximo de existencias válido.</div>
 						</div>
 						<div class="mdl-textfield mdl-js-textfield">
 							<input type="file">
@@ -265,87 +274,84 @@
 					<div class="card" style="width: 100%;">
 						<img src="https://copservir.vtexassets.com/arquivos/ids/773025/LECHE-ALQUERIA-ENTERA_F.png?v=637951135283030000"
 							width="250px" height="350px" class="card-img-top" alt="...">
-						<div class="card-body">
-							<div class="row">
-								<div class="col">
-									<div class="table-responsive">
-										<table class="table table-striped table-bordered table-hover">
-											<thead>
-												<tr>
-													<th>NOMBRE</th>
-													<th>CATEGORIA</th>
-													<th>EXISTENCIAS</th>
-													<th>MIN_EXIS</th>
-													<th>MAX_EXIS</th>
-													<th>ESTADO</th>
-
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>leche alqueria</td>
-													<td>lacteos</td>
-													<td>100</td>
-													<td>20</td>
-													<td>150</td>
-													<td>activo</td>
-												</tr>
-											</tbody>
-
-										</table>
-									</div>
-
+						<div class="modal-body">
+							<div id="detailsCredit"
+								style="border: 1px solid #ccc; border-radius: 10px; padding: 20px; margin: 20px auto; width: 90%; max-width: 600px;">
+								<div class="card-body text-center">
+									<p>----------------------------------------------------------</p>
+										<div class="needs-validation row g-3 form" >
+											<div class="col-md-6">
+												<p><b>Nombre producto</b></p>
+													<p>leche alqueria</p>
+											</div>
+											<div class="col-md-6">
+												<p><b>Categoria</b></p>
+													<p>leche alqueria</p>
+											</div>
+											<div class="col-md-6">
+													<p><b>Existencias</b></p>
+													<p>leche alqueria</p>
+											</div>
+											<div class="col-md-6">
+												<p><b>Minimo existencias</b></p>
+													<p>leche alqueria</p>
+											</div>
+											<div class="col-md-6">
+												<p><b>Maximo existencias</b></p>
+													<p>leche alqueria</p>
+											</div>
+										</div>
 								</div>
+								<p>--------------------------------------------------------------</p>
 							</div>
 						</div>
 					</div>
+
 				</div>
 
 			</div>
 
 		</div>
 
-	</div>
 
+		<!-- endPageContent -->
 
-	<!-- endPageContent -->
+		<script>
+			function activarScanner() {
+				let timerInterval;
+				Swal.fire({
+					title: "Espere un momento",
+					html: "Descargando...",
+					timer: 2000,
+					timerProgressBar: true,
+					didOpen: () => {
+						Swal.showLoading();
+						const timer = Swal.getPopup().querySelector("b");
+						timerInterval = setInterval(() => {
+							timer.textContent = `${Swal.getTimerLeft()}`;
+						}, 100);
+					},
+					willClose: () => {
+						clearInterval(timerInterval);
+					}
+				});
+			}
 
-	<script>
-		function activarScanner() {
-			let timerInterval;
-			Swal.fire({
-				title: "Espere un momento",
-				html: "Descargando...",
-				timer: 2000,
-				timerProgressBar: true,
-				didOpen: () => {
-					Swal.showLoading();
-					const timer = Swal.getPopup().querySelector("b");
-					timerInterval = setInterval(() => {
-						timer.textContent = `${Swal.getTimerLeft()}`;
-					}, 100);
-				},
-				willClose: () => {
-					clearInterval(timerInterval);
-				}
-			});
-		}
+			document.getElementById('alertButton').addEventListener('click', activarScanner);
+		</script>
+		{{!-- end alerts --}}
 
-		document.getElementById('alertButton').addEventListener('click', activarScanner);
-	</script>
-	{{!-- end alerts --}}
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="js/jquery-1.11.2.min.js"></script>
-	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-	<script src="js/datatables.js"></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="js/sweetalert2.min.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/scripts.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+		<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+		<script src="js/datatables.js"></script>
+		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="js/sweetalert2.min.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/scripts.js"></script>
 
 </body>
 
