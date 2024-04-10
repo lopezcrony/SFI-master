@@ -272,23 +272,6 @@ $('#payment').on('show.bs.modal', function (event) {
     modal.find('#currentDebt').text('$' + currentDebt);
 });
 
-// Valida que el botón de eliminar solo está disponible si la deuda actual es de 0
-function updateDeleteButtonAvailability() {
-
-    const currentDebtElement1 = document.getElementById('tableCurrentDebt1');
-    const deleteButton1 = document.getElementById('deleteButton1');
-    const currentDebtElement2 = document.getElementById('tableCurrentDebt2');
-    const deleteButton2 = document.getElementById('deleteButton2');
-
-    const currentDebtValue1 = parseFloat(currentDebtElement1.innerText);
-    const currentDebtValue2 = parseFloat(currentDebtElement2.innerText);
-
-
-
-    deleteButton1.disabled = (currentDebtElement1.textContent !== "0");
-    deleteButton2.disabled = (currentDebtElement2.textContent !== "0");
-
-}
 
 // El botón de abonar solo está disponible si hay una deuda pendiente
 function updateAbonarButtonAvailability() {
