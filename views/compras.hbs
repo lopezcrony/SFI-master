@@ -165,7 +165,7 @@
 
 
                         <div class="col-md-6">
-                            <label for="inputDescripcion" class="form-label">Precio unitario</label>
+                            <label for="inputDescripcion" class="form-label">Precio unitario</label> 
                             <input type="text" class="form-control" id="inputDescripcion" pattern="[0-9,.]+" required>
                             <div class="invalid-feedback">Por favor ingresa un minimo de
                                 existencia valida.</div>
@@ -181,6 +181,8 @@
                                 precio venta actual</label>
                             <h4 class="form-label">2.500</h4>
                         </div>
+                        <label for="inputDescripcion" class="d-flex justify-content-start mr-2"><i class="bi bi-info-circle-fill"></i>  
+                                los precios de la factura incluyen iva</label>
 
                         <button type="button"
                             class="btn btn-success submit-button d-flex justify-content-center">Agregar
@@ -234,6 +236,7 @@
                         </table>
                         <h2 class="d-flex justify-content-start">TOTAL: 92,500</h2>
                     </div>
+                    
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button class="btn btn-success submit-button" type="button"
