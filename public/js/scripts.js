@@ -285,7 +285,6 @@ function updateAbonarButtonAvailability() {
     abonarButton2.disabled = (currentDebt2 === 0);
 }
 
-updateDeleteButtonAvailability();
 updateAbonarButtonAvailability();
 
 

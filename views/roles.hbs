@@ -75,8 +75,7 @@
 															style="margin-right: 5px;" data-bs-toggle="modal"
 															data-bs-target="#editModal"><i
 																class="bi bi-pen"></i></button>
-														<button type="button" class="btn btn-danger"
-															name="botonBorrarRol"><i
+														<button type="button" class="btn btn-danger" onclick="alertQuestion()"><i
 																class="bi bi-trash-fill"></i></button>
 													</div>
 												</td>
@@ -99,8 +98,7 @@
 															style="margin-right: 5px;" data-bs-toggle="modal"
 															data-bs-target="#editModal"><i
 																class="bi bi-pen"></i></button>
-														<button type="button" class="btn btn-danger"
-															name="botonBorrarRol"><i
+														<button type="button" class="btn btn-danger" onclick="alertQuestion()"><i
 																class="bi bi-trash-fill"></i></button>
 													</div>
 												</td>
@@ -132,91 +130,18 @@
 					<form class="row g-3">
 						<div class="table-responsive">
 							<div class="col-md-6">
-								<label for="inputSeller" class="form-label">Nombre del nuevo rol</label>
-								<input type="text" class="form-control" id="Seller">
-							</div>
-							<table class="table dt-responsive table-bordered" id="dataTable" width="100%"
-								cellspacing="0">
-								<table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
-									<thead>
-										<label><input type="checkbox" id="cbox1" value="first_checkbox" /> TODOS
-										</label>
-										<tr>
-											<th>PERMISOS</th>
-											<th>SELECCIÓN</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Dashboard</td>
-											<td><label><input type="checkbox" id="cbox1"
-														value="first_checkbox" /></label></td>
-										</tr>
-										<tr>
-											<td>Roles</td>
-											<td><label><input type="checkbox" id="cbox1"
-														value="first_checkbox" /></label></td>
-										</tr>
-										<tr>
-											<td>Ventas</td>
-											<td><label><input type="checkbox" id="cbox1"
-														value="first_checkbox" /></label></td>
-										</tr>
-										<tr>
-											<td>Proveedores</td>
-											<td><label><input type="checkbox" id="cbox1"
-														value="first_checkbox" /></label></td>
-										</tr>
-										<tr>
-											<td>Productos</td>
-											<td><label><input type="checkbox" id="cbox1"
-														value="first_checkbox" /></label></td>
-										</tr>
-										<tr>
-											<td>Abonos</td>
-											<td><label><input type="checkbox" id="cbox1"
-														value="first_checkbox" /></label></td>
-										</tr>
-									</tbody>
-								</table>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-								id="guardarBotonrol">Guardar</button>
-						</div>
-
-				</div>
-			</div>
-
-
-			</form>
-
-		</div>
-
-	</div>
-
-	{{!-- ------------------------------------------- MODAL EDIT CAROL -------------------------------------------- --}}
-	<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar Rol</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<form class="row g-3">
-						<div class="table-responsive">
-							<div class="col-6">
-								<label for="inputName" class="form-label">Rol a editar<span
+								<label for="inputSeller" class="form-label">Nombre del nuevo rol<span
 										class="text-danger">*</span></label>
-								<input type="text" class="form-control" id="Nombre" required pattern="[a-zA-Z0-9]+">
+								<input type="text" class="form-control" id="Seller" required pattern="[A-Za-z\s]+">
+								<div class="invalid-feedback">
+									Por favor ingresa un nuevo rol válido.
+								</div>
 							</div>
 							<table class="table dt-responsive table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 								<table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
 									<thead>
-										<label><input type="checkbox" id="cbox1" value="first_checkbox" /> TODOS
+										<label><input type="checkbox" id="cboxCreate" value="first_checkbox" /> TODOS
 										</label>
 										<tr>
 											<th>PERMISOS</th>
@@ -285,6 +210,111 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 							<button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+								id="guardarBotonrol">Guardar</button>
+						</div>
+
+				</div>
+			</div>
+
+
+			</form>
+
+		</div>
+
+	</div>
+
+	{{!-- ------------------------------------------- MODAL EDIT CAROL -------------------------------------------- --}}
+	<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Editar Rol</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form class="row g-3">
+						<div class="table-responsive">
+							<div class="col-6">
+								<label for="inputName" class="form-label">Rol a editar<span
+										class="text-danger">*</span></label>
+								<input type="text" class="form-control" id="Nombre" required pattern="[A-Za-z\s]+">
+								<div class="invalid-feedback">
+								Por favor ingresa un nombre de un rol válido.
+								</div>
+							</div>
+							<table class="table dt-responsive table-bordered" id="dataTable" width="100%"
+								cellspacing="0">
+								<table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+									<thead>
+										<label><input type="checkbox" id="cboxEdit" value="first_checkbox" /> TODOS
+										</label>
+										<tr>
+											<th>PERMISOS</th>
+											<th>SELECCIÓN</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Dashboard</td>
+											<td><label><input type="checkbox" id="cbox2"
+														value="first_checkbox" /></label></td>
+										</tr>
+										<tr>
+											<td>Roles</td>
+											<td><label><input type="checkbox" id="cbox2"
+														value="first_checkbox" /></label></td>
+										</tr>
+										<tr>
+											<td>Ventas</td>
+											<td><label><input type="checkbox" id="cbox2"
+														value="first_checkbox" /></label></td>
+										</tr>
+										<tr>
+											<td>Proveedores</td>
+											<td><label><input type="checkbox" id="cbox2"
+														value="first_checkbox" /></label></td>
+										</tr>
+										<tr>
+											<td>Productos</td>
+											<td><label><input type="checkbox" id="cbox2"
+														value="first_checkbox" /></label></td>
+										</tr>
+										<tr>
+											<td>Creditos</td>
+											<td><label><input type="checkbox" id="cbox2"
+														value="first_checkbox" /></label></td>
+										</tr>
+										<tr>
+											<td>Usuarios</td>
+											<td><label><input type="checkbox" id="cbox2"
+														value="first_checkbox" /></label></td>
+										</tr>
+										<tr>
+											<td>Clientes</td>
+											<td><label><input type="checkbox" id="cbox2"
+														value="first_checkbox" /></label></td>
+										</tr>
+										<tr>
+											<td>Categorias</td>
+											<td><label><input type="checkbox" id="cbox2"
+														value="first_checkbox" /></label></td>
+										</tr>
+										<tr>
+											<td>Compras</td>
+											<td><label><input type="checkbox" id="cbox2"
+														value="first_checkbox" /></label></td>
+										</tr>
+										<tr>
+											<td>Devoluciones</td>
+											<td><label><input type="checkbox" id="cbox2"
+														value="first_checkbox" /></label></td>
+										</tr>
+									</tbody>
+								</table>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal"
 								id="editarBotonrol">Guardar</button>
 						</div>
 
@@ -300,67 +330,88 @@
 
 
 	<script>
+
+		// Parte de los check Create
+		document.addEventListener("DOMContentLoaded", function() {
+			var checkboxTodos = document.getElementById('cboxCreate');
+			var checkboxes = document.querySelectorAll('input[id="cbox1"]:not(#cboxCreate)');
+			var guardarBoton = document.getElementById('guardarBotonrol');
+			
+			checkboxTodos.addEventListener('change', function() {
+				checkboxes.forEach(function(checkbox) {
+					checkbox.checked = checkboxTodos.checked;
+				});
+			});
+			
+			guardarBoton.addEventListener('click', function() {
+				var alMenosUnoSeleccionado = Array.from(checkboxes).some(function(checkbox) {
+					return checkbox.checked;
+				});
+				
+				if (!alMenosUnoSeleccionado) {
+					Swal.fire({
+						icon: 'error',
+						title: 'Error',
+						text: 'Por favor selecciona al menos un permiso antes de guardar.'
+					});
+					return;
+				}
+			});
+		});
+
 		const guardarBotonrol = document.getElementById("guardarBotonrol");
-		guardarBotonrol.addEventListener("click", function () {
-			Swal.fire({
-				position: "top-center",
-				icon: "success",
-				title: "¡Rol creado exitosamente!",
-				showConfirmButton: false,
-				timer: 1500
+        guardarBotonrol.addEventListener("click", function () {
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "¡Rol creado exitosamente!",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        });
+		
+
+		// Parte de los check Edit
+			document.addEventListener("DOMContentLoaded", function() {
+			var checkboxTodos = document.getElementById('cboxEdit');
+			var checkboxes = document.querySelectorAll('input[id="cbox2"]:not(#cboxEdit)');
+			var guardarBoton = document.getElementById('editarBotonrol');
+			
+			checkboxTodos.addEventListener('change', function() {
+				checkboxes.forEach(function(checkbox) {
+					checkbox.checked = checkboxTodos.checked;
+				});
+			});
+			
+			guardarBoton.addEventListener('click', function() {
+				var alMenosUnoSeleccionado = Array.from(checkboxes).some(function(checkbox) {
+					return checkbox.checked;
+				});
+				
+				if (!alMenosUnoSeleccionado) {
+					Swal.fire({
+						icon: 'error',
+						title: 'Error',
+						text: 'Por favor selecciona al menos un permiso antes de guardar.'
+					});
+					return;
+				}
 			});
 		});
+		
 		const editarBotonrol = document.getElementById("editarBotonrol");
-		editarBotonrol.addEventListener("click", function () {
-			Swal.fire({
-				position: "top-center",
-				icon: "success",
-				title: "¡Rol editado exitosamente!",
-				showConfirmButton: false,
-				timer: 1500
-			});
-		});
-		const botonBorrarRol = document.getElementsByName("botonBorrarRol");
+        editarBotonrol.addEventListener("click", function () {
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "¡Rol editado exitosamente!",
+                showConfirmButton: false,
+                timer: 1500
+            });
 
-		for (let i = 0; i < botonBorrarRol.length; i++) {
-			botonBorrarRol[i].addEventListener("click", function () {
-				// Código a ejecutar cuando se hace clic en cualquier botón "borrarBoton"
-				const swalWithBootstrapButtons = Swal.mixin({
-					customClass: {
-						confirmButton: "btn btn-success",
-						cancelButton: "btn btn-danger"
-					},
-					buttonsStyling: false
-				});
-				swalWithBootstrapButtons.fire({
-					title: "Estas seguro?",
-					text: "Esta acción no se puede deshacer.",
-					icon: "warning",
-					showCancelButton: true,
-					confirmButtonText: "Si, eliminar!",
-					cancelButtonText: "No, cancelar!",
-					reverseButtons: true
+        });
 
-				}).then((result) => {
-					if (result.isConfirmed) {
-						swalWithBootstrapButtons.fire({
-							title: "Eliminado!",
-							text: "El rol a sido eliminado.",
-							icon: "success"
-
-						});
-					} else if (
-						result.dismiss === Swal.DismissReason.cancel
-					) {
-						swalWithBootstrapButtons.fire({
-							title: "Cancelado",
-							text: "El proceso ha sido cancelado",
-							icon: "error"
-						});
-					}
-				});
-			});
-		}
+		
 	</script>
 
 	<!-- endPageContent -->
