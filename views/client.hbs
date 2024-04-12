@@ -53,7 +53,7 @@
 												<th>APELLIDO</th>
 												<th>DIRECCIÓN</th>
 												<th>TELÉFONO</th>
-												<th>ESTADO DE CRÉDITO</th>
+												{{!-- <th>ESTADO DE CRÉDITO</th> --}}
 												<th>ACCIONES</th>
 											</tr>
 										</thead>
@@ -64,7 +64,7 @@
 												<td>Fernandez</td>
 												<td>Cll 50B</td>
 												<td>3002500146</td>
-												<td style="color: #ff0000;">INACTIVO</td>
+												{{!-- <td style="color: #ff0000;">INACTIVO</td> --}}
 
 												<td class="align-middle text-center">
 													<div
@@ -93,7 +93,7 @@
 												<td>González</td>
 												<td>Cll 77A</td>
 												<td>3003200418</td>
-												<td style="color: #009900;">ACTIVO</td>
+												{{!-- <td style="color: #009900;">ACTIVO</td> --}}
 												<td class="align-middle text-center">
 													<div
 														style="display: flex; justify-content: center; align-items: center;">
@@ -174,7 +174,7 @@
 								Por favor ingresa un número de teléfono válido.
 							</div>
 						</div>
-						<div class="col-6">
+						<div class="col-12">
 							<label for="inputAddress" class="form-label">Dirección<span class="text-danger"> *
 								</span></label>
 							<input type="text" class="form-control" id="inputAddress" required>
@@ -182,10 +182,7 @@
 								Por favor ingresa una dirección válida.
 							</div>
 						</div>
-						<div class="col-6">
-							<label for="inputAddress" class="form-label">Estado de crédito<span class="text-danger"> * </span></label>
-							<input type="text" class="form-control" id="inputAddress" value="Activo" disabled>
-						</div>
+						
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 							<button class="btn btn-primary submit-button" type="submit">Guardar</button>
@@ -241,7 +238,7 @@
 								Por favor ingresa un número de teléfono válido.
 							</div>
 						</div>
-						<div class="col-6">
+						<div class="col-12">
 							<label for="inputAddress" class="form-label">Dirección<span class="text-danger"> *
 								</span></label>
 							<input type="text" class="form-control" id="inputAddress" required>
@@ -249,7 +246,7 @@
 								Por favor ingresa una dirección válida.
 							</div>
 						</div>
-						<div class="col-6">
+						{{!-- <div class="col-6">
 							<label for="inputAddress" class="form-label">Estado de crédito<span class="text-danger"> * </span></label>
 							<select name="selectCambioEstados" class="form-select px-3" required>
 								<option value="0">
@@ -260,6 +257,17 @@
 								</option>
 							</select>
 						</div>
+						<div class="col-6">
+							<label for="inputAddress" class="form-label">Estado del cliente<span class="text-danger"> * </span></label>
+							<select name="selectCambioEstados" class="form-select px-3" required>
+								<option value="0">
+									Activo
+								</option>
+								<option value="1">
+									Inactivo
+								</option>
+							</select>
+						</div> --}}
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 							<button class="btn btn-primary submit-button" type="submit">Guardar</button>
@@ -352,10 +360,10 @@
 					</div>
 
 					<div class="row">
-						<div class="col-9"></div>
-						<div class="col-3 d-flex justify-content-end">
+						<div class="col-8"></div>
+						<div class="col-4 d-flex justify-content-end">
 							<button id="downloadButton" type="submit" class="btn btn-success">
-								<i class="bi bi-file-earmark-arrow-down"></i> Informe
+								<i class="bi bi-file-earmark-arrow-down"></i> Descargar
 							</button>
 						</div>
 					</div>
